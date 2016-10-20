@@ -1,19 +1,38 @@
-var path = require("path"),
-    webpack = require("webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
+  template: `${__dirname}/src/index.html`,
+  filename: 'index.html',
+  inject: 'body',
+});
+
 
 module.exports = {
-  entry: "./main.js",
+  entry: "./src/index.js",
   output: {
-    path: __dirname,
+    path: `$(__dirname)/build`,
     filename: "bundle.js"
   },
   module: {
+    preLoaders: [
+      {
+        test: /.js?$/,
+        loader: "eslint-loader",
+        include: `$(__dirname)/src`
+      }
+    ],
     loaders: [
       {
         test: /.js?$/,
-        loader: ["react-hot", "babel-loader"],
+        loader: "babel-loader",
         exclude: /node_modules/,
       }
     ]
   },
+  plugins: [
+    HTMLWebpackPluginConfig
+  ],
+  devServer: {
+    inline: true,
+    port: 8000
+  }
 };
