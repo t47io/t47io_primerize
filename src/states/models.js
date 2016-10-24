@@ -6,6 +6,7 @@ export const design1DState = {
     minLen: 15,
     maxLen: 60,
     numPrimer: 0,
+    isNumPrimer: false,
     isCheckT7: true
   }
 };
@@ -38,13 +39,13 @@ export const design3DState = {
 }
 
 
-export const appState = {
-  input: {
-    '1D': design1DState,
-    '2D': design2DState,
-    '3D': design3DState,
-  },
-  output: {
+// export const appState = {
+//   input: {
+//     '1D': design1DState,
+//     '2D': design2DState,
+//     '3D': design3DState,
+//   },
+//   output: {
 
-  }
-}
+//   }
+// }
