@@ -1,18 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import Navbar from './components/Navbar';
-import Design1D from './containers/Design1D';
 
-export default class Main extends React.Component {
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <h1>Hello, World!</h1>
-        <Design1D />
+const Main = (props) => (
+  <div>
+    <Navbar />
+    <h1>Hello, World!</h1>
 
-      </div>
-    );
-  }
+    <div>
+      {props.children}
+    </div>
+  </div>
+);
+Main.propTypes = {
+  children: React.PropTypes.object,
 };
+
+
+export default Main;

@@ -33,6 +33,7 @@ module.exports = {
   ],
   devServer: {
     inline: true,
-    port: 8000
+    port: 8000,
+    historyApiFallback: true
   }
 };
