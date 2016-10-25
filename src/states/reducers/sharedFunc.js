@@ -4,11 +4,8 @@ export const cleanupTagSequence = ({ tag, sequence }) => {
   return { tag, sequence };  
 };
 
-export const cleanupPrimers = (primers) => {
-  return primers.map((primer) => ({
-    ...primer,
-    sequence: (primer.sequence.match(/[ACGTUacgtu\ \n]+/g) || []).join('')
-  }));
-};
+export const cleanupPrimers = (primers) => (
+  primers.map((primer) => ((primer.match(/[ACGTUacgtu\ \n]+/g) || []).join('')))
+);
 
 

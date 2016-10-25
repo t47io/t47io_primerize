@@ -70,7 +70,7 @@ const design1DReducer = handleActions({
 
     let { minLen, maxLen, numPrimer } = state.options;
     minLen = Math.max(Math.min(minLen, maxLen), design1DState.options.minLen);
-    maxLen = state.sequence.length ? Math.min(Math.max(maxLen, minLen), Math.max(maxLen, state.sequence.length)) : Math.max(maxLen, minLen);
+    maxLen = sequence.length ? Math.min(Math.max(maxLen, minLen), Math.max(maxLen, sequence.length)) : Math.max(maxLen, minLen);
     numPrimer = Math.round(numPrimer / 2) * 2;
 
     return {

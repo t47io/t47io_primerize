@@ -43,13 +43,20 @@ const design2DReducer = handleActions({
   }),
 
 
-  [ACTIONS_2D.CHANGE_OFFSET]: (state, { payload }) => ({
-    ...state,
-    options: {
-      ...(state.options),
-      offset: parseInt(payload.offset, 10)
-    }
-  }),
+  [ACTIONS_2D.CHANGE_OFFSET]: (state, { payload }) => {
+    const offset = state.options.offset;
+    const newOffset = parseInt(payload.offset, 10);
+
+    return {
+      ...state,
+      options: {
+        ...(state.options),
+        offset: newOffset,
+        startPos: state.options.startPos + newOffset - offset,
+        endPos: state.options.endPos + newOffset - offset
+      }
+    };
+  },
 
   [ACTIONS_2D.CHANGE_REGPOS]: (state, { payload }) => {
     let { startPos, endPos } = state.options;
@@ -78,6 +85,18 @@ const design2DReducer = handleActions({
     let { tag, sequence } = cleanupTagSequence(state);
     let primers = cleanupPrimers(state.primers)
 
+    let { offset, startPos, endPos } = state.options;
+    if (sequence.length) {
+      startPos = Math.min(Math.max(startPos, 1 - offset), state.sequence.length - offset);
+      endPos = Math.max(Math.min(endPos, sequence.length - offset), 1 - offset);
+      if (startPos === endPos) {
+        startPos = Math.max(startPos - 1, 1 - offset);
+        endPos = Math.min(endPos + 1, sequence.length - offset);
+      }
+    } else {
+      startPos = endPos = 0;
+    }
+
     return {
       ...state,
       tag,
@@ -85,9 +104,13 @@ const design2DReducer = handleActions({
       primers,
       options: {
         ...(state.options),
+        offset,
+        startPos,
+        endPos
       }
     };
   },
+
   [ACTIONS_2D.RESET]: (state) => (design2DState)  
 }, design2DState);
 

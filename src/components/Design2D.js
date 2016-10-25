@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { InputTag, InputSequence, InputPrimerList } from './InputShared';
 import * as inputs from './InputOptionsMultiple';
+import { Illustration2D } from './InputIllustration';
 
 
 const Design2D = ({
@@ -35,6 +36,8 @@ const Design2D = ({
       <inputs.InputLibChoice libChoice={libChoice} onChangeLibOpt={onChangeLibOpt} />
     </div>
     <button onClick={onReset}>clear form</button>
+
+    <Illustration2D sequence={sequence} offset={offset} startPos={startPos} endPos={endPos} />
   </div>
 );
 
