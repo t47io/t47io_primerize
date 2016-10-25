@@ -1,6 +1,22 @@
 import React from 'react';
 
 
+const InputTag = ({
+  tag,
+  onChangeTag,
+  onBlur
+}) => (
+  <div>
+    <span>TAG</span>
+    <input type="text" value={tag} onChange={onChangeTag} onBlur={onBlur} />
+  </div>
+);
+InputTag.propTypes = {
+  tag: React.PropTypes.string.isRequired,
+  onChangeTag: React.PropTypes.func.isRequired,
+  onBlur: React.PropTypes.func.isRequired
+};
+
 const InputSequence = ({
   sequence,
   onChangeSequence,
@@ -59,6 +75,6 @@ InputPrimerList.propTypes = {
 };
 
 
-export { InputSequence, InputPrimerList };
+export { InputTag, InputSequence, InputPrimerList };
 
 

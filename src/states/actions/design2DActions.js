@@ -2,6 +2,11 @@ import { createAction } from 'redux-actions';
 import { ACTIONS_2D } from './actionTypes';
 
 
+export const changeTagAction = (tag) => ({
+  type: ACTIONS_2D.CHANGE_TAG,
+  payload: { tag }
+});
+
 export const changeSequenceAction = (seq) => ({
   type: ACTIONS_2D.CHANGE_SEQUENCE,
   payload: { sequence: seq }
@@ -39,4 +44,6 @@ export const changeLibChoice = (libChoice) => ({
 });
 
 
-export const blur2DAction = () => ({ type: ACTIONS_2D.CLEANUP_2D });
+export const blur2DAction = () => ({ type: ACTIONS_2D.CLEANUP });
+
+export const clear2DAction = () => ({ type: ACTIONS_2D.RESET });

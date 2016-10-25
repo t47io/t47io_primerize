@@ -2,6 +2,11 @@ import { createAction } from 'redux-actions';
 import { ACTIONS_1D } from './actionTypes';
 
 
+export const changeTagAction = (tag) => ({
+  type: ACTIONS_1D.CHANGE_TAG,
+  payload: { tag }
+});
+
 export const changeSequenceAction = (seq) => ({
   type: ACTIONS_1D.CHANGE_SEQUENCE,
   payload: { sequence: seq }
@@ -29,6 +34,7 @@ export const changeCheckT7Action = (isChecked) => ({
 });
 
 
-export const blur1DAction = () => ({ type: ACTIONS_1D.CLEANUP_1D });
+export const blur1DAction = () => ({ type: ACTIONS_1D.CLEANUP });
 
+export const clear1DAction = () => ({ type: ACTIONS_1D.RESET });
 

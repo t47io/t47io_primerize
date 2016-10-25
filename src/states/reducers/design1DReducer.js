@@ -2,13 +2,20 @@ import { handleActions } from 'redux-actions';
 
 import { design1DState } from '../models';
 import { ACTIONS_1D } from '../actions/actionTypes';
+import { cleanupTagSequence } from './sharedFunc';
 
 
 const design1DReducer = handleActions({
+  [ACTIONS_1D.CHANGE_TAG]: (state, { payload }) => ({
+    ...state,
+    tag: payload.tag
+  }),
+
   [ACTIONS_1D.CHANGE_SEQUENCE]: (state, { payload }) => ({
     ...state,
     sequence: payload.sequence
   }),
+
 
   [ACTIONS_1D.CHANGE_TM]: (state, { payload }) => ({
     ...state,
@@ -58,10 +65,8 @@ const design1DReducer = handleActions({
   }),
 
 
-  [ACTIONS_1D.CLEANUP_1D]: (state) => {
-    let { sequence, tag } = state;
-    sequence = (sequence.match(/[ACGTUacgtu\ \n]+/g) || []).join('');
-    tag = (tag.match(/[a-zA-Z0-9\ \.\-\_]+/g) || []).join('');
+  [ACTIONS_1D.CLEANUP]: (state) => {
+    let { tag, sequence } = cleanupTagSequence(state);
 
     let { minLen, maxLen, numPrimer } = state.options;
     minLen = Math.max(Math.min(minLen, maxLen), design1DState.options.minLen);
@@ -70,8 +75,8 @@ const design1DReducer = handleActions({
 
     return {
       ...state,
-      sequence,
       tag,
+      sequence,
       options: {
         ...(state.options),
         minLen,
@@ -79,7 +84,9 @@ const design1DReducer = handleActions({
         numPrimer
       }
     };
-  }
+  },
+
+  [ACTIONS_1D.RESET]: (state) => (design1DState)
 }, design1DState);
 
 

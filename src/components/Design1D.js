@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InputSequence } from './InputShared';
+import { InputTag, InputSequence } from './InputShared';
 import * as inputs from './InputOptionsSingle';
 
 
 const Design1D = ({
+  tag,
   sequence,
   tm,
   minLen,
@@ -13,14 +14,17 @@ const Design1D = ({
   numPrimer,
   isNumPrimer,
   isCheckT7,
+  onChangeTag,
   onChangeSequence,
   onChangeTm,
   onChangePrimerLen,
   onChangeNumPrimer,
   onChangeCheckT7,
-  onBlur
+  onBlur,
+  onReset
 }) => (
   <div>
+    <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} />
     <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
     <div>
       OPTIONS
@@ -29,6 +33,7 @@ const Design1D = ({
       <inputs.InputNumPrimer numPrimer={numPrimer} isNumPrimer={isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
       <inputs.InputCheckT7 isCheckT7={isCheckT7} onChangeCheckT7={onChangeCheckT7} />
     </div>
+    <button onClick={onReset}>clear form</button>
   </div>
 );
 
