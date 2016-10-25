@@ -8,7 +8,8 @@ export const ACTIONS_1D = {
   CHANGE_T7CHK: 'CHANGE_1D_T7CHK',
 
   CLEANUP: 'CLEANUP_1D',
-  RESET: 'RESET_1D'
+  RESET: 'RESET_1D',
+  SUBMIT: 'SUBMIT_1D'
 };
 
 export const ACTIONS_2D = {
@@ -30,3 +31,7 @@ export const ACTIONS_2D = {
   RESET: 'RESET_2D'
 };
 
+
+export const ACTIONS_RESULT = {
+  CLEAR: 'CLEAR_RESULT'
+};

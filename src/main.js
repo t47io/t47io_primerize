@@ -1,20 +1,23 @@
 import React from 'react';
 
-import Navbar from './components/Navbar';
+import Sidebar from './containers/Sidebar';
 
-const Main = (props) => (
-  <div>
-    <Navbar />
-    <h1>Hello, World!</h1>
 
-    <div>
-      {props.children}
-    </div>
-  </div>
-);
-Main.propTypes = {
-  children: React.PropTypes.object,
+export default class Main extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.object
+  }
+
+  render() {
+    return (
+      <div>
+        <Sidebar />
+        <h1>Hello, World!</h1>
+
+        <div>
+          {this.props.children}
+        </div>
+      </div>
+    );
+  }
 };
-
-
-export default Main;

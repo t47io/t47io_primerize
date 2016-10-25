@@ -21,9 +21,10 @@ const Design1D = ({
   onChangeNumPrimer,
   onChangeCheckT7,
   onBlur,
-  onReset
+  onReset,
+  onSubmit
 }) => (
-  <div>
+  <form action="/submit" method="post" encType="multipart/form-data" onSubmit={onSubmit}>
     <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} />
     <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
     <div>
@@ -33,8 +34,9 @@ const Design1D = ({
       <inputs.InputNumPrimer numPrimer={numPrimer} isNumPrimer={isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
       <inputs.InputCheckT7 isCheckT7={isCheckT7} onChangeCheckT7={onChangeCheckT7} />
     </div>
-    <button onClick={onReset}>clear form</button>
-  </div>
+    <button type="submit">submit form</button>
+    <button type="button" onClick={onReset}>clear form</button>
+  </form>
 );
 
 

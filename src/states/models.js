@@ -48,21 +48,11 @@ export const design3DState = {
 }
 
 
-// export const appState = {
-//   input: {
-//     '1D': design1DState,
-//     '2D': design2DState,
-//     '3D': design3DState,
-//   },
-//   output: {
-
-//   }
-// }
-
-
 export const design2DLibChoices = {
   "1": "A->U, U->A, C->G, G->C",
   "2": "A->C, U->C, C->A, G->A",
   "3": "A->G, U->G, C->U, G->U"
 };
 
+
+export const resultsState = [];
