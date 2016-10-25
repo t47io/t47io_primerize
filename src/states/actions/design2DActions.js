@@ -44,6 +44,11 @@ export const changeLibOptAction = (libChoice) => ({
 });
 
 
+export const drawIllustrationAction = () => ({ type: ACTIONS_2D.DRAW_ILLUSTRATION });
+
+export const stopIllustrationAction = () => ({ type: ACTIONS_2D.STOP_ILLUSTRATION });
+
+
 export const blur2DAction = () => ({ type: ACTIONS_2D.CLEANUP });
 
 export const clear2DAction = () => ({ type: ACTIONS_2D.RESET });

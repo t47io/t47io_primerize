@@ -23,7 +23,8 @@ export const design2DState = {
     startPos: 0,
     endPos: 0,
     libChoice: 1
-  }
+  },
+  isRender: false
 }
 
 export const design3DState = {

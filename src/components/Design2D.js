@@ -14,6 +14,7 @@ const Design2D = ({
   startPos,
   endPos,
   libChoice,
+  isRender,
   onChangeTag,
   onChangeSequence,
   onChangePrimer,
@@ -37,7 +38,7 @@ const Design2D = ({
     </div>
     <button onClick={onReset}>clear form</button>
 
-    <Illustration2D sequence={sequence} offset={offset} startPos={startPos} endPos={endPos} />
+    <Illustration2D sequence={sequence} offset={offset} startPos={startPos} endPos={endPos} isRender={isRender} />
   </div>
 );
 

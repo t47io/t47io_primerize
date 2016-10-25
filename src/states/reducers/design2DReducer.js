@@ -52,8 +52,8 @@ const design2DReducer = handleActions({
       options: {
         ...(state.options),
         offset: newOffset,
-        startPos: state.options.startPos + newOffset - offset,
-        endPos: state.options.endPos + newOffset - offset
+        startPos: state.options.startPos - newOffset + offset,
+        endPos: state.options.endPos - newOffset + offset
       }
     };
   },
@@ -78,6 +78,17 @@ const design2DReducer = handleActions({
         ...(state.options),
         libChoice: parseInt(payload.libChoice, 10)
       }
+  }),
+
+
+  [ACTIONS_2D.DRAW_ILLUSTRATION]: (state) => ({
+    ...state,
+    isRender: true
+  }),
+
+  [ACTIONS_2D.STOP_ILLUSTRATION]: (state) => ({
+    ...state,
+    isRender: false
   }),
 
 
