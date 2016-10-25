@@ -26,7 +26,9 @@ export default connect(
     onReset: () => dispatch(clear1DAction()),
     onSubmit: (event) => {
       event.preventDefault();
-      dispatch(submit1DAction());
+      Promise.resolve(dispatch(blur1DAction()))
+      .them(() => dispatch(submit1DAction()))
+      .catch((err) => { console.log(err); });
     }
   })
 )(Design1D);

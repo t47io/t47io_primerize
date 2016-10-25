@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { InputTag, InputSequence } from './InputShared';
+import InputWarning from './InputWarning';
 import * as inputs from './InputOptionsSingle';
 
 
@@ -34,6 +35,7 @@ const Design1D = ({
       <inputs.InputNumPrimer numPrimer={numPrimer} isNumPrimer={isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
       <inputs.InputCheckT7 isCheckT7={isCheckT7} onChangeCheckT7={onChangeCheckT7} />
     </div>
+    <InputWarning seqLen={sequence.length} />
     <button type="submit">submit form</button>
     <button type="button" onClick={onReset}>clear form</button>
   </form>
