@@ -10,8 +10,7 @@ import {
 
 export default connect(
   (state) => ({
-    tag: state.input1D.tag,
-    sequence: state.input1D.sequence,
+    ...(state.input1D),
     ...(state.input1D.options)
   }),
   (dispatch) => ({
