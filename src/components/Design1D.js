@@ -32,4 +32,5 @@ const Design1D = ({
   </div>
 );
 
+
 export default Design1D;

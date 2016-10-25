@@ -8,6 +8,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import Main from './main';
 import Design1D from './containers/Design1D';
+import Design2D from './containers/Design2D';
 import store from './states/store';
 
 
@@ -20,6 +21,7 @@ ReactDOM.render(
         <Route path="/" component={Main} >
           <IndexRedirect to="/1d" />
           <Route path="/1d" component={Design1D} />
+          <Route path="/2d" component={Design2D} />
         </Route>
       </Router>
     </MuiThemeProvider>

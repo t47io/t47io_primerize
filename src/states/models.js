@@ -14,7 +14,16 @@ export const design1DState = {
 export const design2DState = {
   tag: '',
   sequence: '',
-  primers: [],
+  primers: [
+    {
+      id: 1,
+      sequence: ''
+    },
+    {
+      id: 2,
+      sequence: ''
+    }
+  ],
   options: {
     offset: 0,
     startPos: null,

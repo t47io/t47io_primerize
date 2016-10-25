@@ -9,6 +9,7 @@ const design1DReducer = handleActions({
     ...state,
     sequence: payload.sequence
   }),
+
   [ACTIONS_1D.CHANGE_TM]: (state, { payload }) => ({
     ...state,
     options: {
@@ -16,6 +17,7 @@ const design1DReducer = handleActions({
       tm: parseFloat(payload.tm)
     }
   }),
+
   [ACTIONS_1D.CHANGE_PRMLEN]: (state, { payload }) => {
     let { minLen, maxLen } = state.options;
     minLen = parseFloat(payload.minLen) || minLen;
@@ -29,6 +31,7 @@ const design1DReducer = handleActions({
       }
     };
   },
+
   [ACTIONS_1D.CHANGE_NUMPRM]: (state, { payload }) => {
     let { numPrimer, isNumPrimer } = state.options;
     if ('prmchk' in payload) {
@@ -45,6 +48,7 @@ const design1DReducer = handleActions({
       }
     }
   },
+
   [ACTIONS_1D.CHANGE_T7CHK]: (state, { payload }) => ({
     ...state,
     options: {
@@ -52,6 +56,7 @@ const design1DReducer = handleActions({
       isCheckT7: payload.isChecked
     }
   }),
+
 
   [ACTIONS_1D.CLEANUP_1D]: (state) => {
     let { sequence, tag } = state;
@@ -73,10 +78,8 @@ const design1DReducer = handleActions({
         maxLen,
         numPrimer
       }
-    }
-
+    };
   }
-
 }, design1DState);
 
 
