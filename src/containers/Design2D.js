@@ -30,10 +30,8 @@ export default connect(
     onBlur: () => {
       Promise.resolve(dispatch(blur2DAction()))
       .then(() => dispatch(drawIllustrationAction()))
-      .then(() => setTimeout(
-        dispatch(stopIllustrationAction()),
-        500)
-      );
+      .then(() => dispatch(stopIllustrationAction()))
+      .catch((err) => { console.log(err); });
     },
     onReset: () => dispatch(clear2DAction())
   })
