@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { design2DLibChoices } from '../states/models';
+
 
 const InputOffset = ({
   offset,
@@ -13,7 +15,7 @@ const InputOffset = ({
 );
 InputOffset.propTypes = {
   offset: React.PropTypes.number.isRequired,
-  onChangeTm: React.PropTypes.func.isRequired,
+  onChangeOffset: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired
 };
 
@@ -39,4 +41,24 @@ InputRegionPos.propTypes = {
 };
 
 
-export { InputOffset, InputRegionPos };
+const InputLibChoice = ({
+  libChoice,
+  onChangeLibOpt,
+}) => (
+  <div>
+    LIB Choice:
+    <select value={libChoice} onChange={onChangeLibOpt} >
+      { Object.keys(design2DLibChoices).map((choice, i) => (
+          <option value={choice} key={i} >{design2DLibChoices[choice]}</option>
+        )
+      ) }
+    </select>
+  </div>
+);
+InputLibChoice.propTypes = {
+  libChoice: React.PropTypes.number.isRequired,
+  onChangeLibOpt: React.PropTypes.func.isRequired
+};
+
+
+export { InputOffset, InputRegionPos, InputLibChoice };

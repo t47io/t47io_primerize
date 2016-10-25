@@ -15,33 +15,32 @@ export const design2DState = {
   tag: '',
   sequence: '',
   primers: [
-    {
-      id: 1,
-      sequence: ''
-    },
-    {
-      id: 2,
-      sequence: ''
-    }
+    '',
+    ''
   ],
   options: {
     offset: 0,
-    startPos: null,
-    endPos: null,
-    whichLib: 1
+    startPos: 0,
+    endPos: 0,
+    libChoice: 1
   }
 }
 
 export const design3DState = {
   tag: '',
   sequence: '',
-  primers: [],
-  structure: [],
+  primers: [
+    '',
+    ''
+  ],
+  structure: [
+    ''
+  ],
   options: {
     offset: 0,
-    startPos: null,
-    endPos: null,
-    whichLib: 1,
+    startPos: 0,
+    endPos: 0,
+    libChoice: 1,
     isIncludeSingle: false,
     isFillWT: false
   }
@@ -58,3 +57,11 @@ export const design3DState = {
 
 //   }
 // }
+
+
+export const design2DLibChoices = {
+  "1": "A->U, U->A, C->G, G->C",
+  "2": "A->C, U->C, C->A, G->A",
+  "3": "A->G, U->G, C->U, G->U"
+};
+

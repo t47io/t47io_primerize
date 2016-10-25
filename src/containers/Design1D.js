@@ -1,7 +1,11 @@
 import { connect } from 'react-redux';
 
 import Design1D from '../components/Design1D';
-import { changeTagAction, changeSequenceAction, changeTmAction, changePrimerLenAction, changeNumPrimerAction, changeCheckT7Action, blur1DAction, clear1DAction } from '../states/actions/design1DActions';
+import {
+  changeTagAction, changeSequenceAction,
+  changeTmAction, changePrimerLenAction, changeNumPrimerAction, changeCheckT7Action,
+  blur1DAction, clear1DAction
+} from '../states/actions/design1DActions';
 
 
 export default connect(

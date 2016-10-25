@@ -38,18 +38,21 @@ const InputPrimer = ({
   id,
   sequence,
   onChangePrimer,
+  onRemovePrimer,
   onBlur
 }) => (
   <div>
     <span>{id}</span>
-    <input type="text" name={`p${id}`} value={sequence} onChange={onChangePrimer} onBlur={onBlur} />
+    <input type="text" name={`primer_input_${id}`} value={sequence} onChange={onChangePrimer} onBlur={onBlur} />
     <span>len={sequence.length}</span>
+    <button name={`primer_remove_${id}`} onClick={onRemovePrimer} >x</button>
   </div>
 );
 InputPrimer.propTypes = {
   id: React.PropTypes.number.isRequired,
   sequence: React.PropTypes.string.isRequired,
   onChangePrimer: React.PropTypes.func.isRequired,
+  onRemovePrimer: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired
 };
 
@@ -57,20 +60,22 @@ const InputPrimerList = ({
   primers,
   onChangePrimer,
   onAddPrimer,
+  onRemovePrimer,
   onBlur
 }) => (
   <div>
     <button onClick={onAddPrimer} >add primer</button>
-    { primers.map((primer) => (
-        <InputPrimer key={primer.id} {...primer} onChangePrimer={onChangePrimer} onBlur={onBlur} />
+    { primers.map((primer, id) => (
+        <InputPrimer key={id + 1} id={id + 1} sequence={primer} onChangePrimer={onChangePrimer} onRemovePrimer={onRemovePrimer} onBlur={onBlur} />
       )
     ) }
   </div>
 );
 InputPrimerList.propTypes = {
-  primers: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  primers: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
   onChangePrimer: React.PropTypes.func.isRequired,
   onAddPrimer: React.PropTypes.func.isRequired,
+  onRemovePrimer: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired
 };
 

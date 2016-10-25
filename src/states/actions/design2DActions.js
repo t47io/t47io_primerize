@@ -16,29 +16,29 @@ export const changePrimerAction = (nodeName, seq) => ({
   type: ACTIONS_2D.CHANGE_PRIMER,
   payload: {
     sequence: seq,
-    id: parseInt(nodeName.slice(1), 10),
+    id: parseInt(nodeName.slice(13), 10),
   }
 });
 
 export const addPrimerAction = () => ({ type: ACTIONS_2D.ADD_PRIMER });
 
+export const removePrimerAction = (nodeName) => ({
+  type: ACTIONS_2D.REMOVE_PRIMER,
+  payload: { id: parseInt(nodeName.slice(14), 10) }
+});
 
-export const changeOffset = (offset) => ({
+
+export const changeOffsetAction = (offset) => ({
   type: ACTIONS_2D.CHANGE_OFFSET,
   payload: { offset: offset }
 });
 
-export const changeStartPos = (startPos) => ({
-  type: ACTIONS_2D.CHANGE_STARTPOS,
-  payload: { startPos: startPos }
+export const changePosAction = (nodeName, nodeVal) => ({
+  type: ACTIONS_2D.CHANGE_REGPOS,
+  payload: { [`${nodeName}Pos`]: nodeVal }
 });
 
-export const changeEndPos = (endPos) => ({
-  type: ACTIONS_2D.CHANGE_ENDPOS,
-  payload: { endPos: endPos }
-});
-
-export const changeLibChoice = (libChoice) => ({
+export const changeLibOptAction = (libChoice) => ({
   type: ACTIONS_2D.CHANGE_LIBOPT,
   payload: { libChoice: libChoice }
 });

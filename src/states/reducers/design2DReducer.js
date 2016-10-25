@@ -20,10 +20,7 @@ const design2DReducer = handleActions({
     ...state,
     primers: [
       ...(state.primers.slice(0, payload.id - 1)),
-      {
-        id: payload.id,
-        sequence: payload.sequence
-      },
+      payload.sequence,
       ...(state.primers.slice(payload.id))
     ]
   }),
@@ -32,15 +29,48 @@ const design2DReducer = handleActions({
     ...state,
     primers: [
       ...(state.primers),
-      {
-        id: state.primers.length + 1,
-        sequence: ''
-      },
-      {
-        id: state.primers.length + 2,
-        sequence: ''
-      }
+      '',
+      ''
     ]
+  }),
+
+  [ACTIONS_2D.REMOVE_PRIMER]: (state, { payload }) => ({
+    ...state,
+    primers: [
+      ...(state.primers.slice(0, payload.id - 1)),
+      ...(state.primers.slice(payload.id))
+    ]
+  }),
+
+
+  [ACTIONS_2D.CHANGE_OFFSET]: (state, { payload }) => ({
+    ...state,
+    options: {
+      ...(state.options),
+      offset: parseInt(payload.offset, 10)
+    }
+  }),
+
+  [ACTIONS_2D.CHANGE_REGPOS]: (state, { payload }) => {
+    let { startPos, endPos } = state.options;
+    startPos = parseInt(payload.startPos) || startPos;
+    endPos = parseInt(payload.endPos) || endPos;
+    return {
+      ...state,
+      options: {
+        ...(state.options),
+        startPos,
+        endPos
+      }
+    };
+  },
+
+  [ACTIONS_2D.CHANGE_LIBOPT]: (state, { payload }) => ({
+      ...state,
+      options: {
+        ...(state.options),
+        libChoice: parseInt(payload.libChoice, 10)
+      }
   }),
 
 
