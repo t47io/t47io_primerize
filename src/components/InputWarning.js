@@ -16,7 +16,7 @@ const InputWarning = ({ seqLen }) => {
     <div>{content}</div>
   );
 };
-InputWarning.PropTypes = {
+InputWarning.propTypes = {
   seqLen: React.PropTypes.number.isRequired
 };
 
