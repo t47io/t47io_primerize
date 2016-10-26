@@ -10,10 +10,7 @@ const Design2D = ({
   tag,
   sequence,
   primers,
-  offset,
-  startPos,
-  endPos,
-  libChoice,
+  options,
   isRender,
   onChangeTag,
   onChangeSequence,
@@ -32,13 +29,13 @@ const Design2D = ({
     <InputPrimerList primers={primers} onChangePrimer={onChangePrimer} onAddPrimer={onAddPrimer} onRemovePrimer={onRemovePrimer} onBlur={onBlur} />
     <div>
       OPTIONS
-      <inputs.InputOffset offset={offset} onChangeOffset={onChangeOffset} onBlur={onBlur} />
-      <inputs.InputRegionPos startPos={startPos} endPos={endPos} onChangePos={onChangePos} onBlur={onBlur} />
-      <inputs.InputLibChoice libChoice={libChoice} onChangeLibOpt={onChangeLibOpt} />
+      <inputs.InputOffset offset={options.offset} onChangeOffset={onChangeOffset} onBlur={onBlur} />
+      <inputs.InputRegionPos startPos={options.startPos} endPos={options.endPos} onChangePos={onChangePos} onBlur={onBlur} />
+      <inputs.InputLibChoice libChoice={options.libChoice} onChangeLibOpt={onChangeLibOpt} />
     </div>
     <button onClick={onReset}>clear form</button>
 
-    <Illustration2D sequence={sequence} offset={offset} startPos={startPos} endPos={endPos} isRender={isRender} />
+    <Illustration2D sequence={sequence} offset={options.offset} startPos={options.startPos} endPos={options.endPos} isRender={isRender} />
   </div>
 );
 

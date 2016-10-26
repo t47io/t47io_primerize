@@ -9,12 +9,7 @@ import * as inputs from './InputOptionsSingle';
 const Design1D = ({
   tag,
   sequence,
-  tm,
-  minLen,
-  maxLen,
-  numPrimer,
-  isNumPrimer,
-  isCheckT7,
+  options,
   onChangeTag,
   onChangeSequence,
   onChangeTm,
@@ -30,10 +25,10 @@ const Design1D = ({
     <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
     <div>
       OPTIONS
-      <inputs.InputMinTm tm={tm} onChangeTm={onChangeTm} onBlur={onBlur} />
-      <inputs.InputPrimerLen minLen={minLen} maxLen={maxLen} onChangePrimerLen={onChangePrimerLen} onBlur={onBlur} />
-      <inputs.InputNumPrimer numPrimer={numPrimer} isNumPrimer={isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
-      <inputs.InputCheckT7 isCheckT7={isCheckT7} onChangeCheckT7={onChangeCheckT7} />
+      <inputs.InputMinTm tm={options.tm} onChangeTm={onChangeTm} onBlur={onBlur} />
+      <inputs.InputPrimerLen minLen={options.minLen} maxLen={options.maxLen} onChangePrimerLen={onChangePrimerLen} onBlur={onBlur} />
+      <inputs.InputNumPrimer numPrimer={options.numPrimer} isNumPrimer={options.isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
+      <inputs.InputCheckT7 isCheckT7={options.isCheckT7} onChangeCheckT7={onChangeCheckT7} />
     </div>
     <InputWarning seqLen={sequence.length} />
     <button type="submit">submit form</button>
