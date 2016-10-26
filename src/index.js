@@ -9,6 +9,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Main from './main';
 import Design1D from './containers/Design1D';
 import Design2D from './containers/Design2D';
+import ResultLanding from './containers/ResultLanding';
+import ResultPage from './containers/ResultPage';
 
 import store from './states/store';
 
@@ -23,6 +25,9 @@ ReactDOM.render(
           <IndexRedirect to="/1d" />
           <Route path="/1d" component={Design1D} />
           <Route path="/2d" component={Design2D} />
+
+          <Route path="/result" component={ResultLanding} />
+          <Route path="/result/:jobId" component={ResultPage} />
         </Route>
       </Router>
     </MuiThemeProvider>

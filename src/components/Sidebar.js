@@ -12,11 +12,11 @@ const ResultItem = ({
   jobId,
   type,
   status,
-  tag,
+  data,
   onRemoveResult
 }) => (
   <li>
-    <NavLink to="/result/{jobId}" >{tag}: #{jobId}; {jobTypes[type.toString()]} {jobStatus[status.toString()]}</NavLink>
+    <NavLink to={`/result/${jobId}`} >{data.tag}: #{jobId}; {jobTypes[type.toString()]} {jobStatus[status.toString()]}</NavLink>
     <button name={`result_remove_${jobId}`} onClick={onRemoveResult} >x</button>
   </li>
 );
@@ -24,7 +24,7 @@ ResultItem.propTypes = {
   jobId: React.PropTypes.string.isRequired,
   type: React.PropTypes.number.isRequired,
   status: React.PropTypes.number.isRequired,
-  tag: React.PropTypes.string.isRequired,
+  data: React.PropTypes.object.isRequired,
   onRemoveResult: React.PropTypes.func.isRequired
 };
 
