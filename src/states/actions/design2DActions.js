@@ -51,4 +51,13 @@ export const stopIllustrationAction = () => ({ type: ACTIONS_2D.STOP_ILLUSTRATIO
 
 export const blur2DAction = () => ({ type: ACTIONS_2D.CLEANUP });
 
+export const prepare2DAction = () => ({ type: ACTIONS_2D.FORMAT });
+
 export const clear2DAction = () => ({ type: ACTIONS_2D.RESET });
+
+
+export const submit2DinitAction = () => ({ type: ACTIONS_2D.SUBMIT_INIT });
+
+export const submit2DsuccessAction = () => ({ type: ACTIONS_2D.SUBMIT_SUCCESS });
+
+export const submit2DfailAction = () => ({ type: ACTIONS_2D.SUBMIT_FAIL });

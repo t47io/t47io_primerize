@@ -1,4 +1,3 @@
-import 'whatwg-fetch';
 import { handleActions } from 'redux-actions';
 
 import { design1DState } from '../models';
@@ -87,7 +86,7 @@ const design1DReducer = handleActions({
     };
   },
 
-  [ACTIONS_1D.RESET]: (state) => (design1DState),
+  [ACTIONS_1D.RESET]: (state) => (design1DState)
 }, design1DState);
 
 

@@ -122,6 +122,12 @@ const design2DReducer = handleActions({
     };
   },
 
+  [ACTIONS_2D.FORMAT]: (state) => ({
+    ...state,
+    primers: state.primers.filter((primer) => (primer.length))
+  }),
+
+
   [ACTIONS_2D.RESET]: (state) => (design2DState)  
 }, design2DState);
 
