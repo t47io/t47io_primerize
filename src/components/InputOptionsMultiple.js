@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { design2DLibChoices } from '../states/models';
+import { design2DLibChoices } from '../states/constants';
 
 
 const InputOffset = ({

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-import { jobTypes, jobStatus } from '../states/models';
+import { jobTypes, jobStatus } from '../states/constants';
 
 const NavLink = (props) => (
   <Link {...props} activeClassName="active" />

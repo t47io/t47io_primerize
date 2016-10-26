@@ -88,13 +88,6 @@ const design1DReducer = handleActions({
   },
 
   [ACTIONS_1D.RESET]: (state) => (design1DState),
-
-
-  // [ACTIONS_1D.SUBMIT]: (state) => {
-
-
-  //   return state;
-  // }
 }, design1DState);
 
 

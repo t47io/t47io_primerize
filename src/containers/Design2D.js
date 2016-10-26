@@ -11,10 +11,7 @@ import {
 
 
 export default connect(
-  (state) => ({
-    ...(state.input2D),
-    ...(state.input2D.options)
-  }),
+  (state) => ({ ...(state.input2D) }),
   (dispatch) => ({
     onChangeTag: (event) => dispatch(changeTagAction(event.target.value)),
     onChangeSequence: (event) => dispatch(changeSequenceAction(event.target.value)),

@@ -1,8 +1,6 @@
 import { connect } from 'react-redux';
 
 import { Modal } from '../components/Modal';
-import { clearResultsACtion } from '../states/actions/resultActions';
-
 import { hideModalAction } from '../states/actions/uiActions';
 
 
