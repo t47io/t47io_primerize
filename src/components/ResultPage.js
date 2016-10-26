@@ -1,14 +1,15 @@
 import React from 'react';
 
 
-const ResultPage = ({
-  
-}) => (
-  <div></div>
-);
-ResultPage.propTypes = {
-  
-};
+export default class ResultPage extends React.Component {
+  static propTypes = {
 
+  }
 
-export default ResultPage;
+  
+  render() {
+    return (
+      <div>{JSON.stringify(this.props)}</div>
+    );
+  }
+}

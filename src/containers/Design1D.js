@@ -7,7 +7,7 @@ import {
   blur1DAction, clear1DAction,
   submit1DinitAction, submit1DsuccessAction, submit1DfailAction
 } from '../states/actions/design1DActions';
-import { addResultAction } from '../states/actions/resultActions';
+import { addResultAction, gotoResultAction } from '../states/actions/resultActions';
 import { showModalAction, hideModalAction } from '../states/actions/uiActions';
 
 import { convertJson1D } from './sharedFunc';
@@ -71,6 +71,7 @@ export default connect(
             dispatch(submit1DsuccessAction());
             dispatch(showModalAction("running..."));
             dispatch(addResultAction(convertJson1D(json)));
+            dispatch(gotoResultAction(json.job_id));
           }
 
         });
