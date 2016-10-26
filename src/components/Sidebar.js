@@ -16,7 +16,7 @@ const ResultItem = ({
   onRemoveResult
 }) => (
   <li>
-    <NavLink to={`/result/${jobId}`} >{data.tag}: #{jobId}; {jobTypes[type.toString()]} {jobStatus[status.toString()]}</NavLink>
+    <NavLink to={`/result/${jobId}`} >{data.tag}: #{jobId}; {jobTypes[`${type}`]} {jobStatus[`${status}`]}</NavLink>
     <button name={`result_remove_${jobId}`} onClick={onRemoveResult} >x</button>
   </li>
 );

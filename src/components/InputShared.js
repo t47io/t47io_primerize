@@ -45,7 +45,7 @@ const InputPrimer = ({
     <span>{id}</span>
     <input type="text" name={`primer_input_${id}`} value={sequence} onChange={onChangePrimer} onBlur={onBlur} />
     <span>len={sequence.length}</span>
-    <button name={`primer_remove_${id}`} onClick={onRemovePrimer} >x</button>
+    <button type="button" name={`primer_remove_${id}`} onClick={onRemovePrimer} >x</button>
   </div>
 );
 InputPrimer.propTypes = {
@@ -64,7 +64,7 @@ const InputPrimerList = ({
   onBlur
 }) => (
   <div>
-    <button onClick={onAddPrimer} >add primer</button>
+    <button type="button" onClick={onAddPrimer} >add primer</button>
     { primers.map((primer, id) => (
         <InputPrimer key={id + 1} id={id + 1} sequence={primer} onChangePrimer={onChangePrimer} onRemovePrimer={onRemovePrimer} onBlur={onBlur} />
       )

@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import { connect } from 'react-redux';
 
 import Design1D from '../components/Design1D';
@@ -49,9 +50,8 @@ export default connect(
 
     onSubmit: (event) => {
       event.preventDefault();
-      Promise.resolve(
-        dispatch(blur1DAction())
-      ).then(() => {
+      Promise.resolve(dispatch(blur1DAction()))
+      .then(() => {
         dispatch(submit1DinitAction());
         dispatch(showModalAction("waiting server..."));
 
