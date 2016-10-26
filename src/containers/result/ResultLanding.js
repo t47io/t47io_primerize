@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import ResultLanding from '../components/ResultLanding';
+import ResultLanding from '../../components/result/ResultLanding';
 
 
 export default connect(

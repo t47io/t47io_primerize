@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 import { connect } from 'react-redux';
 
-import Design2D from '../components/Design2D';
+import Design2D from '../../components/design/Design2D';
 import {
   changeTagAction, changeSequenceAction,
   changePrimerAction, addPrimerAction, removePrimerAction,
@@ -9,12 +9,12 @@ import {
   drawIllustrationAction, stopIllustrationAction,
   blur2DAction, prepare2DAction, clear2DAction,
   submit2DinitAction, submit2DsuccessAction, submit2DfailAction
-} from '../states/actions/design2DActions';
-import { addResultAction, gotoResultAction } from '../states/actions/resultActions';
-import { showModalAction, hideModalAction } from '../states/actions/uiActions';
+} from '../../states/actions/design2DActions';
+import { addResultAction, gotoResultAction } from '../../states/actions/resultActions';
+import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
-import { convertJson2D } from './sharedFunc';
-import store from '../states/store';
+import { convertJson2D } from '../sharedFunc';
+import store from '../../states/store';
 
 
 const prepare2Ddata = (state) => {

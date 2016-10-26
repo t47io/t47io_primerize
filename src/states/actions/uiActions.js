@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { ACTIONS_UI } from './actionTypes';
+import { ACTIONS_UI } from '../constants/actions';
 
 
 export const showModalAction = (text) => ({

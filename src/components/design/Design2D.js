@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InputTag, InputSequence, InputPrimerList } from './InputShared';
-import * as inputs from './InputOptionsMultiple';
-import { Illustration2D } from './InputIllustration';
+import { InputTag, InputSequence, InputPrimerList } from '../input/InputShared';
+import * as inputs from '../input/InputOptionsMultiple';
+import { Illustration2D } from '../input/InputIllustration';
 
 
 const Design2D = ({

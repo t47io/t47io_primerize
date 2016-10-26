@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { ACTIONS_2D } from './actionTypes';
+import { ACTIONS_2D } from '../constants/actions';
 
 
 export const changeTagAction = (tag) => ({

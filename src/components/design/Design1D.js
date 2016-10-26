@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { InputTag, InputSequence } from './InputShared';
-import InputWarning from './InputWarning';
-import * as inputs from './InputOptionsSingle';
+import { InputTag, InputSequence } from '../input/InputShared';
+import InputWarning from '../input/InputWarning';
+import * as inputs from '../input/InputOptionsSingle';
 
 
 const Design1D = ({

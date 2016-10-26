@@ -1,5 +1,5 @@
 import { createAction } from 'redux-actions';
-import { ACTIONS_RESULT } from './actionTypes';
+import { ACTIONS_RESULT } from '../constants/actions';
 
 
 export const addResultAction = (json) => ({

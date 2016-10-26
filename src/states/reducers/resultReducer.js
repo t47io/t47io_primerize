@@ -1,8 +1,8 @@
 import { handleActions } from 'redux-actions';
 import { browserHistory } from 'react-router';
 
-import { resultsState } from '../models';
-import { ACTIONS_RESULT } from '../actions/actionTypes';
+import { resultsState } from '../constants/models';
+import { ACTIONS_RESULT } from '../constants/actions';
 
 
 const resultReducer = handleActions({

@@ -1,18 +1,18 @@
 import 'whatwg-fetch';
 import { connect } from 'react-redux';
 
-import Design1D from '../components/Design1D';
+import Design1D from '../../components/design/Design1D';
 import {
   changeTagAction, changeSequenceAction,
   changeTmAction, changePrimerLenAction, changeNumPrimerAction, changeCheckT7Action,
   blur1DAction, clear1DAction,
   submit1DinitAction, submit1DsuccessAction, submit1DfailAction
-} from '../states/actions/design1DActions';
-import { addResultAction, gotoResultAction } from '../states/actions/resultActions';
-import { showModalAction, hideModalAction } from '../states/actions/uiActions';
+} from '../../states/actions/design1DActions';
+import { addResultAction, gotoResultAction } from '../../states/actions/resultActions';
+import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
-import { convertJson1D } from './sharedFunc';
-import store from '../states/store';
+import { convertJson1D } from '../sharedFunc';
+import store from '../../states/store';
 
 
 const prepare1Ddata = (state) => {

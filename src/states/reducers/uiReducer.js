@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
-import { uiState } from '../models';
-import { ACTIONS_UI } from '../actions/actionTypes';
+import { uiState } from '../constants/models';
+import { ACTIONS_UI } from '../constants/actions';
 
 
 const uiReducer = handleActions({

@@ -1,7 +1,7 @@
 import { handleActions } from 'redux-actions';
 
-import { design1DState } from '../models';
-import { ACTIONS_1D } from '../actions/actionTypes';
+import { design1DState } from '../constants/models';
+import { ACTIONS_1D } from '../constants/actions';
 import { cleanupTagSequence } from './sharedFunc';
 
 
