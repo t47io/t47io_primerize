@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import { handleActions } from 'redux-actions';
 
 import { design1DState } from '../models';
@@ -90,6 +91,31 @@ const design1DReducer = handleActions({
 
 
   [ACTIONS_1D.SUBMIT]: (state) => {
+    let { tag, sequence } = state;
+    let { tm, minLen, maxLen, numPrimer, isNumPrimer, isCheckT7 } = state.options;
+
+    let postData1D = new URLSearchParams();
+    postData1D.append('type', 1);
+
+    postData1D.append('tag', tag);
+    postData1D.append('sequence', sequence);
+    postData1D.append('min_Tm', tm);
+    postData1D.append('max_len', maxLen);
+    postData1D.append('min_len', minLen);
+    postData1D.append('num_primers', numPrimer);
+    postData1D.append('is_num_primers', isNumPrimer);
+    postData1D.append('is_check_t7', isCheckT7);
+
+    fetch('http://127.0.0.1:8000/api/submit/', {
+      method: 'POST',
+      mode: 'cors',
+      body: postData1D,
+    }).then((response) => (response.json()))
+    .then((json) => {
+      console.log(json);
+    });
+
+
     return state;
   }
 }, design1DState);

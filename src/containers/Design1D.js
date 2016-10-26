@@ -27,7 +27,7 @@ export default connect(
     onSubmit: (event) => {
       event.preventDefault();
       Promise.resolve(dispatch(blur1DAction()))
-      .them(() => dispatch(submit1DAction()))
+      .then(() => dispatch(submit1DAction()))
       .catch((err) => { console.log(err); });
     }
   })

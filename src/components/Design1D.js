@@ -25,7 +25,7 @@ const Design1D = ({
   onReset,
   onSubmit
 }) => (
-  <form action="/submit" method="post" encType="multipart/form-data" onSubmit={onSubmit}>
+  <form action="/submit" method="post" onSubmit={onSubmit}>
     <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} />
     <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
     <div>
