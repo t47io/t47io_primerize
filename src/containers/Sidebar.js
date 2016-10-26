@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 
 import Sidebar from '../components/Sidebar';
-import { clearResultsACtion } from '../states/actions/resultActions';
+import { removeResultAction, clearResultsAction } from '../states/actions/resultActions';
 
 
 export default connect(
@@ -9,7 +9,8 @@ export default connect(
     resultList: state.results
   }),
   (dispatch) => ({
-    onClearResult: () => dispatch(clearResultsACtion()),
+    onRemoveResult: (event) => dispatch(removeResultAction(event.target.name)),
+    onClearResult: () => dispatch(clearResultsAction()),
 
   })
 )(Sidebar);

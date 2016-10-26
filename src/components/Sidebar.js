@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 
+import { jobTypes, jobStatus } from '../states/models';
 
 const NavLink = (props) => (
   <Link {...props} activeClassName="active" />
@@ -8,33 +9,47 @@ const NavLink = (props) => (
 
 
 const ResultItem = ({
-  jobId
+  jobId,
+  type,
+  status,
+  tag,
+  onRemoveResult
 }) => (
-  <li><NavLink to="/result/{jobId}" >{jobId}</NavLink></li>
+  <li>
+    <NavLink to="/result/{jobId}" >{tag}: #{jobId}; {jobTypes[type.toString()]} {jobStatus[status.toString()]}</NavLink>
+    <button name={`result_remove_${jobId}`} onClick={onRemoveResult} >x</button>
+  </li>
 );
-ResultItem.PropTypes = {
-  jobId: React.PropTypes.string.isRequired
+ResultItem.propTypes = {
+  jobId: React.PropTypes.string.isRequired,
+  type: React.PropTypes.number.isRequired,
+  status: React.PropTypes.number.isRequired,
+  tag: React.PropTypes.string.isRequired,
+  onRemoveResult: React.PropTypes.func.isRequired
 };
 
 const ResultList = ({
   resultList,
+  onRemoveResult,
   onClearResult
 }) => (
   <ul>
     {resultList.map((result) => (
-      <ResultItem {...result} key={result.jobId} />
+      <ResultItem {...result} key={result.jobId} onRemoveResult={onRemoveResult} />
     ))}
     <button onClick={onClearResult} >clear list</button>
   </ul>
 );
-ResultList.PropTypes = {
+ResultList.propTypes = {
   resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  onRemoveResult: React.PropTypes.func.isRequired,
   onClearResult: React.PropTypes.func.isRequired
 };
 
 
 const Sidebar = ({
   resultList,
+  onRemoveResult,
   onClearResult
 }) => (
   <navbar>
@@ -45,13 +60,14 @@ const Sidebar = ({
       <li><NavLink to="/3d">3D</NavLink></li>
       <li>
         <NavLink to="/result">Result</NavLink>
-        <ResultList resultList={resultList} onClearResult={onClearResult} />
+        <ResultList resultList={resultList} onRemoveResult={onRemoveResult} onClearResult={onClearResult} />
       </li>
     </ul>
   </navbar>
 );
-Sidebar.PropTypes = {
+Sidebar.propTypes = {
   resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  onRemoveResult: React.PropTypes.func.isRequired,
   onClearResult: React.PropTypes.func.isRequired
 };
 
