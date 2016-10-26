@@ -38,5 +38,9 @@ export const blur1DAction = () => ({ type: ACTIONS_1D.CLEANUP });
 
 export const clear1DAction = () => ({ type: ACTIONS_1D.RESET });
 
-export const submit1DAction = () => ({ type: ACTIONS_1D.SUBMIT });
 
+export const submit1DinitAction = () => ({ type: ACTIONS_1D.SUBMIT_INIT });
+
+export const submit1DsuccessAction = () => ({ type: ACTIONS_1D.SUBMIT_SUCCESS });
+
+export const submit1DfailAction = () => ({ type: ACTIONS_1D.SUBMIT_FAIL });
