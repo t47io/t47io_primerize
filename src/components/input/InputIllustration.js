@@ -222,8 +222,7 @@ const drawIllustration3D = (props) => {
   fragments.push(sequence.slice(endIdx + 1));
 
   let labels = [`${1 - offset}`, `${startPos}`, `${endPos}`, `${sequence.length - offset}`];
-  [line1, line2, line3] = drawIllustrationCommon(fragments, labels);
-  return [line1, line2, line3];
+  return drawIllustrationCommon(fragments, labels);
 };
 
 export class Illustration3D extends React.Component {
