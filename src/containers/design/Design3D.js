@@ -15,29 +15,8 @@ import { addResultAction, gotoResultAction } from '../../states/actions/resultAc
 import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
 import { convertJson3D } from '../../utilities/formatJson';
+import { prepare3Ddata } from '../../utilities/prepareData';
 import store from '../../states/store';
-
-
-const prepare3Ddata = (state) => {
-  let { tag, sequence, primers, structures } = state;
-  let { offset, startPos, endPos, libChoice, numMutation, isIncludeSingle, isFillWT } = state.options;
-
-  let postData3D = new URLSearchParams();
-  postData3D.append('type', 3);
-
-  postData3D.append('tag', tag);
-  postData3D.append('sequence', sequence);
-  postData3D.append('primers', primers);
-  postData3D.append('structures', structures)
-  postData3D.append('offset', offset);
-  postData3D.append('min_mut', startPos);
-  postData3D.append('max_mut', endPos);
-  postData3D.append('lib', libChoice);
-  postData3D.append('num_mutations', numMutation);
-  postData3D.append('is_single', isIncludeSingle);
-  postData3D.append('is_fill_WT', isFillWT);
-  return postData3D;
-};
 
 
 export default connect(

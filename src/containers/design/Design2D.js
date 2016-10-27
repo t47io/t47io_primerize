@@ -14,25 +14,8 @@ import { addResultAction, gotoResultAction } from '../../states/actions/resultAc
 import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
 import { convertJson2D } from '../../utilities/formatJson';
+import { prepare2Ddata } from '../../utilities/prepareData';
 import store from '../../states/store';
-
-
-const prepare2Ddata = (state) => {
-  let { tag, sequence, primers } = state;
-  let { offset, startPos, endPos, libChoice } = state.options;
-
-  let postData2D = new URLSearchParams();
-  postData2D.append('type', 2);
-
-  postData2D.append('tag', tag);
-  postData2D.append('sequence', sequence);
-  postData2D.append('primers', primers);
-  postData2D.append('offset', offset);
-  postData2D.append('min_mut', startPos);
-  postData2D.append('max_mut', endPos);
-  postData2D.append('lib', libChoice);
-  return postData2D;
-};
 
 
 export default connect(

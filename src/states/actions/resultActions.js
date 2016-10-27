@@ -13,10 +13,20 @@ export const removeResultAction = (nodeName) => ({
 });
 
 
-export const clearResultsAction = () => ({ type: ACTIONS_RESULT.CLEAR });
+export const clearResultsAction = () => ({ type: ACTIONS_RESULT.CLEAR_RESULT });
 
 
 export const gotoResultAction = (jobId) => ({
-  type: ACTIONS_RESULT.REDIRECT,
+  type: ACTIONS_RESULT.GOTO_RESULT,
   payload: { jobId }
+});
+
+export const getResultAction = (jobId) => ({
+  type: ACTIONS_RESULT.GET_RESULT,
+  payload: { jobId }
+});
+
+export const updateResultAction = (data) => ({
+  type: ACTIONS_RESULT.UPDATE_RESULT,
+  payload: { data }
 });
