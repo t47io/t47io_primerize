@@ -98,11 +98,19 @@ const design3DReducer = handleActions({
   },
 
   [ACTIONS_3D.CHANGE_LIBOPT]: (state, { payload }) => ({
-      ...state,
-      options: {
-        ...(state.options),
-        libChoice: parseInt(payload.libChoice, 10)
-      }
+    ...state,
+    options: {
+      ...(state.options),
+      libChoice: parseInt(payload.libChoice, 10)
+    }
+  }),
+
+  [ACTIONS_3D.CHANGE_NUMMUT]: (state, { payload }) => ({
+    ...state,
+    options: {
+      ...(state.options),
+      numMutation: parseInt(payload.numMutation, 10)
+    }
   }),
 
   [ACTIONS_3D.CHANGE_FILLCHK]: (state, { payload }) => ({

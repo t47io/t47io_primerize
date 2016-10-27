@@ -42,6 +42,7 @@ export const design3DState = {
     startPos: 0,
     endPos: 0,
     libChoice: 1,
+    numMutation: 1,
     isIncludeSingle: false,
     isFillWT: false
   },

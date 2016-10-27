@@ -47,7 +47,7 @@ export const removeStructureAction = (nodeName) => ({
 
 export const changeOffsetAction = (offset) => ({
   type: ACTIONS_3D.CHANGE_OFFSET,
-  payload: { offset: offset }
+  payload: { offset }
 });
 
 export const changePosAction = (nodeName, nodeVal) => ({
@@ -57,7 +57,12 @@ export const changePosAction = (nodeName, nodeVal) => ({
 
 export const changeLibOptAction = (libChoice) => ({
   type: ACTIONS_3D.CHANGE_LIBOPT,
-  payload: { libChoice: libChoice }
+  payload: { libChoice }
+});
+
+export const changeNumMutAction = (numMutation) => ({
+  type: ACTIONS_3D.CHANGE_NUMMUT,
+  payload: { numMutation }
 });
 
 export const changeFillWTAction = (isChecked) => ({

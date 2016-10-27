@@ -12,7 +12,9 @@ const Design2D = ({
   sequence,
   primers,
   options,
+
   isRender,
+
   onChangeTag,
   onChangeSequence,
   onChangePrimer,
@@ -21,6 +23,7 @@ const Design2D = ({
   onChangeOffset,
   onChangePos,
   onChangeLibOpt,
+
   onBlur,
   onReset,
   onSubmit

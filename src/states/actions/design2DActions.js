@@ -31,7 +31,7 @@ export const removePrimerAction = (nodeName) => ({
 
 export const changeOffsetAction = (offset) => ({
   type: ACTIONS_2D.CHANGE_OFFSET,
-  payload: { offset: offset }
+  payload: { offset }
 });
 
 export const changePosAction = (nodeName, nodeVal) => ({
@@ -41,7 +41,7 @@ export const changePosAction = (nodeName, nodeVal) => ({
 
 export const changeLibOptAction = (libChoice) => ({
   type: ACTIONS_2D.CHANGE_LIBOPT,
-  payload: { libChoice: libChoice }
+  payload: { libChoice }
 });
 
 

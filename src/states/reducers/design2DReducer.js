@@ -73,11 +73,11 @@ const design2DReducer = handleActions({
   },
 
   [ACTIONS_2D.CHANGE_LIBOPT]: (state, { payload }) => ({
-      ...state,
-      options: {
-        ...(state.options),
-        libChoice: parseInt(payload.libChoice, 10)
-      }
+    ...state,
+    options: {
+      ...(state.options),
+      libChoice: parseInt(payload.libChoice, 10)
+    }
   }),
 
 

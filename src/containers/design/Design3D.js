@@ -6,7 +6,7 @@ import {
   changeTagAction, changeSequenceAction,
   changePrimerAction, addPrimerAction, removePrimerAction,
   changeStructureAction, addStructureAction, removeStructureAction,
-  changeOffsetAction, changePosAction, changeLibOptAction, changeFillWTAction, changeIncludeSingleAction,
+  changeOffsetAction, changePosAction, changeLibOptAction, changeNumMutAction, changeFillWTAction, changeIncludeSingleAction,
   drawIllustrationAction, stopIllustrationAction,
   blur3DAction, prepare3DAction, clear3DAction,
   submit3DinitAction, submit3DsuccessAction, submit3DfailAction
@@ -20,7 +20,7 @@ import store from '../../states/store';
 
 const prepare3Ddata = (state) => {
   let { tag, sequence, primers, structures } = state;
-  let { offset, startPos, endPos, libChoice, isIncludeSingle, isFillWT } = state.options;
+  let { offset, startPos, endPos, libChoice, numMutation, isIncludeSingle, isFillWT } = state.options;
 
   let postData3D = new URLSearchParams();
   postData3D.append('type', 3);
@@ -33,6 +33,7 @@ const prepare3Ddata = (state) => {
   postData3D.append('min_mut', startPos);
   postData3D.append('max_mut', endPos);
   postData3D.append('lib', libChoice);
+  postData3D.append('num_mutations', numMutation);
   postData3D.append('is_single', isIncludeSingle);
   postData3D.append('is_fill_WT', isFillWT);
   return postData3D;
@@ -56,6 +57,7 @@ export default connect(
     onChangeOffset: (event) => dispatch(changeOffsetAction(event.target.value)),
     onChangePos: (event) => dispatch(changePosAction(event.target.name, event.target.value)),
     onChangeLibOpt: (event) => dispatch(changeLibOptAction(event.target.value)),
+    onChangeNumMut: (event) => dispatch(changeNumMutAction(event.target.value)),
     onChangeFillWT: (event) => dispatch(changeFillWTAction(event.target.checked)),
     onChangeIncludeSingle: (event) => dispatch(changeIncludeSingleAction(event.target.checked)),
 

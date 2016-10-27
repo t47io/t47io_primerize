@@ -10,12 +10,14 @@ const Design1D = ({
   tag,
   sequence,
   options,
+
   onChangeTag,
   onChangeSequence,
   onChangeTm,
   onChangePrimerLen,
   onChangeNumPrimer,
   onChangeCheckT7,
+
   onBlur,
   onReset,
   onSubmit

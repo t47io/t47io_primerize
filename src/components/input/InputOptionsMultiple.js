@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { design3DNumMutChoices } from '../../states/constants/status';
+
 
 const InputOffset = ({
   offset,
@@ -61,6 +63,26 @@ InputLibChoice.propTypes = {
 };
 
 
+const InputNumMutation = ({
+  numMutation,
+  onChangeNumMut
+}) => (
+  <div>
+    Number of mutations:
+    <select value={numMutation} onChange={onChangeNumMut} >
+      { Object.keys(design3DNumMutChoices).map((choice, i) => (
+          <option value={choice} key={i} >{design3DNumMutChoices[choice]}</option>
+        )
+      ) }
+    </select>
+  </div>
+);
+InputNumMutation.propTypes = {
+  numMutation: React.PropTypes.number.isRequired,
+  onChangeNumMut: React.PropTypes.func.isRequired
+};
+
+
 const InputFillWT = ({
   isFillWT,
   onChangeFillWT
@@ -91,4 +113,4 @@ InputIncludeSingle.propTypes = {
 };
 
 
-export { InputOffset, InputRegionPos, InputLibChoice, InputFillWT, InputIncludeSingle };
+export { InputOffset, InputRegionPos, InputLibChoice, InputNumMutation, InputFillWT, InputIncludeSingle };

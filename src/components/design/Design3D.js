@@ -12,7 +12,9 @@ const Design3D = ({
   primers,
   structures,
   options,
+
   isRender,
+
   onChangeTag,
   onChangeSequence,
   onChangePrimer,
@@ -24,8 +26,10 @@ const Design3D = ({
   onChangeOffset,
   onChangePos,
   onChangeLibOpt,
+  onChangeNumMut,
   onChangeFillWT,
   onChangeIncludeSingle,
+
   onBlur,
   onReset,
   onSubmit
@@ -40,6 +44,7 @@ const Design3D = ({
       <inputs.InputOffset offset={options.offset} onChangeOffset={onChangeOffset} onBlur={onBlur} />
       <inputs.InputRegionPos startPos={options.startPos} endPos={options.endPos} onChangePos={onChangePos} onBlur={onBlur} />
       <inputs.InputLibChoice libChoice={options.libChoice} allLibChoices={design3DLibChoices} onChangeLibOpt={onChangeLibOpt} />
+      <inputs.InputNumMutation numMutation={options.numMutation} onChangeNumMut={onChangeNumMut} />
       <inputs.InputFillWT isFillWT={options.isFillWT} onChangeFillWT={onChangeFillWT} />
       <inputs.InputIncludeSingle isIncludeSingle={options.isIncludeSingle} onChangeIncludeSingle={onChangeIncludeSingle} />
     </div>
