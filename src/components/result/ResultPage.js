@@ -23,9 +23,7 @@ export default class ResultPage extends React.Component {
 
     return (
       <div>
-        {jobId}
-        {status}
-        {type}
+        {JSON.stringify(this.props.json, null, 2)}
       </div>
     );
   }

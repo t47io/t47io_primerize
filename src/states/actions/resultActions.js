@@ -30,3 +30,11 @@ export const updateResultAction = (data) => ({
   type: ACTIONS_RESULT.UPDATE_RESULT,
   payload: { data }
 });
+
+
+export const blurSearchAction = () => ({ type: ACTIONS_RESULT.CLEANUP });
+
+export const submitSearchAction = (jobId) => ({
+  type: ACTIONS_RESULT.SEARCH,
+  payload: { jobId }
+});

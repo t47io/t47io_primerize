@@ -12,46 +12,32 @@ const ResultItem = ({
   jobId,
   type,
   status,
-  data,
-  onRemoveResult
+  data
 }) => (
   <li>
     <NavLink to={`/result/${jobId}`} >{data.tag}: #{jobId}; {jobTypes[`${type}`]} {jobStatus[`${status}`]}</NavLink>
-    <button name={`result_remove_${jobId}`} onClick={onRemoveResult} >x</button>
   </li>
 );
 ResultItem.propTypes = {
   jobId: React.PropTypes.string.isRequired,
   type: React.PropTypes.number.isRequired,
   status: React.PropTypes.number.isRequired,
-  data: React.PropTypes.object.isRequired,
-  onRemoveResult: React.PropTypes.func.isRequired
+  data: React.PropTypes.object.isRequired
 };
 
-const ResultList = ({
-  resultList,
-  onRemoveResult,
-  onClearResult
-}) => (
+const ResultList = ({ resultList }) => (
   <ul>
     {resultList.map((result) => (
-      <ResultItem {...result} key={result.jobId} onRemoveResult={onRemoveResult} />
+      <ResultItem {...result} key={result.jobId} />
     ))}
-    <button onClick={onClearResult} >clear list</button>
   </ul>
 );
 ResultList.propTypes = {
-  resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  onRemoveResult: React.PropTypes.func.isRequired,
-  onClearResult: React.PropTypes.func.isRequired
+  resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 
-const Sidebar = ({
-  resultList,
-  onRemoveResult,
-  onClearResult
-}) => (
+const Sidebar = ({ resultList }) => (
   <navbar>
     Primerize
     <ul>
@@ -60,15 +46,13 @@ const Sidebar = ({
       <li><NavLink to="/3d">3D</NavLink></li>
       <li>
         <NavLink to="/result">Result</NavLink>
-        <ResultList resultList={resultList} onRemoveResult={onRemoveResult} onClearResult={onClearResult} />
+        <ResultList resultList={resultList} />
       </li>
     </ul>
   </navbar>
 );
 Sidebar.propTypes = {
-  resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  onRemoveResult: React.PropTypes.func.isRequired,
-  onClearResult: React.PropTypes.func.isRequired
+  resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
 };
 
 
