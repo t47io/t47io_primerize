@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { design2DLibChoices } from '../../states/constants/status';
-
 
 const InputOffset = ({
   offset,
@@ -43,13 +41,14 @@ InputRegionPos.propTypes = {
 
 const InputLibChoice = ({
   libChoice,
-  onChangeLibOpt,
+  allLibChoices,
+  onChangeLibOpt
 }) => (
   <div>
     LIB Choice:
     <select value={libChoice} onChange={onChangeLibOpt} >
-      { Object.keys(design2DLibChoices).map((choice, i) => (
-          <option value={choice} key={i} >{design2DLibChoices[choice]}</option>
+      { Object.keys(allLibChoices).map((choice, i) => (
+          <option value={choice} key={i} >{allLibChoices[choice]}</option>
         )
       ) }
     </select>
@@ -57,8 +56,39 @@ const InputLibChoice = ({
 );
 InputLibChoice.propTypes = {
   libChoice: React.PropTypes.number.isRequired,
+  allLibChoices: React.PropTypes.object.isRequired,
   onChangeLibOpt: React.PropTypes.func.isRequired
 };
 
 
-export { InputOffset, InputRegionPos, InputLibChoice };
+const InputFillWT = ({
+  isFillWT,
+  onChangeFillWT
+}) => (
+  <div>
+    Fill WT Primers:
+    <input type="checkbox" checked={isFillWT} onChange={onChangeFillWT} />
+  </div>
+);
+InputFillWT.propTypes = {
+  isFillWT: React.PropTypes.bool.isRequired,
+  onChangeFillWT: React.PropTypes.func.isRequired
+};
+
+
+const InputIncludeSingle = ({
+  isIncludeSingle,
+  onChangeIncludeSingle
+}) => (
+  <div>
+    Include Single Mutants:
+    <input type="checkbox" checked={isIncludeSingle} onChange={onChangeIncludeSingle} />
+  </div>
+);
+InputIncludeSingle.propTypes = {
+  isIncludeSingle: React.PropTypes.bool.isRequired,
+  onChangeIncludeSingle: React.PropTypes.func.isRequired
+};
+
+
+export { InputOffset, InputRegionPos, InputLibChoice, InputFillWT, InputIncludeSingle };

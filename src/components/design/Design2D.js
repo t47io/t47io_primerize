@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { InputTag, InputSequence, InputPrimerList } from '../input/InputShared';
 import * as inputs from '../input/InputOptionsMultiple';
 import { Illustration2D } from '../input/InputIllustration';
+import { design2DLibChoices } from '../../states/constants/status';
 
 
 const Design2D = ({
@@ -32,7 +33,7 @@ const Design2D = ({
       OPTIONS
       <inputs.InputOffset offset={options.offset} onChangeOffset={onChangeOffset} onBlur={onBlur} />
       <inputs.InputRegionPos startPos={options.startPos} endPos={options.endPos} onChangePos={onChangePos} onBlur={onBlur} />
-      <inputs.InputLibChoice libChoice={options.libChoice} onChangeLibOpt={onChangeLibOpt} />
+      <inputs.InputLibChoice libChoice={options.libChoice} allLibChoices={design2DLibChoices} onChangeLibOpt={onChangeLibOpt} />
     </div>
     <button type="submit">submit form</button>
     <button type="button" onClick={onReset}>clear form</button>
