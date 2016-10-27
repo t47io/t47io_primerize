@@ -203,3 +203,23 @@ export class Illustration2D extends React.Component {
     );
   }
 };
+
+
+export class Illustration3D extends React.Component {
+  static propTypes = {
+    sequence: React.PropTypes.string.isRequired,
+    structures: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    offset: React.PropTypes.number.isRequired,
+    startPos: React.PropTypes.number.isRequired,
+    endPos: React.PropTypes.number.isRequired
+  }
+
+  shouldComponentUpdate = () => (this.props.isRender)
+
+  render() {
+
+    return (
+      <div></div>
+    );
+  }
+}

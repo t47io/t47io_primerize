@@ -34,7 +34,7 @@ export const design3DState = {
     '',
     ''
   ],
-  structure: [
+  structures: [
     ''
   ],
   options: {
@@ -44,7 +44,8 @@ export const design3DState = {
     libChoice: 1,
     isIncludeSingle: false,
     isFillWT: false
-  }
+  },
+  isRender: false
 }
 
 export const resultsState = [];
