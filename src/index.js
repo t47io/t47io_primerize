@@ -13,13 +13,13 @@ import Design3D from './containers/design/Design3D';
 import ResultLanding from './containers/result/ResultLanding';
 import ResultPage from './containers/result/ResultPage';
 
-import store from './states/store';
+import { store, persistor } from './states/store';
 
 
 injectTapEventPlugin();
 
 ReactDOM.render(
-  <Provider store={store} >
+  <Provider store={store} persistor={persistor} >
     <MuiThemeProvider>
       <Router history={browserHistory} >
         <Route path="/" component={Main} >

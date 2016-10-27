@@ -20,7 +20,7 @@ import { convertJson1D, convertJson2D, convertJson3D } from './formatJson';
 import { getData } from './getData';
 
 import { HOST_PRIMERIZE_SERVER } from '../config';
-import store from '../states/store';
+import { store } from '../states/store';
 
 
 const pollGetJson = (seqLen, jobId, dispatch) => {

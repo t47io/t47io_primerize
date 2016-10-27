@@ -89,7 +89,7 @@ const InputStructure = ({
 }) => (
   <div>
     <span>{id}</span>
-    <input type="text" name={`structure_input_${id}`} value={structure} onChange={onChangeStructure} onBlur={onBlur} />
+    <textarea type="text" name={`structure_input_${id}`} value={structure} onChange={onChangeStructure} onBlur={onBlur} />
     <span>len={structure.length}</span>
     <button type="button" name={`structure_remove_${id}`} onClick={onRemoveStructure} >x</button>
   </div>
