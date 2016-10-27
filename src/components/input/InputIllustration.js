@@ -1,30 +1,7 @@
 import React from 'react';
 
 
-const drawIllustration2D = (props) => {
-  let { sequence, offset, startPos, endPos } = props;
-
-  let startIdx = startPos + offset - 1;
-  let endIdx = endPos + offset - 1;
-  let fragments = [];
-
-  if (startIdx <= 20) {
-    fragments.push(sequence.slice(0, startIdx));
-  } else {
-    fragments.push(sequence.slice(0, 10) + '......' + sequence.slice(startIdx - 10, startIdx));
-  }
-  if (endIdx - startIdx <= 40) {
-    fragments.push(sequence.slice(startIdx, endIdx + 1));
-  } else {
-    fragments.push(sequence.slice(startIdx, startIdx + 20) + '......' + sequence.slice(endIdx - 19, endIdx + 1));
-  }
-  if (sequence.length - endIdx <= 20) {
-    fragments.push(sequence.slice(endIdx + 1));
-  } else {
-    fragments.push(sequence.slice(endIdx + 1, endIdx + 11) + '......' + sequence.slice(-10));
-  }
-
-  let labels = [(1 - offset).toString(), startPos.toString(), endPos.toString(), (sequence.length - offset).toString()];
+const drawIllustrationCommon = (fragments, labels) => {
   let [ line1, line2, line3 ] = [[], [] ,[]];
 
   if (fragments[0].length >= labels[0].length) {
@@ -178,7 +155,35 @@ const drawIllustration2D = (props) => {
     );
   }
 
-  return [line1, line2, line3];
+  return [line1, line2, line3];  
+};
+
+
+const drawIllustration2D = (props) => {
+  let { sequence, offset, startPos, endPos } = props;
+
+  let startIdx = startPos + offset - 1;
+  let endIdx = endPos + offset - 1;
+  let fragments = [];
+
+  if (startIdx <= 20) {
+    fragments.push(sequence.slice(0, startIdx));
+  } else {
+    fragments.push(sequence.slice(0, 10) + '......' + sequence.slice(startIdx - 10, startIdx));
+  }
+  if (endIdx - startIdx <= 40) {
+    fragments.push(sequence.slice(startIdx, endIdx + 1));
+  } else {
+    fragments.push(sequence.slice(startIdx, startIdx + 20) + '......' + sequence.slice(endIdx - 19, endIdx + 1));
+  }
+  if (sequence.length - endIdx <= 20) {
+    fragments.push(sequence.slice(endIdx + 1));
+  } else {
+    fragments.push(sequence.slice(endIdx + 1, endIdx + 11) + '......' + sequence.slice(-10));
+  }
+
+  let labels = [`${1 - offset}`, `${startPos}`, `${endPos}`, `${sequence.length - offset}`];
+  return drawIllustrationCommon(fragments, labels);
 };
 
 export class Illustration2D extends React.Component {
@@ -205,6 +210,22 @@ export class Illustration2D extends React.Component {
 };
 
 
+const drawIllustration3D = (props) => {
+  let { sequence, structures, offset, startPos, endPos } = props;
+
+  let startIdx = startPos + offset - 1;
+  let endIdx = endPos + offset - 1;
+
+  let fragments = [];
+  fragments.push(sequence.slice(0, startIdx));
+  fragments.push(sequence.slice(startIdx, endIdx + 1));
+  fragments.push(sequence.slice(endIdx + 1));
+
+  let labels = [`${1 - offset}`, `${startPos}`, `${endPos}`, `${sequence.length - offset}`];
+  [line1, line2, line3] = drawIllustrationCommon(fragments, labels);
+  return [line1, line2, line3];
+};
+
 export class Illustration3D extends React.Component {
   static propTypes = {
     sequence: React.PropTypes.string.isRequired,
@@ -217,9 +238,14 @@ export class Illustration3D extends React.Component {
   shouldComponentUpdate = () => (this.props.isRender)
 
   render() {
-
+    const [ line1, line2, line3 ] = drawIllustration3D(this.props);
+    
     return (
-      <div></div>
+      <div style={{ fontFamily: "monospace", overflowX: "scroll" }} >
+        <p key={"il1"}>{line1}</p>
+        <p key={"il2"}>{line2}</p>
+        <p key={"il3"}>{line3}</p>
+      </div>
     );
   }
 }
