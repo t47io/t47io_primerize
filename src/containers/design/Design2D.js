@@ -55,8 +55,13 @@ export default connect(
       .then(() => dispatch(stopIllustrationAction()))
       .catch((err) => { console.log(err); });
     },
-    onReset: () => dispatch(clear2DAction()),
-
+    onReset: () => {
+      Promise.resolve(dispatch(clear2DAction()))
+      .then(() => dispatch(drawIllustrationAction()))
+      .then(() => dispatch(stopIllustrationAction()))
+      .catch((err) => { console.log(err); });
+    },
+    
     onPrepareForm: (event) => dispatch(prepare2DAction()),
     onSubmit: (event) => {
       event.preventDefault();

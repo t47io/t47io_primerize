@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 
 import { design1DState } from '../constants/models';
 import { ACTIONS_1D } from '../constants/actions';
-import { cleanupTagSequence } from './sharedFunc';
+import { cleanupTagSequence } from '../sharedFunc';
 
 
 const design1DReducer = handleActions({

@@ -12,6 +12,7 @@ export const changeSequenceAction = (seq) => ({
   payload: { sequence: seq }
 });
 
+
 export const changePrimerAction = (nodeName, seq) => ({
   type: ACTIONS_2D.CHANGE_PRIMER,
   payload: {

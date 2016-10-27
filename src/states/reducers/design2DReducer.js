@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 
 import { design2DState } from '../constants/models';
 import { ACTIONS_2D } from '../constants/actions';
-import { cleanupTagSequence, cleanupPrimers } from './sharedFunc';
+import { cleanupTagSequence, cleanupPrimers } from '../sharedFunc';
 
 
 const design2DReducer = handleActions({
@@ -16,6 +16,7 @@ const design2DReducer = handleActions({
     sequence: payload.sequence
   }),
 
+
   [ACTIONS_2D.CHANGE_PRIMER]: (state, { payload }) => ({
     ...state,
     primers: [
@@ -25,12 +26,11 @@ const design2DReducer = handleActions({
     ]
   }),
 
-  [ACTIONS_2D.ADD_PRIMER]: (state, { payload }) => ({
+  [ACTIONS_2D.ADD_PRIMER]: (state) => ({
     ...state,
     primers: [
       ...(state.primers),
-      '',
-      ''
+      ...(state.primers.length % 2 ? [''] : ['', ''])
     ]
   }),
 
