@@ -8,7 +8,7 @@ import {
   submit1DinitAction, submit1DsuccessAction, submit1DfailAction
 } from '../../states/actions/design1DActions';
 
-import { submit1Ddata } from '../../utilities/submitData';
+import submitData from '../../utilities/submitData';
 
 
 export default connect(
@@ -27,7 +27,7 @@ export default connect(
 
     onSubmit: (event) => {
       event.preventDefault();
-      submit1Ddata(dispatch);
+      submitData(1, dispatch);
     }
   })
 )(Design1D);

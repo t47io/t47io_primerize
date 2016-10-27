@@ -12,7 +12,7 @@ import {
   submit3DinitAction, submit3DsuccessAction, submit3DfailAction
 } from '../../states/actions/design3DActions';
 
-import { submit3Ddata } from '../../utilities/submitData';
+import submitData from '../../utilities/submitData';
 
 
 export default connect(
@@ -52,7 +52,7 @@ export default connect(
     onPrepareForm: (event) => dispatch(prepare3DAction()),
     onSubmit: (event) => {
       event.preventDefault();
-      submit3Ddata(dispatch);
+      submitData(3, dispatch);
     }
   })
 )(Design3D);

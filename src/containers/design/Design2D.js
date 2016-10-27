@@ -11,7 +11,7 @@ import {
   submit2DinitAction, submit2DsuccessAction, submit2DfailAction
 } from '../../states/actions/design2DActions';
 
-import { submit2Ddata } from '../../utilities/submitData';
+import submitData from '../../utilities/submitData';
 
 
 export default connect(
@@ -44,7 +44,7 @@ export default connect(
     onPrepareForm: (event) => dispatch(prepare2DAction()),
     onSubmit: (event) => {
       event.preventDefault();
-      submit2Ddata(dispatch);
+      submitData(2, dispatch);
     }
   })
 )(Design2D);

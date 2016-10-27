@@ -46,7 +46,8 @@ export const convertJson1D = (json) => {
     newJson = {
       ...newJson,
       result: {
-
+        ...(json.result),
+        primer_set: fixPrimerIndex(json.result.primer_set)
       }
     }
   }
@@ -63,11 +64,10 @@ export const convertJson2D = (json) => {
     },
     result: {
       ...(json.result),
-      primers: fixPrimerIndex(json.result.primer_set)
+      primer_set: fixPrimerIndex(json.result.primer_set)
     }
   };
   delete newJson['job_id'];
-  delete newJson['result']['primer_set']
 
   if (Object.keys(newJson.result).length > 1) {
     newJson = {
@@ -87,11 +87,10 @@ export const convertJson3D = (json) => {
     },
     result: {
       ...(json.result),
-      primers: fixPrimerIndex(json.result.primer_set)
+      primer_set: fixPrimerIndex(json.result.primer_set)
     }
   };
   delete newJson['job_id'];
-  delete newJson['result']['primer_set']
 
   if (Object.keys(newJson.result).length > 1) {
     newJson = {
