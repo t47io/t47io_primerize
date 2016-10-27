@@ -14,7 +14,7 @@ import {
 import { addResultAction, gotoResultAction } from '../../states/actions/resultActions';
 import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
-import { convertJson3D } from '../sharedFunc';
+import { convertJson3D } from '../../utilities/formatJson';
 import store from '../../states/store';
 
 

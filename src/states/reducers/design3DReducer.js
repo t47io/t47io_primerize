@@ -2,7 +2,7 @@ import { handleActions } from 'redux-actions';
 
 import { design3DState } from '../constants/models';
 import { ACTIONS_3D } from '../constants/actions';
-import { cleanupTagSequence, cleanupPrimers, cleanupStructures } from '../sharedFunc';
+import { cleanupTagSequence, cleanupPrimers, cleanupStructures } from '../../utilities/regexInputs';
 
 const design3DReducer = handleActions({
   [ACTIONS_3D.CHANGE_TAG]: (state, { payload }) => ({

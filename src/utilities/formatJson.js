@@ -62,8 +62,8 @@ export const convertJson2D = (json) => {
       params: renameParams2D(json.data.params)
     },
     result: {
-        ...(json.result),
-        primers: fixPrimerIndex(json.result.primer_set)
+      ...(json.result),
+      primers: fixPrimerIndex(json.result.primer_set)
     }
   };
   delete newJson['job_id'];
@@ -86,8 +86,8 @@ export const convertJson3D = (json) => {
       params: renameParams3D(json.data.params)
     },
     result: {
-        ...(json.result),
-        primers: fixPrimerIndex(json.result.primer_set)
+      ...(json.result),
+      primers: fixPrimerIndex(json.result.primer_set)
     }
   };
   delete newJson['job_id'];
