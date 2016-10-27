@@ -11,12 +11,8 @@ import {
   blur3DAction, prepare3DAction, clear3DAction,
   submit3DinitAction, submit3DsuccessAction, submit3DfailAction
 } from '../../states/actions/design3DActions';
-import { addResultAction, gotoResultAction } from '../../states/actions/resultActions';
-import { showModalAction, hideModalAction } from '../../states/actions/uiActions';
 
-import { convertJson3D } from '../../utilities/formatJson';
-import { prepare3Ddata } from '../../utilities/prepareData';
-import store from '../../states/store';
+import { submit3Ddata } from '../../utilities/submitData';
 
 
 export default connect(
@@ -56,35 +52,7 @@ export default connect(
     onPrepareForm: (event) => dispatch(prepare3DAction()),
     onSubmit: (event) => {
       event.preventDefault();
-      Promise.resolve(dispatch(blur3DAction()))
-      .then(dispatch(prepare3DAction()))
-      .then(() => {
-        dispatch(submit3DinitAction());
-        dispatch(showModalAction("waiting server..."));
-
-        let state = store.getState().input3D;
-        let postData3D = prepare3Ddata(state);
-        fetch('http://127.0.0.1:8000/api/submit/', {
-          method: 'POST',
-          mode: 'cors',
-          body: postData3D,
-        })
-        .then((response) => (response.json()))
-        .then((json) => {
-          if (json.error) {
-            dispatch(submit3DfailAction());
-            dispatch(showModalAction(json.error));
-          } else {
-            console.log(json)
-            dispatch(submit3DsuccessAction());
-            dispatch(showModalAction("running..."));
-            dispatch(addResultAction(convertJson3D(json)));
-            dispatch(gotoResultAction(json.job_id));
-          }
-
-        });
-      })
-      .catch((err) => { console.log(err); });
+      submit3Ddata(dispatch);
     }
   })
 )(Design3D);
