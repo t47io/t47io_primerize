@@ -11,7 +11,7 @@ import Design1D from './containers/design/Design1D';
 import Design2D from './containers/design/Design2D';
 import Design3D from './containers/design/Design3D';
 import ResultLanding from './containers/result/ResultLanding';
-import ResultPage from './containers/result/ResultPage';
+import { ResultPageSmart, onResultEnter } from './containers/result/ResultPage';
 
 import { store, persistor } from './states/store';
 
@@ -29,7 +29,7 @@ ReactDOM.render(
           <Route path="/3d" component={Design3D} />
 
           <Route path="/result" component={ResultLanding} />
-          <Route path="/result/:jobId" component={ResultPage} />
+          <Route path="/result/:jobId" component={ResultPageSmart} onEnter={onResultEnter} />
         </Route>
       </Router>
     </MuiThemeProvider>

@@ -3,39 +3,24 @@ import React from 'react';
 import { cleanupJobId } from '../../utilities/regexInputs';
 
 
-// export default class ResultPage extends React.Component {
-//   static propTypes = {
-
-//   }
-
-  
-//   render() {
-//     if (cleanupJobId(jobId).length !== 16) {
-//       return (
-//         <div>404 NOT FOUND</div>
-//       );
-//     } else {
-//       return (
-//         <div>{jobId}</div>
-//       );
-//     }
-//   }
-// }
+export default class ResultPage extends React.Component {
+  static propTypes = {
+    jobId: React.PropTypes.string.isRequired,
+    json: React.PropTypes.object.isRequired,
+    onFetch: React.PropTypes.func.isRequired
+  }
 
 
-const ResultPage = ({
-  jobId,
-  status,
-  type,
-  time,
-  data,
-  result
-}) => {
-  if (cleanupJobId(jobId).length !== 16) {
-    return (
-      <div>404 NOT FOUND</div>
-    );
-  } else {
+  componentDidMount() {
+    if (typeof this.props.json.status === "undefined") {
+      this.props.onFetch(this.props.jobId);
+    }
+  }
+
+
+  render() {
+    let { jobId, status, type, time, data, result } = this.props.json;
+
     return (
       <div>
         {jobId}
@@ -44,9 +29,4 @@ const ResultPage = ({
       </div>
     );
   }
-};
-ResultPage.propTypes = {
-
-};
-
-export default ResultPage;
+}

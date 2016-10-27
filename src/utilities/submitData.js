@@ -17,7 +17,7 @@ import { showModalAction, hideModalAction } from '../states/actions/uiActions';
 
 import { prepare1Ddata, prepare2Ddata, prepare3Ddata } from './prepareData';
 import { convertJson1D, convertJson2D, convertJson3D } from './formatJson';
-import { getData } from './getData';
+import getData from './getData';
 
 import { HOST_PRIMERIZE_SERVER } from '../config';
 import { store } from '../states/store';
