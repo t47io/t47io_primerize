@@ -1,5 +1,10 @@
 import React from 'react';
 
+import AppBar from 'material-ui/AppBar';
+import IconButton from 'material-ui/IconButton';
+
+import ImageTune from 'material-ui/svg-icons/image/tune';
+
 import Sidebar from './containers/Sidebar';
 import Modal from './containers/Modal';
 
@@ -12,9 +17,9 @@ export default class Main extends React.Component {
   render() {
     return (
       <div>
+        <AppBar title="Primerize" iconElementLeft={<IconButton><ImageTune/></IconButton>} />
         <Sidebar />
         <Modal />
-        <h1>Hello, World!</h1>
 
         <div>
           {this.props.children}

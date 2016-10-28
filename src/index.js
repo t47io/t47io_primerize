@@ -5,6 +5,11 @@ import { browserHistory, Router, Route, IndexRedirect } from 'react-router';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
+import { blue500, amber500, limea400, deeporange500, white, transparent } from 'material-ui/styles/colors';
+
 
 import Main from './main';
 import Design1D from './containers/design/Design1D';
@@ -17,10 +22,24 @@ import { store, persistor } from './states/store';
 
 
 injectTapEventPlugin();
+const muiTheme = getMuiTheme({
+  ...darkBaseTheme,
+  palette: {
+    ...(darkBaseTheme.palette),
+    primary1Color: blue500,
+    primary2Color: blue500,
+    shadowColor: transparent
+  },
+  appBar: {
+    ...(darkBaseTheme.appBar),
+    textColor: white
+  }
+});
+
 
 ReactDOM.render(
   <Provider store={store} persistor={persistor} >
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
       <Router history={browserHistory} >
         <Route path="/" component={Main} >
           <IndexRedirect to="/1d" />
