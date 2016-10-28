@@ -43,7 +43,7 @@ class Main extends React.Component {
             <IconButton>
               <FontIcon className="material-icons">pets</FontIcon>
             </IconButton>
-          } 
+          }
         />
         <Drawer docked={true} containerClassName={styles.drawer} >
           <AppBar
@@ -67,7 +67,7 @@ class Main extends React.Component {
       </div>
     );
   }
-};
+}
 
 
 export default injectSheet(jssImportant(styles))(Main);

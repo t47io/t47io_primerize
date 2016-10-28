@@ -6,19 +6,17 @@ import FontIcon from 'material-ui/FontIcon';
 import { colors } from '../../theme';
 
 
-const input_style = { color: colors.main.blue };
-
-
 const InputTag = ({
   tag,
   onChangeTag,
-  onBlur
+  onBlur,
+  styles
 }) => (
   <div>
     <TextField
       type="text" name="tag"
       hintText="Construct name prefix for primers" 
-      floatingLabelText="Name Tag" floatingLabelStyle={input_style}
+      floatingLabelText="Name Tag" 
       fullWidth={true}       
       value={tag}
       onChange={onChangeTag} onBlur={onBlur}
@@ -28,7 +26,8 @@ const InputTag = ({
 InputTag.propTypes = {
   tag: React.PropTypes.string.isRequired,
   onChangeTag: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 const InputSequence = ({
@@ -41,7 +40,7 @@ const InputSequence = ({
     <TextField
       type="text" name="sequence"
       hintText="Full-length DNA sequence for design"
-      floatingLabelText="Sequence" floatingLabelStyle={input_style}
+      floatingLabelText="Sequence" floatingLabelStyle={{}}
       fullWidth={true} multiLine={true}
       rows={3} rowsMax={5}
       value={sequence}

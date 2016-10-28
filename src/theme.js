@@ -46,7 +46,7 @@ const muiTheme = getMuiTheme({
     errorColor: deepOrangeA400
   }
 });
-console.log(muiTheme.drawer)
+// console.log(muiTheme.drawer)
 
 const colors = {
   main: {

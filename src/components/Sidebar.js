@@ -16,6 +16,33 @@ import { jobTypes, jobStatus } from '../states/constants/status';
 
 
 const styles = {
+  listItem: {
+    '&:hover': {
+      backgroundColor: colors.main.black
+    }
+  },
+  activeListItem: {
+    backgroundColor: colors.main.grey,
+    '&:hover': {
+      backgroundColor: colors.faint.grey
+    }
+  },
+  designIcon: {
+    backgroundColor: colors.main.blue,
+    '& > span.material-icons': { color: colors.faint.blue },
+    '&:hover': {
+      backgroundColor: colors.main.cyan,
+      '& > span.material-icons': { color: colors.main.white }
+    }
+  },
+  listIcon: {
+    backgroundColor: colors.main.teal,
+    '& > span.material-icons': { color: colors.faint.teal },
+    '&:hover': {
+      backgroundColor: colors.main.green,
+      '& > span.material-icons': { color: colors.main.white }
+    }
+  },
   jobStatusIcon: {
     fontSize: "16px",
     verticalAlign: "bottom"
@@ -23,7 +50,11 @@ const styles = {
   jobTypeIcon: {
     marginLeft: "12px",
     backgroundColor: colors.faint.yellow,
-    color: colors.main.purple
+    color: colors.main.purple,
+    '&:hover': {
+      backgroundColor: colors.main.teal,
+      color: colors.main.white
+    }
   },
   entryPrimaryText: { verticalAlign: "super" },
   divider: { backgroundColor: colors.main.grey },
@@ -71,78 +102,74 @@ const job_icon = (status, styles) => {
 };
 
 
-class ResultItem extends React.Component {
-  static propTypes = {
-    jobId: React.PropTypes.string.isRequired,
-    type: React.PropTypes.number.isRequired,
-    status: React.PropTypes.number.isRequired,
-    data: React.PropTypes.object.isRequired
-  }
+const ResultItem = ({
+  jobId,
+  type,
+  status,
+  data,
+  styles
+}) => (
+  <ListItem
+    className={`${styles.whiteText} ${styles.listItem}`}
+    primaryText={
+      <span className={styles.entryPrimaryText}>{data.tag}</span>
+    }
+    secondaryText={
+      <span>
+        {job_icon(status, styles.jobStatusIcon)}
+        <span className={styles.jobIdText} >{` ${jobId}`}</span>
+      </span>
+    }
+    secondaryTextLines={1}
+    leftAvatar={
+      <Avatar
+        size={28}
+        className={styles.jobTypeIcon} >
+        {type}D
+      </Avatar>
+    }
+    containerElement= {
+      <Link to={`/result/${jobId}`} activeClassName={styles.activeListItem} />
+    } />
+);
+ResultItem.propTypes = {
+  jobId: React.PropTypes.string.isRequired,
+  type: React.PropTypes.number.isRequired,
+  status: React.PropTypes.number.isRequired,
+  data: React.PropTypes.object.isRequired,
+  styles: React.PropTypes.object.isRequired
+};
 
-  render() {
-    const { jobId, type, status, data, styles } = this.props;
-
-    return (
-      <ListItem
-        className={styles.whiteText}
-        primaryText={
-          <span className={styles.entryPrimaryText}>{data.tag}</span>
-        }
-        secondaryText={
-          <span>
-            {job_icon(status, styles.jobStatusIcon)}
-            <span className={styles.jobIdText} >{` ${jobId}`}</span>
-          </span>
-        }
-        secondaryTextLines={1}
-        leftAvatar={
-          <Avatar
-            size={28}
-            className={styles.jobTypeIcon} >
-            {type}D
-          </Avatar>
-        }
-        containerElement= {
-          <Link to={`/result/${jobId}`} activeClassName="active" />
-        } />
-    );
-  }
-}
-
-class ResultList extends React.Component {
-  static propTypes = {
-    resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
-  }
-
-  render () {
-    const { resultList, styles } = this.props;
-
-    return ( 
-      <ListItem
-        className={styles.whiteText}
-        leftAvatar={
-            <Avatar
-              icon={<FontIcon className="material-icons">content_paste</FontIcon>}
-              color={colors.faint.teal}
-              backgroundColor={colors.main.teal}
-            />
-        } 
-        primaryText="Entry List"
-        secondaryText="Retrieve a previous job from server"
-        secondaryTextLines={2}
-        initiallyOpen={true}
-        nestedItems={
-          resultList.map((result) => (
-            <ResultItem {...result} key={result.jobId} styles={styles} />
-          ))
-        }
-        containerElement={
-          <Link to="/result" activeClassName="active" />
-        }
-      />
-    );
-  }
-}
+const ResultList = ({
+  resultList,
+  styles
+}) => (
+  <ListItem
+    className={`${styles.whiteText} ${styles.listItem}`}
+    leftAvatar={
+        <Avatar
+          icon={<FontIcon className="material-icons">content_paste</FontIcon>}
+          className={styles.listIcon}
+        />
+    } 
+    primaryText="Entry List"
+    secondaryText="Retrieve a previous job from server"
+    secondaryTextLines={2}
+    initiallyOpen={true}
+    nestedItems={
+      resultList.map((result) => (
+        <ResultItem {...result} key={result.jobId} styles={styles} />
+      ))
+    }
+    containerElement={
+      <Link to="/result" activeClassName={styles.activeListItem} />
+    }
+  />
+);
+ResultList.propTypes = {
+  resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  styles: React.PropTypes.object.isRequired
+};
 
 
 class Sidebar extends React.Component {
@@ -157,19 +184,19 @@ class Sidebar extends React.Component {
       <List>
         <Subheader>DESIGN</Subheader>
         <ListItem 
-          className={styles.whiteText}
+          className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
             <Avatar
               icon={<FontIcon className="material-icons">compare_arrows</FontIcon>}
-              color={colors.faint.blue}
-              backgroundColor={colors.main.blue}
+              className={styles.designIcon}
             />
           }
           rightIconButton={
             <IconButton
               touch={true}
               tooltip="Demo"
-              tooltipPosition="bottom-left" >
+              tooltipPosition="bottom-left" 
+              tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
                 color={colors.main.yellow}
@@ -184,31 +211,24 @@ class Sidebar extends React.Component {
           }
           secondaryTextLines={2}
           containerElement={
-            <Link to="/1d" activeClassName="active" />
+            <Link to="/1d" activeClassName={styles.activeListItem} />
           }
         />
         <Divider inset={true} className={styles.divider} />
         <ListItem
-          className={styles.whiteText}
+          className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
             <Avatar
-              icon={
-                <FontIcon
-                  className="material-icons"
-                  hoverColor={colors.main.white} >
-                  apps
-                </FontIcon>
-              }
-              color={colors.faint.blue}
-              backgroundColor={colors.main.blue}
+              icon={<FontIcon className="material-icons"> apps</FontIcon> }
+              className={styles.designIcon}
             />
-
           } 
           rightIconButton={
             <IconButton
               touch={true}
               tooltip="Demo"
-              tooltipPosition="bottom-left" >
+              tooltipPosition="bottom-left" 
+              tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
                 color={colors.main.yellow}
@@ -223,24 +243,24 @@ class Sidebar extends React.Component {
           }
           secondaryTextLines={2}
           containerElement={
-            <Link to="/2d" activeClassName="active" />
+            <Link to="/2d" activeClassName={styles.activeListItem} />
           }
         />
         <Divider inset={true} className={styles.divider} />
         <ListItem
-          className={styles.whiteText}
+          className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
             <Avatar
               icon={<FontIcon className="material-icons">tune</FontIcon>}
-              color={colors.faint.blue}
-              backgroundColor={colors.main.blue}
+              className={styles.designIcon}
             />
           } 
           rightIconButton={
             <IconButton
               touch={true}
               tooltip="Demo"
-              tooltipPosition="bottom-left" >
+              tooltipPosition="bottom-left" 
+              tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
                 color={colors.main.yellow}
@@ -255,7 +275,7 @@ class Sidebar extends React.Component {
           }
           secondaryTextLines={2}
           containerElement={
-            <Link to="/3d" activeClassName="active" />
+            <Link to="/3d" activeClassName={styles.activeListItem} />
           }
         />
 
