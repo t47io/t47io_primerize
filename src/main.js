@@ -33,7 +33,7 @@ class Main extends React.Component {
   }
 
   render() {
-    const { sheet: { classes } } = this.props;
+    const { sheet: { classes: styles } } = this.props;
 
     return (
       <div>
@@ -45,7 +45,7 @@ class Main extends React.Component {
             </IconButton>
           } 
         />
-        <Drawer docked={true} containerClassName={classes.drawer} >
+        <Drawer docked={true} containerClassName={styles.drawer} >
           <AppBar
             title="Primerize"
             iconElementLeft={
@@ -59,8 +59,8 @@ class Main extends React.Component {
 
         <Modal />
 
-        <div style={styles.container} >
-          <div style={styles.body} >
+        <div className={styles.container} >
+          <div className={styles.body} >
             {this.props.children}
           </div>
         </div>

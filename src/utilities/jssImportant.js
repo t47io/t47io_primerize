@@ -16,4 +16,20 @@ const traverse = (obj) => {
 };
 
 
-export default (styles) => (traverse(styles));
+export default (styles, targets = []) => {
+  let keys = [];
+  if (targets.length) {
+    keys = Object.keys(styles).filter((key) => (targets.indexOf(key) > -1));
+  } else {
+    keys = Object.keys(styles);
+  }
+  let subset = keys.reduce((obj, key) => {
+      obj[key] = styles[key];
+      return obj;
+    }, {}
+  );
+  return {
+    ...styles,
+    ...(traverse(subset))
+  };
+};
