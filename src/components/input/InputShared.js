@@ -1,5 +1,13 @@
 import React from 'react';
 
+import TextField from 'material-ui/TextField';
+
+import FontIcon from 'material-ui/FontIcon';
+import { colors } from '../../theme';
+
+
+const input_style = { color: colors.main.blue };
+
 
 const InputTag = ({
   tag,
@@ -7,8 +15,14 @@ const InputTag = ({
   onBlur
 }) => (
   <div>
-    <span>TAG</span>
-    <input type="text" value={tag} onChange={onChangeTag} onBlur={onBlur} />
+    <TextField
+      type="text" name="tag"
+      hintText="Construct name prefix for primers" 
+      floatingLabelText="Name Tag" floatingLabelStyle={input_style}
+      fullWidth={true}       
+      value={tag}
+      onChange={onChangeTag} onBlur={onBlur}
+      />
   </div>
 );
 InputTag.propTypes = {
@@ -24,7 +38,14 @@ const InputSequence = ({
 }) => (
   <div>
     <p>SEQUENCE: len=<span>{sequence.length}</span></p>
-    <textarea type="text" value={sequence} onChange={onChangeSequence} onBlur={onBlur} />
+    <TextField
+      type="text" name="sequence"
+      hintText="Full-length DNA sequence for design"
+      floatingLabelText="Sequence" floatingLabelStyle={input_style}
+      fullWidth={true} multiLine={true}
+      rows={3} rowsMax={5}
+      value={sequence}
+      onChange={onChangeSequence} onBlur={onBlur} />
   </div>
 );
 InputSequence.propTypes = {

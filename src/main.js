@@ -4,7 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 
-import ImageTune from 'material-ui/svg-icons/image/tune';
+import FontIcon from 'material-ui/FontIcon';
+import { colors } from './theme';
 
 import Sidebar from './containers/Sidebar';
 import Modal from './containers/Modal';
@@ -12,11 +13,15 @@ import Modal from './containers/Modal';
 
 const container_style = {
   paddingLeft: "256px",
-  paddingTop: "64px",
+  paddingTop: "24px",
   minHeight: "400px"
 };
 const body_style = {
   margin: "48px 72px",
+};
+const drawer_style = {
+  backgroundColor: "#303030",
+  color: colors.main.white
 };
 
 
@@ -28,11 +33,22 @@ export default class Main extends React.Component {
   render() {
     return (
       <div>
-        <AppBar title="Primerize" iconElementLeft={<IconButton><ImageTune/></IconButton>} />
-        <Drawer docked={true} >
+        <AppBar
+          title="Primerize"
+          iconElementLeft={
+            <IconButton>
+              <FontIcon className="material-icons">pets</FontIcon>
+            </IconButton>
+          } 
+        />
+        <Drawer docked={true} containerStyle={drawer_style} >
           <AppBar
             title="Primerize"
-            iconElementLeft={<IconButton><ImageTune/></IconButton>} 
+            iconElementLeft={
+              <IconButton>
+                <FontIcon className="material-icons">pets</FontIcon>
+              </IconButton>
+            }
           />
           <Sidebar />
         </Drawer>

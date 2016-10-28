@@ -2,18 +2,15 @@ import React from 'react';
 import { Link } from 'react-router'
 
 import Avatar from 'material-ui/Avatar';
-// import Chip from 'material-ui/Chip';
 import Divider from 'material-ui/Divider';
-import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
-import LinearProgress from 'material-ui/LinearProgress';
 import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 
 import FontIcon from 'material-ui/FontIcon';
+import { colors } from '../theme';
 
 import { jobTypes, jobStatus } from '../states/constants/status';
-import { colors } from '../theme';
 
 
 const job_icon_style = {
@@ -22,9 +19,12 @@ const job_icon_style = {
 };
 const job_type_style = {
   marginLeft: "12px",
-  backgroundColor: colors.main.yellow
+  backgroundColor: colors.faint.yellow,
+  color: colors.main.purple
 };
 const demo_style = { right: "16px" };
+const divider_style = { backgroundColor: colors.main.grey };
+const text_style = { color: colors.main.white };
 
 
 const job_icon = (status) => {
@@ -76,6 +76,7 @@ const ResultItem = ({
   data
 }) => (
   <ListItem
+    style={text_style}
     primaryText={
       <span style={{verticalAlign: "super"}}>{data.tag}</span>
     }
@@ -106,6 +107,7 @@ ResultItem.propTypes = {
 
 const ResultList = ({ resultList }) => (
   <ListItem
+    style={text_style}
     leftAvatar={
         <Avatar
           icon={<FontIcon className="material-icons">content_paste</FontIcon>}
@@ -136,6 +138,7 @@ const Sidebar = ({ resultList }) => (
   <List>
     <Subheader>DESIGN</Subheader>
     <ListItem 
+      style={text_style}
       leftAvatar={
         <Avatar
           icon={<FontIcon className="material-icons">compare_arrows</FontIcon>}
@@ -166,8 +169,9 @@ const Sidebar = ({ resultList }) => (
         <Link to="/1d" activeClassName="active" />
       }
     />
-    <Divider inset={true} />
+    <Divider inset={true} style={divider_style} />
     <ListItem
+      style={text_style}
       leftAvatar={
         <Avatar
           icon={
@@ -205,8 +209,9 @@ const Sidebar = ({ resultList }) => (
         <Link to="/2d" activeClassName="active" />
       }
     />
-    <Divider inset={true} />
+    <Divider inset={true} style={divider_style} />
     <ListItem
+      style={text_style}
       leftAvatar={
         <Avatar
           icon={<FontIcon className="material-icons">tune</FontIcon>}
@@ -238,7 +243,7 @@ const Sidebar = ({ resultList }) => (
       }
     />
 
-    <Divider />
+    <Divider style={{backgroundColor: colors.faint.grey}} />
     <Subheader>RESULT</Subheader>
     <ResultList resultList={resultList} />
   </List>

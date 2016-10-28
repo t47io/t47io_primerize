@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+
 import { InputTag, InputSequence } from '../input/InputShared';
 import InputWarning from '../input/InputWarning';
 import * as inputs from '../input/InputOptionsSingle';
@@ -23,6 +24,7 @@ const Design1D = ({
   onSubmit
 }) => (
   <form action="/submit" method="post" onSubmit={onSubmit}>
+    <h1>Single Assembly</h1>
     <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} />
     <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
     <div>
