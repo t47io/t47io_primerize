@@ -22,7 +22,6 @@ const job_type_style = {
   backgroundColor: colors.faint.yellow,
   color: colors.main.purple
 };
-const demo_style = { right: "16px" };
 const divider_style = { backgroundColor: colors.main.grey };
 const text_style = { color: colors.main.white };
 
@@ -146,9 +145,8 @@ const Sidebar = ({ resultList }) => (
           backgroundColor={colors.main.blue}
         />
       }
-      rightIcon={
+      rightIconButton={
         <IconButton
-          style={demo_style}
           touch={true}
           tooltip="Demo"
           tooltipPosition="bottom-left" >
@@ -186,9 +184,8 @@ const Sidebar = ({ resultList }) => (
         />
 
       } 
-      rightIcon={
+      rightIconButton={
         <IconButton
-          style={demo_style}
           touch={true}
           tooltip="Demo"
           tooltipPosition="bottom-left" >
@@ -219,9 +216,8 @@ const Sidebar = ({ resultList }) => (
           backgroundColor={colors.main.blue}
         />
       } 
-      rightIcon={
+      rightIconButton={
         <IconButton
-          style={demo_style}
           touch={true}
           tooltip="Demo"
           tooltipPosition="bottom-left" >

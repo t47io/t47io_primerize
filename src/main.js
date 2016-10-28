@@ -2,35 +2,39 @@ import React from 'react';
 
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
+import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 
-import FontIcon from 'material-ui/FontIcon';
 import { colors } from './theme';
+import injectSheet from 'react-jss';
+import jssImportant from './utilities/jssImportant';
 
 import Sidebar from './containers/Sidebar';
 import Modal from './containers/Modal';
 
 
-const container_style = {
-  paddingLeft: "256px",
-  paddingTop: "24px",
-  minHeight: "400px"
-};
-const body_style = {
-  margin: "48px 72px",
-};
-const drawer_style = {
-  backgroundColor: "#303030",
-  color: colors.main.white
+const styles = {
+  container: {
+    paddingLeft: "256px",
+    paddingTop: "24px",
+    minHeight: "400px"
+  },
+  body: { margin: "48px 72px" },
+  drawer: {
+    backgroundColor: "#303030",
+    color: colors.main.white
+  }
 };
 
 
-export default class Main extends React.Component {
+class Main extends React.Component {
   static propTypes = {
     children: React.PropTypes.object
   }
 
   render() {
+    const { sheet: { classes } } = this.props;
+
     return (
       <div>
         <AppBar
@@ -41,7 +45,7 @@ export default class Main extends React.Component {
             </IconButton>
           } 
         />
-        <Drawer docked={true} containerStyle={drawer_style} >
+        <Drawer docked={true} containerClassName={classes.drawer} >
           <AppBar
             title="Primerize"
             iconElementLeft={
@@ -55,8 +59,8 @@ export default class Main extends React.Component {
 
         <Modal />
 
-        <div style={container_style} >
-          <div style={body_style} >
+        <div style={styles.container} >
+          <div style={styles.body} >
             {this.props.children}
           </div>
         </div>
@@ -64,3 +68,7 @@ export default class Main extends React.Component {
     );
   }
 };
+
+
+export default injectSheet(jssImportant(styles))(Main);
+
