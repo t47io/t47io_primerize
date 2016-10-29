@@ -26,9 +26,12 @@ const muiTheme = getMuiTheme({
     primary1Color: blueA400,
     primary2Color: blueA400,
     primary3Color: blueA400,
-    accent1Color: deepOrangeA400,
-    accent2Color: grey500,
-    accent3Color: grey900,
+    accent1Color: amberA400,
+    accent2Color: amberA400,
+    accent3Color: amberA400,
+    secondary1Color: deepOrangeA400,
+    secondary2Color: deepOrangeA400,
+    secondary3Color: deepOrangeA400,
     pickerHeaderColor: blueA400,
     shadowColor: transparent
   },
@@ -53,12 +56,17 @@ const muiTheme = getMuiTheme({
     thumbRequiredColor: deepOrangeA400,
     trackRequiredColor: deepOrange50
   },
+  raisedButton: {
+    ...(light.raisedButton),
+    primaryColor: blueA400,
+    secondaryColor: deepOrangeA400
+  },
   tooltip: {
     color: grey700,
     rippleBackgroundColor: amberA400
   }
 });
-console.log(muiTheme.toggle)
+console.log(muiTheme)
 
 const colors = {
   main: {

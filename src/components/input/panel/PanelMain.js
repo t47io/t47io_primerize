@@ -36,6 +36,13 @@ const stylesLocal = {
     '&.long': { backgroundColor: colors.faint.amber },
     '&.bad': { backgroundColor: colors.faint.red }
   },
+  warningPanel: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+
+    '& > div:last-child': { paddingRight: "0px" }
+  },
   warningIcon: {
     marginTop: "6px",
     borderRadiusTop: "0px",
