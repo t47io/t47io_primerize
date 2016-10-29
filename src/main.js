@@ -15,6 +15,7 @@ import Modal from './containers/Modal';
 
 const styles = {
   container: {
+    fontFamily: "Roboto, sans-serif",
     paddingLeft: "256px",
     paddingTop: "24px",
     minHeight: "400px"

@@ -1,16 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Avatar from 'material-ui/Avatar';
+import FontIcon from 'material-ui/FontIcon';
+
 import { colors } from '../../theme';
+import stylesShared from './stylesShared';
 import injectSheet from 'react-jss';
 import jssImportant from '../../utilities/jssImportant';
 
-import { InputTag, InputSequence } from '../input/InputShared';
+import { InputMain } from '../input/InputSections';
 import InputWarning from '../input/InputWarning';
 import * as inputs from '../input/InputOptionsSingle';
 
 
 const styles = {
+  ...stylesShared,
   textField: { color: colors.main.blue },
 };
 
@@ -38,13 +43,18 @@ class Design1D extends React.Component {
       onBlur, onReset, onSubmit,
       sheet: { classes: styles } 
     }  = this.props;
-    console.log(styles.textField)
 
     return (
       <form action="/submit" method="post" onSubmit={onSubmit}>
-        <h1>Single Assembly</h1>
-        <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} styles={styles} />
-        <InputSequence sequence={sequence} onChangeSequence={onChangeSequence} onBlur={onBlur} />
+        <h1 className={styles.titleH1} >
+          <Avatar
+            icon={<FontIcon className="material-icons">compare_arrows</FontIcon>}
+            className={styles.titleIcon}
+          />
+          Single Assembly
+          <sub>[1D]</sub>
+        </h1>
+        <InputMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
         <div>
           OPTIONS
           <inputs.InputMinTm tm={options.tm} onChangeTm={onChangeTm} onBlur={onBlur} />

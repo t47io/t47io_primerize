@@ -4,14 +4,14 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import {
   amberA400, yellowA400,
-  deepOrangeA400, deepOrange100,
-  purpleA700, purple100,
-  greenA400, green100,
-  limeA700, lime100,
-  tealA700, teal100,
-  blueA400, blue100,
-  cyanA400, cyan100,
-  blueGrey500, grey700, grey900, grey500,
+  deepOrangeA400, deepOrange50,
+  purpleA700, purple50,
+  greenA400, green50,
+  limeA700, lime50,
+  tealA700, teal50,
+  blueA400, blue50,
+  cyanA400, cyan50,
+  blueGrey500, grey700, grey900, grey500, grey50,
   white, transparent
 } from 'material-ui/styles/colors';
 
@@ -44,9 +44,13 @@ const muiTheme = getMuiTheme({
     focusColor: blueA400,
     floatingLabelColor: blueA400,
     errorColor: deepOrangeA400
+  },
+  tooltip: {
+    color: grey700,
+    rippleBackgroundColor: amberA400
   }
 });
-// console.log(muiTheme.drawer)
+// console.log(muiTheme)
 
 const colors = {
   main: {
@@ -65,14 +69,15 @@ const colors = {
   },
   faint: {
     yellow: yellowA400,
-    red: deepOrange100,
-    purple: purple100,
-    green: green100,
-    lime: lime100,
-    teal: teal100,
-    blue: blue100,
-    cyan: cyan100,
-    grey: grey500
+    red: deepOrange50,
+    purple: purple50,
+    green: green50,
+    lime: lime50,
+    teal: teal50,
+    blue: blue50,
+    cyan: cyan50,
+    grey: grey500,
+    white: grey50,
 
   }
 };

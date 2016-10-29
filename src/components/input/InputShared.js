@@ -1,8 +1,8 @@
 import React from 'react';
 
+import FontIcon from 'material-ui/FontIcon';
 import TextField from 'material-ui/TextField';
 
-import FontIcon from 'material-ui/FontIcon';
 import { colors } from '../../theme';
 
 
@@ -12,16 +12,19 @@ const InputTag = ({
   onBlur,
   styles
 }) => (
-  <div>
-    <TextField
-      type="text" name="tag"
-      hintText="Construct name prefix for primers" 
-      floatingLabelText="Name Tag" 
-      fullWidth={true}       
-      value={tag}
-      onChange={onChangeTag} onBlur={onBlur}
-      />
-  </div>
+  <TextField
+    type="text" name="tag"
+    hintText="Construct name prefix for primers"
+    floatingLabelText={
+      <span>
+        <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+        {" "} Name Tag
+      </span>
+    }
+    fullWidth={true}       
+    value={tag}
+    onChange={onChangeTag} onBlur={onBlur}
+    />
 );
 InputTag.propTypes = {
   tag: React.PropTypes.string.isRequired,
@@ -33,24 +36,44 @@ InputTag.propTypes = {
 const InputSequence = ({
   sequence,
   onChangeSequence,
-  onBlur
-}) => (
-  <div>
-    <p>SEQUENCE: len=<span>{sequence.length}</span></p>
+  onBlur,
+  styles
+}) => {
+  const className = (() => {
+    if (sequence.length < 60) {
+      return "short";
+    } else if (sequence.length < 500) {
+      return "good";
+    } else if (sequence.length < 1000) {
+      return "long";
+    } else {
+      return "bad";
+    }
+  })();
+
+  return (
     <TextField
       type="text" name="sequence"
       hintText="Full-length DNA sequence for design"
-      floatingLabelText="Sequence" floatingLabelStyle={{}}
+      floatingLabelText={
+        <span>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>sim_card</FontIcon>
+          {" "} Sequence (
+          <span className={`${styles.conditionalInput} ${className}`}>{sequence.length} nt</span>
+          )
+        </span>
+      }
       fullWidth={true} multiLine={true}
       rows={3} rowsMax={5}
       value={sequence}
       onChange={onChangeSequence} onBlur={onBlur} />
-  </div>
-);
+  );
+}
 InputSequence.propTypes = {
   sequence: React.PropTypes.string.isRequired,
   onChangeSequence: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 
