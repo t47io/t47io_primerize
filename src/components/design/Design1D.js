@@ -8,7 +8,7 @@ import { colors } from '../../theme';
 import stylesShared from './stylesShared';
 import injectSheet from '../../utilities/jssImportant';
 
-import { InputMain } from '../input/panel/PanelMain';
+import { PanelMain } from '../input/panel/PanelMain';
 import * as inputs from '../input/InputOptionsSingle';
 
 
@@ -52,7 +52,7 @@ class Design1D extends React.Component {
           Single Assembly
           <sub>[1D]</sub>
         </h1>
-        <InputMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
+        <PanelMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
         <div>
           OPTIONS
           <inputs.InputMinTm tm={options.tm} onChangeTm={onChangeTm} onBlur={onBlur} />

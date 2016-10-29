@@ -20,6 +20,9 @@ const styles = {
       backgroundColor: colors.main.black
     }
   },
+  entryListItem: {
+    '& > div > div': { padding: "10px 16px 10px 72px" },
+  },
   activeListItem: {
     backgroundColor: colors.main.grey,
 
@@ -115,7 +118,7 @@ const ResultItem = ({
   styles
 }) => (
   <ListItem
-    className={`${styles.whiteText} ${styles.listItem}`}
+    className={`${styles.whiteText} ${styles.listItem} ${styles.entryListItem}`}
     primaryText={
       <span className={styles.entryPrimaryText}>{data.tag}</span>
     }

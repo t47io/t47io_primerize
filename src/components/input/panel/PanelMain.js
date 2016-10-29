@@ -3,7 +3,6 @@ import React from 'react';
 import Avatar from 'material-ui/Avatar';
 import {Card, CardHeader, CardText} from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
-// import { GridList, GridTile } from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 
 import { colors } from '../../../theme';
@@ -57,7 +56,7 @@ const stylesLocal = {
 };
 
 
-class InputMain extends React.Component {
+class PanelMain extends React.Component {
  static propTypes = {
     tag: React.PropTypes.string.isRequired,
     sequence: React.PropTypes.string.isRequired,
@@ -114,7 +113,7 @@ class InputMain extends React.Component {
     );
   }
 }
-InputMain = injectSheet(stylesLocal)(InputMain);
+PanelMain = injectSheet(stylesLocal)(PanelMain);
 
 
-export { InputMain };
+export { PanelMain };
