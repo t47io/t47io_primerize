@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Avatar from 'material-ui/Avatar';
-import {Card, CardHeader, CardText} from 'material-ui/Card';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 
@@ -67,9 +67,11 @@ class PanelMain extends React.Component {
   }
 
   render() {
-    const { tag, sequence,
+    const {
+      tag, sequence,
       onChangeTag, onChangeSequence, onBlur,
-      styles, sheet: { classes: stylesLocal } } = this.props;
+      styles, sheet: { classes: stylesLocal }
+    } = this.props;
 
     return (
       <Card className={styles.card} >
@@ -81,7 +83,7 @@ class PanelMain extends React.Component {
           subtitleStyle={{paddingTop: "4px"}}
           avatar={
             <Avatar
-              icon={<FontIcon className="material-icons">last_page</FontIcon>}
+              icon={<FontIcon className="material-icons">create</FontIcon>}
               className={stylesLocal.mainIcon}
             />
           }
@@ -116,4 +118,4 @@ class PanelMain extends React.Component {
 PanelMain = injectSheet(stylesLocal)(PanelMain);
 
 
-export { PanelMain };
+export default PanelMain;

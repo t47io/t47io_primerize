@@ -10,7 +10,7 @@ import {
   greenA400, green50,
   limeA700, lime50,
   tealA700, teal50,
-  blueA400, blue50,
+  blueA400, blue200, blue50,
   cyanA400, cyan50,
   blueGrey500, grey700, grey900, grey500, grey50,
   white, transparent
@@ -46,12 +46,19 @@ const muiTheme = getMuiTheme({
     floatingLabelColor: blueA400,
     errorColor: deepOrangeA400
   },
+  toggle: {
+    ...(light.toggle),
+    thumbOnColor: blueA400,
+    trackOnColor: blue200,
+    thumbRequiredColor: deepOrangeA400,
+    trackRequiredColor: deepOrange50
+  },
   tooltip: {
     color: grey700,
     rippleBackgroundColor: amberA400
   }
 });
-// console.log(muiTheme)
+console.log(muiTheme.toggle)
 
 const colors = {
   main: {

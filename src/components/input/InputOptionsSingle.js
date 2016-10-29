@@ -1,20 +1,38 @@
 import React from 'react';
 
+import FontIcon from 'material-ui/FontIcon';
+import TextField from 'material-ui/TextField';
+import Toggle from 'material-ui/Toggle';
+
+import { colors } from '../../theme';
+
 
 const InputMinTm = ({
   tm,
   onChangeTm,
-  onBlur
+  onBlur,
+  styles
 }) => (
-  <div>
-    Min TM:
-    <input type="number" step="0.1" min="0" max="95" value={tm} onChange={onChangeTm} onBlur={onBlur} />
-  </div>
+  <TextField
+    type="number" name="tm"
+    hintText="Minimum Tm"
+    floatingLabelText={
+      <span>
+        <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+        {" "} Minimum Tm
+      </span>
+    }
+    fullWidth={true}       
+    step="0.1" min="0" max="95"
+    value={tm} 
+    onChange={onChangeTm} onBlur={onBlur}
+  />
 );
 InputMinTm.propTypes = {
   tm: React.PropTypes.number.isRequired,
   onChangeTm: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 
@@ -22,20 +40,44 @@ const InputPrimerLen = ({
   minLen,
   maxLen,
   onChangePrimerLen,
-  onBlur
+  onBlur,
+  styles
 }) => (
   <div>
-    Min LEN:
-    <input type="number" name="min" value={minLen} onChange={onChangePrimerLen} onBlur={onBlur} />
-    Max LEN:
-    <input type="number" name="max" value={maxLen} onChange={onChangePrimerLen} onBlur={onBlur} />
+    <TextField
+      type="number" name="min"
+      hintText="Minimum Primer Length"
+      floatingLabelText={
+        <span>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          {" "} Minimum Primer Length
+        </span>
+      }
+      fullWidth={true}
+      value={minLen}
+      onChange={onChangePrimerLen} onBlur={onBlur}
+    />
+    <TextField
+      type="number" name="max"
+      hintText="Maximum Primer Length"
+      floatingLabelText={
+        <span>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          {" "} Maximum Primer Length
+        </span>
+      }
+      fullWidth={true}
+      value={maxLen}
+      onChange={onChangePrimerLen} onBlur={onBlur}
+    />
   </div>
 );
 InputPrimerLen.propTypes = {
   minLen: React.PropTypes.number.isRequired,
   maxLen: React.PropTypes.number.isRequired,
   onChangePrimerLen: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 
@@ -43,34 +85,63 @@ const InputNumPrimer = ({
   numPrimer,
   isNumPrimer,
   onChangeNumPrimer,
-  onBlur
+  onBlur,
+  styles
 }) => (
   <div>
-    # of Primers:
-    <input type="checkbox" name="prmchk" value={""} checked={isNumPrimer} onChange={onChangeNumPrimer} />
-    <input type="number" name="prmnum" min="0" value={numPrimer} disabled={!isNumPrimer} onChange={onChangeNumPrimer} onBlur={onBlur} />
+    <Toggle
+      type="checkbox" name="prmchk"
+      label="Override Number of Primers"
+      labelPosition="right"
+      className={styles.toggle}
+      value={""} toggled={isNumPrimer}
+      onToggle={onChangeNumPrimer} 
+    />
+    <TextField
+      type="number" name="prmnum"
+      hintText="Number of Primers"
+      floatingLabelText={
+        <span>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          {" "} Number of Primers
+        </span>
+      }
+      fullWidth={true}
+      min="0" value={numPrimer}
+      disabled={!isNumPrimer}
+      onChange={onChangeNumPrimer} onBlur={onBlur}
+    />
   </div>
 );
 InputNumPrimer.propTypes = {
   numPrimer: React.PropTypes.number.isRequired,
   isNumPrimer: React.PropTypes.bool.isRequired,
   onChangeNumPrimer: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 
 const InputCheckT7 = ({
   isCheckT7,
-  onChangeCheckT7
+  onChangeCheckT7,
+  styles
 }) => (
   <div>
-    Check T7:
-    <input type="checkbox" checked={isCheckT7} onChange={onChangeCheckT7} />
+    <Toggle
+      type="checkbox" name="prmchk"
+      label="Check for T7 Promoter"
+      labelPosition="right"
+      className={styles.toggle}
+      value={""} toggled={isCheckT7}
+      onToggle={onChangeCheckT7} 
+    />
   </div>
 );
 InputCheckT7.propTypes = {
   isCheckT7: React.PropTypes.bool.isRequired,
-  onChangeCheckT7: React.PropTypes.func.isRequired
+  onChangeCheckT7: React.PropTypes.func.isRequired,
+  styles: React.PropTypes.object.isRequired
 };
 
 

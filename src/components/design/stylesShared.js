@@ -61,8 +61,8 @@ const stylesShared = {
       padding: "16px 32px",
       lineHeight: "150%"
     },
-
-  }
+  },
+  toggle: { marginLeft: "6px" },
 
 };
 

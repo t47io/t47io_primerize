@@ -8,7 +8,8 @@ import { colors } from '../../theme';
 import stylesShared from './stylesShared';
 import injectSheet from '../../utilities/jssImportant';
 
-import { PanelMain } from '../input/panel/PanelMain';
+import PanelMain from '../input/panel/PanelMain';
+import PanelOptions1D from '../input/panel/PanelOptions1D';
 import * as inputs from '../input/InputOptionsSingle';
 
 
@@ -53,13 +54,9 @@ class Design1D extends React.Component {
           <sub>[1D]</sub>
         </h1>
         <PanelMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
-        <div>
-          OPTIONS
-          <inputs.InputMinTm tm={options.tm} onChangeTm={onChangeTm} onBlur={onBlur} />
-          <inputs.InputPrimerLen minLen={options.minLen} maxLen={options.maxLen} onChangePrimerLen={onChangePrimerLen} onBlur={onBlur} />
-          <inputs.InputNumPrimer numPrimer={options.numPrimer} isNumPrimer={options.isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
-          <inputs.InputCheckT7 isCheckT7={options.isCheckT7} onChangeCheckT7={onChangeCheckT7} />
-        </div>
+        <br/>
+        <PanelOptions1D options={options} onChangeTm={onChangeTm} onChangePrimerLen={onChangePrimerLen} onChangeNumPrimer={onChangeNumPrimer} onChangeCheckT7={onChangeCheckT7} onBlur={onBlur} styles={styles} />
+
         <button type="submit">submit form</button>
         <button type="button" onClick={onReset}>clear form</button>
       </form>

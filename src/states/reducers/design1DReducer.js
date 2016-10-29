@@ -21,14 +21,14 @@ const design1DReducer = handleActions({
     ...state,
     options: {
       ...(state.options),
-      tm: parseFloat(payload.tm)
+      tm: parseFloat(payload.tm) || state.options.tm
     }
   }),
 
   [ACTIONS_1D.CHANGE_PRMLEN]: (state, { payload }) => {
     let { minLen, maxLen } = state.options;
-    minLen = parseFloat(payload.minLen) || minLen;
-    maxLen = parseFloat(payload.maxLen) || maxLen;
+    minLen = parseInt(payload.minLen, 10) || minLen;
+    maxLen = parseInt(payload.maxLen, 10) || maxLen;
     return {
       ...state,
       options: {
@@ -44,7 +44,7 @@ const design1DReducer = handleActions({
     if ('prmchk' in payload) {
       isNumPrimer = payload.prmchk;
     } else {
-      numPrimer = parseFloat(payload.prmnum);
+      numPrimer = parseInt(payload.prmnum, 10);
     }
     return {
       ...state,
