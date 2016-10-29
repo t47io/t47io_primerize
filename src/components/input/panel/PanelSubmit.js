@@ -1,10 +1,7 @@
 import React from 'react';
 
-import Avatar from 'material-ui/Avatar';
-import { Card, CardHeader, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
-import IconButton from 'material-ui/IconButton';
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 
 import { colors } from '../../../theme';
@@ -12,7 +9,10 @@ import injectSheet from '../../../utilities/jssImportant';
 
 
 const stylesLocal = {
-  toolbar: { height: "72px" }
+  toolbar: {
+    height: "96px",
+    padding: "12px 24px"
+  }
 };
 
 

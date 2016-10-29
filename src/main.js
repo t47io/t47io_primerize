@@ -16,14 +16,17 @@ const styles = {
   container: {
     fontFamily: "Roboto, sans-serif",
     paddingLeft: "256px",
-    paddingTop: "24px",
+    paddingTop: "64px",
     minHeight: "400px"
   },
   body: { margin: "48px 72px" },
   drawer: {
     backgroundColor: "#303030",
-    color: colors.main.white
-  }
+    color: colors.main.white,
+
+    '& > div:last-child': { paddingTop: "64px" }
+  },
+  appbar: { position: "fixed" }
 };
 
 
@@ -44,6 +47,7 @@ class Main extends React.Component {
               <FontIcon className="material-icons">pets</FontIcon>
             </IconButton>
           }
+          className={styles.appbar}
         />
         <Drawer docked={true} containerClassName={styles.drawer} >
           <AppBar
@@ -53,6 +57,7 @@ class Main extends React.Component {
                 <FontIcon className="material-icons">pets</FontIcon>
               </IconButton>
             }
+            className={styles.appbar}
           />
           <Sidebar />
         </Drawer>

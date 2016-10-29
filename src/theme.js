@@ -66,7 +66,7 @@ const muiTheme = getMuiTheme({
     rippleBackgroundColor: amberA400
   }
 });
-console.log(muiTheme)
+// console.log(muiTheme)
 
 const colors = {
   main: {
