@@ -11,18 +11,50 @@ import injectSheet from 'react-jss';
 import jssImportant from '../../utilities/jssImportant';
 
 import { InputTag, InputSequence } from './InputShared';
+import InputWarning from '../input/InputWarning';
 
 
 const stylesLocal = {
   mainIcon: {
     backgroundColor: colors.main.red,
+
     '& > span.material-icons': { color: colors.faint.red },
+
     '&:hover': {
       backgroundColor: colors.main.grey,
+
       '& > span.material-icons': { color: colors.main.white }
     }
   },
+  warningCard: {
+    marginTop: "16px",
 
+    '&.good': {
+      height: "1px",
+      borderTop: "none",
+      borderShadow: "none",
+      '& > *': { display: "none" }
+    },
+    '&.long': { backgroundColor: colors.faint.amber },
+    '&.bad': { backgroundColor: colors.faint.red }
+  },
+  warningIcon: {
+    marginTop: "6px",
+    borderRadiusTop: "0px",
+    borderRadiusBottom: "0px",
+
+    '&.long': {
+      backgroundColor: colors.main.none,
+
+      '& > span.material-icons': { color: colors.main.amber },
+    },
+
+    '&.bad': {
+      backgroundColor: colors.main.none,
+
+      '& > span.material-icons': { color: colors.main.red },
+    }
+  }
 };
 
 
@@ -44,9 +76,11 @@ class InputMain extends React.Component {
     return (
       <Card className={styles.card} >
         <CardHeader
-          title="Main Inputs"
-          titleStyle={{fontSize: "18px"}}
+          title={
+            <span className={styles.cardTitle}>Main Inputs</span>
+          }
           subtitle="Sequence & Name"
+          subtitleStyle={{paddingTop: "4px"}}
           avatar={
             <Avatar
               icon={<FontIcon className="material-icons">last_page</FontIcon>}
@@ -62,7 +96,7 @@ class InputMain extends React.Component {
           <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} styles={styles} />
         </CardText>
         <CardText expandable={true} className={styles.comments} >
-          <p>Maximum length is 32 characters. This is optional, default is “primers”.</p>
+          <p>Maximum length is <u>32</u> characters. This is optional, default is “primers”.</p>
         </CardText>
 
         <CardText>
@@ -70,10 +104,14 @@ class InputMain extends React.Component {
         </CardText>
         <CardText expandable={true} className={styles.comments} >
           <ul>
-            <li>Valid nucleotides only (A, C, G, T, and U); and at least 60 nt long.</li>
+            <li>Valid nucleotides only (<b>A</b>, <b>C</b>, <b>G</b>, <b>T</b>, and <b>U</b>); and at least <u>60 nt</u> long.</li>
+            <li>Multi-line input is valid and automatically concatenated.</li>
             <li>Flanking sequences (e.g. T7 promoter, buffering region, tail) should be included.</li>
           </ul>
         </CardText>
+        <InputWarning seqLen={sequence.length} styles={stylesLocal} />
+
+
       </Card>
     );
   }

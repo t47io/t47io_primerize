@@ -10,7 +10,6 @@ import injectSheet from 'react-jss';
 import jssImportant from '../../utilities/jssImportant';
 
 import { InputMain } from '../input/InputSections';
-import InputWarning from '../input/InputWarning';
 import * as inputs from '../input/InputOptionsSingle';
 
 
@@ -62,7 +61,6 @@ class Design1D extends React.Component {
           <inputs.InputNumPrimer numPrimer={options.numPrimer} isNumPrimer={options.isNumPrimer} onChangeNumPrimer={onChangeNumPrimer} onBlur={onBlur} />
           <inputs.InputCheckT7 isCheckT7={options.isCheckT7} onChangeCheckT7={onChangeCheckT7} />
         </div>
-        <InputWarning seqLen={sequence.length} />
         <button type="submit">submit form</button>
         <button type="button" onClick={onReset}>clear form</button>
       </form>

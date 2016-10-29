@@ -3,7 +3,8 @@ import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import {
-  amberA400, yellowA400,
+  yellowA400, yellow50,
+  amberA400, amber50,
   deepOrangeA400, deepOrange50,
   purpleA700, purple50,
   greenA400, green50,
@@ -54,7 +55,8 @@ const muiTheme = getMuiTheme({
 
 const colors = {
   main: {
-    yellow: amberA400,
+    yellow: yellowA400,
+    amber: amberA400,
     red: deepOrangeA400,
     purple: purpleA700,
     green: greenA400,
@@ -65,10 +67,12 @@ const colors = {
     grey: grey700,
     blueGrey700: blueGrey500,
     white: white,
-    black: grey900
+    black: grey900,
+    none: transparent
   },
   faint: {
-    yellow: yellowA400,
+    yellow: yellow50,
+    amber: amber50,
     red: deepOrange50,
     purple: purple50,
     green: green50,

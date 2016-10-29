@@ -23,13 +23,16 @@ const styles = {
   },
   activeListItem: {
     backgroundColor: colors.main.grey,
+
     '&:hover': {
       backgroundColor: colors.faint.grey
     }
   },
   designIcon: {
     backgroundColor: colors.main.blue,
+
     '& > span.material-icons': { color: colors.faint.blue },
+
     '&:hover': {
       backgroundColor: colors.main.cyan,
       '& > span.material-icons': { color: colors.main.white }
@@ -37,7 +40,9 @@ const styles = {
   },
   listIcon: {
     backgroundColor: colors.main.teal,
+
     '& > span.material-icons': { color: colors.faint.teal },
+
     '&:hover': {
       backgroundColor: colors.main.green,
       '& > span.material-icons': { color: colors.main.white }
@@ -49,8 +54,9 @@ const styles = {
   },
   jobTypeIcon: {
     marginLeft: "12px",
-    backgroundColor: colors.faint.yellow,
+    backgroundColor: colors.main.yellow,
     color: colors.main.purple,
+
     '&:hover': {
       backgroundColor: colors.main.teal,
       color: colors.main.white
@@ -60,7 +66,7 @@ const styles = {
   divider: { backgroundColor: colors.main.grey },
   dividerWide: { bacogroundCOlor: colors.faint.grey },
   whiteText: { color: colors.main.white },
-  jobIdText: { fontFamily: "monospace" },
+  jobIdText: { fontFamily: "Roboto Mono, monospace" },
 };
 
 
@@ -78,7 +84,7 @@ const job_icon = (status, styles) => {
       return (
         <FontIcon
           className={`material-icons ${styles}`}
-          color={colors.main.yellow} >
+          color={colors.main.amber} >
           watch_later
         </FontIcon>
       );
@@ -199,7 +205,7 @@ class Sidebar extends React.Component {
               tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
-                color={colors.main.yellow}
+                color={colors.main.amber}
                 hoverColor={colors.main.cyan} >
                 ondemand_video
               </FontIcon>
@@ -231,7 +237,7 @@ class Sidebar extends React.Component {
               tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
-                color={colors.main.yellow}
+                color={colors.main.amber}
                 hoverColor={colors.main.cyan} >
                 ondemand_video
               </FontIcon>
@@ -263,7 +269,7 @@ class Sidebar extends React.Component {
               tooltipStyles={{backgroundColor: colors.main.black}} >
               <FontIcon
                 className="material-icons"
-                color={colors.main.yellow}
+                color={colors.main.amber}
                 hoverColor={colors.main.cyan} >
                 ondemand_video
               </FontIcon>

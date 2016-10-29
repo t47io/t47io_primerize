@@ -11,14 +11,18 @@ const stylesShared = {
   titleIcon: {
     backgroundColor: colors.main.blue,
     marginRight: "12px",
+
     '& > span.material-icons': { color: colors.faint.blue },
+
     '&:hover': {
       backgroundColor: colors.main.cyan,
+
       '& > span.material-icons': { color: colors.main.white }
     }
   },
   conditionalInput: {
     fontStyle: "italic",
+
     '&.short': { color: colors.main.grey },
     '&.good': { color: colors.main.green },
     '&.long': { color: colors.main.yellow },
@@ -40,11 +44,9 @@ const stylesShared = {
   //   justifyContent: "center",
   // }
   card: {
-    '& > div > div:not(:first-child)': { paddingTop: "0px"}
+    '& > div > div:not(:first-child)': { padding: "0px 16px" }
   },
-  cardTitle: {
-
-  },
+  cardTitle: { fontSize: "18px" },
   comments: {
     backgroundColor: colors.faint.blue,
     color: colors.main.grey,
@@ -53,11 +55,12 @@ const stylesShared = {
     marginTop: "0px",
     borderRadius: "2px",
     boxShadow: "",
+
     '& > p': { padding: "16px" },
     '& > ul': {
       padding: "16px 32px",
       lineHeight: "150%"
-    }
+    },
 
   }
 

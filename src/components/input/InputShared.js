@@ -6,6 +6,11 @@ import TextField from 'material-ui/TextField';
 import { colors } from '../../theme';
 
 
+const stylesLocal = {
+  monospace: { fontFamily: "Roboto Mono, monospace"},
+};
+
+
 const InputTag = ({
   tag,
   onChangeTag,
@@ -24,7 +29,7 @@ const InputTag = ({
     fullWidth={true}       
     value={tag}
     onChange={onChangeTag} onBlur={onBlur}
-    />
+  />
 );
 InputTag.propTypes = {
   tag: React.PropTypes.string.isRequired,
@@ -66,7 +71,9 @@ const InputSequence = ({
       fullWidth={true} multiLine={true}
       rows={3} rowsMax={5}
       value={sequence}
-      onChange={onChangeSequence} onBlur={onBlur} />
+      onChange={onChangeSequence} onBlur={onBlur}
+      style={stylesLocal.monospace}
+    />
   );
 }
 InputSequence.propTypes = {
