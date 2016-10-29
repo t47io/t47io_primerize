@@ -44,7 +44,7 @@ const design1DReducer = handleActions({
     if ('prmchk' in payload) {
       isNumPrimer = payload.prmchk;
     } else {
-      numPrimer = parseInt(payload.prmnum, 10);
+      numPrimer = parseInt(payload.prmnum, 10) || numPrimer;
     }
     return {
       ...state,

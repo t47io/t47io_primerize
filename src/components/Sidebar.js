@@ -68,7 +68,7 @@ const styles = {
   divider: { backgroundColor: colors.main.grey },
   dividerWide: { bacogroundCOlor: colors.faint.grey },
   whiteText: { color: colors.main.white },
-  jobIdText: { fontFamily: "monospace" },
+  jobIdText: { fontFamily: "Roboto Mono, monospace" },
 };
 
 

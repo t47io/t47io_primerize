@@ -22,6 +22,7 @@ const stylesShared = {
   },
   conditionalInput: {
     fontStyle: "italic",
+    fontSize: "14px",
 
     '&.short': { color: colors.main.grey },
     '&.good': { color: colors.main.green },
@@ -63,6 +64,25 @@ const stylesShared = {
     },
   },
   toggle: { marginLeft: "6px" },
+  buttonLarge: {
+    '& > button': {
+      height: "52px",
+
+      '& > div > div': {
+        height: "52px",
+        lineHeight: "52px"
+      }
+    }
+  },
+  buttonGreen: {
+    marginRight: "0px",
+
+    '& > button': {
+      backgroundColor: colors.main.green,
+
+      '& span': { color: colors.main.white }
+    },
+  }
 
 };
 

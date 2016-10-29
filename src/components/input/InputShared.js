@@ -69,7 +69,7 @@ const InputSequence = ({
         </span>
       }
       fullWidth={true} multiLine={true}
-      rows={3} rowsMax={5}
+      rows={3} rowsMax={7}
       value={sequence}
       onChange={onChangeSequence} onBlur={onBlur}
       style={stylesLocal.monospace}

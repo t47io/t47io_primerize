@@ -18,7 +18,7 @@ const InputMinTm = ({
     hintText="Minimum Tm"
     floatingLabelText={
       <span>
-        <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+        <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>opacity</FontIcon>
         {" "} Minimum Tm
       </span>
     }
@@ -49,7 +49,7 @@ const InputPrimerLen = ({
       hintText="Minimum Primer Length"
       floatingLabelText={
         <span>
-          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>first_page</FontIcon>
           {" "} Minimum Primer Length
         </span>
       }
@@ -62,7 +62,7 @@ const InputPrimerLen = ({
       hintText="Maximum Primer Length"
       floatingLabelText={
         <span>
-          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>last_page</FontIcon>
           {" "} Maximum Primer Length
         </span>
       }
@@ -102,7 +102,7 @@ const InputNumPrimer = ({
       hintText="Number of Primers"
       floatingLabelText={
         <span>
-          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
+          <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>exposure</FontIcon>
           {" "} Number of Primers
         </span>
       }

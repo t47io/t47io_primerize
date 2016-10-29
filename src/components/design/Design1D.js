@@ -10,7 +10,7 @@ import injectSheet from '../../utilities/jssImportant';
 
 import PanelMain from '../input/panel/PanelMain';
 import PanelOptions1D from '../input/panel/PanelOptions1D';
-import * as inputs from '../input/InputOptionsSingle';
+import PanelSubmit from '../input/panel/PanelSubmit';
 
 
 const styles = {
@@ -56,9 +56,8 @@ class Design1D extends React.Component {
         <PanelMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
         <br/>
         <PanelOptions1D options={options} onChangeTm={onChangeTm} onChangePrimerLen={onChangePrimerLen} onChangeNumPrimer={onChangeNumPrimer} onChangeCheckT7={onChangeCheckT7} onBlur={onBlur} styles={styles} />
-
-        <button type="submit">submit form</button>
-        <button type="button" onClick={onReset}>clear form</button>
+        <br/>
+        <PanelSubmit onReset={onReset} styles={styles} />
       </form>
     );
   }
