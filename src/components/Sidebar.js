@@ -9,8 +9,7 @@ import { List, ListItem } from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
 
 import { colors } from '../theme';
-import injectSheet from 'react-jss';
-import jssImportant from '../utilities/jssImportant';
+import injectSheet from '../utilities/jssImportant';
 
 import { jobTypes, jobStatus } from '../states/constants/status';
 
@@ -66,7 +65,7 @@ const styles = {
   divider: { backgroundColor: colors.main.grey },
   dividerWide: { bacogroundCOlor: colors.faint.grey },
   whiteText: { color: colors.main.white },
-  jobIdText: { fontFamily: "Roboto Mono, monospace" },
+  jobIdText: { fontFamily: "monospace" },
 };
 
 
@@ -294,4 +293,4 @@ class Sidebar extends React.Component {
 }
 
 
-export default injectSheet(jssImportant(styles))(Sidebar);
+export default injectSheet(styles)(Sidebar);

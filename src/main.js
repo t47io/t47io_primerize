@@ -6,8 +6,7 @@ import FontIcon from 'material-ui/FontIcon';
 import IconButton from 'material-ui/IconButton';
 
 import { colors } from './theme';
-import injectSheet from 'react-jss';
-import jssImportant from './utilities/jssImportant';
+import injectSheet from './utilities/jssImportant';
 
 import Sidebar from './containers/Sidebar';
 import Modal from './containers/Modal';
@@ -71,5 +70,5 @@ class Main extends React.Component {
 }
 
 
-export default injectSheet(jssImportant(styles))(Main);
+export default injectSheet(styles)(Main);
 

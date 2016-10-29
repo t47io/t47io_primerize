@@ -6,10 +6,9 @@ import FontIcon from 'material-ui/FontIcon';
 
 import { colors } from '../../theme';
 import stylesShared from './stylesShared';
-import injectSheet from 'react-jss';
-import jssImportant from '../../utilities/jssImportant';
+import injectSheet from '../../utilities/jssImportant';
 
-import { InputMain } from '../input/InputSections';
+import { InputMain } from '../input/panel/PanelMain';
 import * as inputs from '../input/InputOptionsSingle';
 
 
@@ -69,4 +68,4 @@ class Design1D extends React.Component {
 }
 
 
-export default injectSheet(jssImportant(styles))(Design1D);
+export default injectSheet(styles)(Design1D);

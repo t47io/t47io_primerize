@@ -1,3 +1,5 @@
+import injectSheet from 'react-jss';
+
 const IMPORTANT = '!important';
 
 
@@ -15,8 +17,7 @@ const traverse = (obj) => {
   return newObj;
 };
 
-
-export default (styles, targets = []) => {
+const jssImportant = (styles, targets = []) => {
   let keys = [];
   if (targets.length) {
     keys = Object.keys(styles).filter((key) => (targets.indexOf(key) > -1));
@@ -32,4 +33,10 @@ export default (styles, targets = []) => {
     ...styles,
     ...(traverse(subset))
   };
+};
+
+
+export default (styles, options = {}) => {
+  let stylesImportant = jssImportant(styles);
+  return injectSheet(stylesImportant, options);
 };

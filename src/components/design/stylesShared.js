@@ -25,7 +25,7 @@ const stylesShared = {
 
     '&.short': { color: colors.main.grey },
     '&.good': { color: colors.main.green },
-    '&.long': { color: colors.main.yellow },
+    '&.long': { color: colors.main.amber },
     '&.bad': { color: colors.main.red },
   },
   inputLabelIcon: {

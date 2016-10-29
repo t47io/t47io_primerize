@@ -1,17 +1,16 @@
 import React from 'react';
 
 import Avatar from 'material-ui/Avatar';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardHeader, CardText} from 'material-ui/Card';
 import FontIcon from 'material-ui/FontIcon';
 // import { GridList, GridTile } from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 
-import { colors } from '../../theme';
-import injectSheet from 'react-jss';
-import jssImportant from '../../utilities/jssImportant';
+import { colors } from '../../../theme';
+import injectSheet from '../../../utilities/jssImportant';
 
-import { InputTag, InputSequence } from './InputShared';
-import InputWarning from '../input/InputWarning';
+import { InputTag, InputSequence } from '../InputShared';
+import InputWarning from '../InputWarning';
 
 
 const stylesLocal = {
@@ -109,14 +108,13 @@ class InputMain extends React.Component {
             <li>Flanking sequences (e.g. T7 promoter, buffering region, tail) should be included.</li>
           </ul>
         </CardText>
+
         <InputWarning seqLen={sequence.length} styles={stylesLocal} />
-
-
       </Card>
     );
   }
 }
-InputMain = injectSheet(jssImportant(stylesLocal))(InputMain);
+InputMain = injectSheet(stylesLocal)(InputMain);
 
 
 export { InputMain };
