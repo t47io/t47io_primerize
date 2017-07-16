@@ -8,13 +8,13 @@ import uiReducer from './uiReducer';
 
 
 const rootReducer = combineReducers({
-  'input1D': design1DReducer,
-  'input2D': design2DReducer,
-  'input3D': design3DReducer,
+  input1D: design1DReducer,
+  input2D: design2DReducer,
+  input3D: design3DReducer,
 
-  'results': resultReducer,
+  results: resultReducer,
 
-  'ui': uiReducer
+  ui: uiReducer,
 });
 
 export default rootReducer;

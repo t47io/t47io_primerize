@@ -14,25 +14,25 @@ import Modal from './containers/Modal';
 
 const styles = {
   container: {
-    fontFamily: "Roboto, sans-serif",
-    paddingLeft: "256px",
-    paddingTop: "64px",
-    minHeight: "400px"
+    fontFamily: 'Roboto, sans-serif',
+    paddingLeft: '256px',
+    paddingTop: '64px',
+    minHeight: '400px',
   },
-  body: { margin: "48px 72px" },
+  body: { margin: '48px 72px' },
   drawer: {
-    backgroundColor: "#303030",
+    backgroundColor: '#303030',
     color: colors.main.white,
 
-    '& > div:last-child': { paddingTop: "64px" }
+    '& > div:last-child': { paddingTop: '64px' },
   },
-  appbar: { position: "fixed" }
+  appbar: { position: 'fixed' },
 };
 
 
 class Main extends React.Component {
   static propTypes = {
-    children: React.PropTypes.object
+    children: React.PropTypes.object,
   }
 
   render() {
@@ -49,7 +49,7 @@ class Main extends React.Component {
           }
           className={styles.appbar}
         />
-        <Drawer docked={true} containerClassName={styles.drawer} >
+        <Drawer docked containerClassName={styles.drawer} >
           <AppBar
             title="Primerize"
             iconElementLeft={

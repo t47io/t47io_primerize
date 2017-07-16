@@ -9,10 +9,10 @@ import getData from '../../utilities/getData';
 
 
 const onResultEnter = (nextState, replace) => {
-  let jobId = cleanupJobId(nextState.params.jobId);
-  let isRedirect = (jobId !== nextState.params.jobId);
+  const jobId = cleanupJobId(nextState.params.jobId);
+  const isRedirect = (jobId !== nextState.params.jobId);
   if (jobId.length !== 16) {
-    replace("/result/");
+    replace('/result/');
   } else if (isRedirect) {
     replace(`/result/${jobId}`);
   }
@@ -21,29 +21,29 @@ const onResultEnter = (nextState, replace) => {
 
 const ResultPageSmart = connect(
   (state, ownProps) => {
-    let jobId = cleanupJobId(ownProps.params.jobId);
-    let json = state.results.filter((job) => (job.jobId === jobId));
+    const jobId = cleanupJobId(ownProps.params.jobId);
+    const json = state.results.filter(job => (job.jobId === jobId));
     return (!json.length) ? {
       json: {},
-      jobId
+      jobId,
     } : {
       json: json[0],
-      jobId
+      jobId,
     };
   },
-  (dispatch) => ({
+  dispatch => ({
     onFetch: (jobId) => {
       getData(jobId)
       .then((json) => {
         let newJson;
         switch (json.type) {
-          case 1:          
+          case 1:
             newJson = convertJson1D(json);
             break;
-          case 2:          
+          case 2:
             newJson = convertJson2D(json);
             break;
-          case 3:          
+          case 3:
             newJson = convertJson3D(json);
             break;
         }
@@ -52,7 +52,7 @@ const ResultPageSmart = connect(
         .catch((err) => { console.log(err); });
       })
       .catch((err) => { console.log(err); });
-    }
+    },
   })
 )(ResultPage);
 

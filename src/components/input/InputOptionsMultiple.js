@@ -6,7 +6,7 @@ import { design3DNumMutChoices } from '../../states/constants/status';
 const InputOffset = ({
   offset,
   onChangeOffset,
-  onBlur
+  onBlur,
 }) => (
   <div>
     OFFSET:
@@ -16,7 +16,7 @@ const InputOffset = ({
 InputOffset.propTypes = {
   offset: React.PropTypes.number.isRequired,
   onChangeOffset: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 
@@ -24,7 +24,7 @@ const InputRegionPos = ({
   startPos,
   endPos,
   onChangePos,
-  onBlur
+  onBlur,
 }) => (
   <div>
     Start POS:
@@ -37,20 +37,20 @@ InputRegionPos.propTypes = {
   startPos: React.PropTypes.number.isRequired,
   endPos: React.PropTypes.number.isRequired,
   onChangePos: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 
 const InputLibChoice = ({
   libChoice,
   allLibChoices,
-  onChangeLibOpt
+  onChangeLibOpt,
 }) => (
   <div>
     LIB Choice:
     <select value={libChoice} onChange={onChangeLibOpt} >
       { Object.keys(allLibChoices).map((choice, i) => (
-          <option value={choice} key={i} >{allLibChoices[choice]}</option>
+        <option value={choice} key={i} >{allLibChoices[choice]}</option>
         )
       ) }
     </select>
@@ -59,19 +59,19 @@ const InputLibChoice = ({
 InputLibChoice.propTypes = {
   libChoice: React.PropTypes.number.isRequired,
   allLibChoices: React.PropTypes.object.isRequired,
-  onChangeLibOpt: React.PropTypes.func.isRequired
+  onChangeLibOpt: React.PropTypes.func.isRequired,
 };
 
 
 const InputNumMutation = ({
   numMutation,
-  onChangeNumMut
+  onChangeNumMut,
 }) => (
   <div>
     Number of mutations:
     <select value={numMutation} onChange={onChangeNumMut} >
       { Object.keys(design3DNumMutChoices).map((choice, i) => (
-          <option value={choice} key={i} >{design3DNumMutChoices[choice]}</option>
+        <option value={choice} key={i} >{design3DNumMutChoices[choice]}</option>
         )
       ) }
     </select>
@@ -79,13 +79,13 @@ const InputNumMutation = ({
 );
 InputNumMutation.propTypes = {
   numMutation: React.PropTypes.number.isRequired,
-  onChangeNumMut: React.PropTypes.func.isRequired
+  onChangeNumMut: React.PropTypes.func.isRequired,
 };
 
 
 const InputFillWT = ({
   isFillWT,
-  onChangeFillWT
+  onChangeFillWT,
 }) => (
   <div>
     Fill WT Primers:
@@ -94,13 +94,13 @@ const InputFillWT = ({
 );
 InputFillWT.propTypes = {
   isFillWT: React.PropTypes.bool.isRequired,
-  onChangeFillWT: React.PropTypes.func.isRequired
+  onChangeFillWT: React.PropTypes.func.isRequired,
 };
 
 
 const InputIncludeSingle = ({
   isIncludeSingle,
-  onChangeIncludeSingle
+  onChangeIncludeSingle,
 }) => (
   <div>
     Include Single Mutants:
@@ -109,7 +109,7 @@ const InputIncludeSingle = ({
 );
 InputIncludeSingle.propTypes = {
   isIncludeSingle: React.PropTypes.bool.isRequired,
-  onChangeIncludeSingle: React.PropTypes.func.isRequired
+  onChangeIncludeSingle: React.PropTypes.func.isRequired,
 };
 
 

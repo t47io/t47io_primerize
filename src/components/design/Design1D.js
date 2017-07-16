@@ -32,7 +32,7 @@ class Design1D extends React.Component {
     onChangeCheckT7: React.PropTypes.func.isRequired,
     onBlur: React.PropTypes.func.isRequired,
     onReset: React.PropTypes.func.isRequired,
-    onSubmit: React.PropTypes.func.isRequired    
+    onSubmit: React.PropTypes.func.isRequired,
   }
 
   render() {
@@ -40,8 +40,8 @@ class Design1D extends React.Component {
       tag, sequence, options,
       onChangeTag, onChangeSequence, onChangeTm, onChangePrimerLen, onChangeNumPrimer, onChangeCheckT7,
       onBlur, onReset, onSubmit,
-      sheet: { classes: styles } 
-    }  = this.props;
+      sheet: { classes: styles },
+    } = this.props;
 
     return (
       <form action="/submit" method="post" onSubmit={onSubmit}>
@@ -54,9 +54,9 @@ class Design1D extends React.Component {
           <sub>[1D]</sub>
         </h1>
         <PanelMain tag={tag} sequence={sequence} onChangeTag={onChangeTag} onChangeSequence={onChangeSequence} onBlur={onBlur} styles={styles} />
-        <br/>
+        <br />
         <PanelOptions1D options={options} onChangeTm={onChangeTm} onChangePrimerLen={onChangePrimerLen} onChangeNumPrimer={onChangeNumPrimer} onChangeCheckT7={onChangeCheckT7} onBlur={onBlur} styles={styles} />
-        <br/>
+        <br />
         <PanelSubmit onReset={onReset} styles={styles} />
       </form>
     );

@@ -10,17 +10,17 @@ const uiReducer = handleActions({
     modal: {
       ...(state.modal),
       text: payload.text,
-      isVisible: true
-    }
+      isVisible: true,
+    },
   }),
 
-  [ACTIONS_UI.HIDE_MODAL]: (state) => ({
+  [ACTIONS_UI.HIDE_MODAL]: state => ({
     ...state,
     modal: {
       ...(state.modal),
-      isVisible: false
-    }
-  })
+      isVisible: false,
+    },
+  }),
 }, uiState);
 
 

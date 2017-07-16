@@ -8,13 +8,13 @@ import { ACTIONS_RESULT } from '../constants/actions';
 const resultReducer = handleActions({
   [ACTIONS_RESULT.ADD_RESULT]: (state, { payload }) => ([
     payload,
-    ...state
+    ...state,
   ]),
 
-  [ACTIONS_RESULT.REMOVE_RESULT]: (state, { payload }) => (state.filter((json) => (json.jobId !== payload.jobId))),
+  [ACTIONS_RESULT.REMOVE_RESULT]: (state, { payload }) => (state.filter(json => (json.jobId !== payload.jobId))),
 
 
-  [ACTIONS_RESULT.CLEAR_RESULT]: (state) => (resultsState),
+  [ACTIONS_RESULT.CLEAR_RESULT]: state => (resultsState),
 
 
   [ACTIONS_RESULT.GOTO_RESULT]: (state, { payload }) => {
@@ -22,7 +22,7 @@ const resultReducer = handleActions({
     return state;
   },
 
-  [ACTIONS_RESULT.UPDATE_RESULT]: (state, { payload }) => (state.map((job) => (job.jobId === payload.data.jobId ? payload.data : job))),
+  [ACTIONS_RESULT.UPDATE_RESULT]: (state, { payload }) => (state.map(job => (job.jobId === payload.data.jobId ? payload.data : job))),
 
 }, resultsState);
 

@@ -32,7 +32,7 @@ const Design3D = ({
 
   onBlur,
   onReset,
-  onSubmit
+  onSubmit,
 }) => (
   <form action="/submit" method="post" onSubmit={onSubmit}>
     <InputTag tag={tag} onChangeTag={onChangeTag} onBlur={onBlur} />

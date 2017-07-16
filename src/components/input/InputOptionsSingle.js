@@ -11,7 +11,7 @@ const InputMinTm = ({
   tm,
   onChangeTm,
   onBlur,
-  styles
+  styles,
 }) => (
   <TextField
     type="number" name="tm"
@@ -19,12 +19,12 @@ const InputMinTm = ({
     floatingLabelText={
       <span>
         <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>opacity</FontIcon>
-        {" "} Minimum Tm
+        {' '} Minimum Tm
       </span>
     }
-    fullWidth={true}       
+    fullWidth
     step="0.1" min="0" max="95"
-    value={tm} 
+    value={tm}
     onChange={onChangeTm} onBlur={onBlur}
   />
 );
@@ -32,7 +32,7 @@ InputMinTm.propTypes = {
   tm: React.PropTypes.number.isRequired,
   onChangeTm: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 
@@ -41,7 +41,7 @@ const InputPrimerLen = ({
   maxLen,
   onChangePrimerLen,
   onBlur,
-  styles
+  styles,
 }) => (
   <div>
     <TextField
@@ -50,10 +50,10 @@ const InputPrimerLen = ({
       floatingLabelText={
         <span>
           <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>first_page</FontIcon>
-          {" "} Minimum Primer Length
+          {' '} Minimum Primer Length
         </span>
       }
-      fullWidth={true}
+      fullWidth
       value={minLen}
       onChange={onChangePrimerLen} onBlur={onBlur}
     />
@@ -63,10 +63,10 @@ const InputPrimerLen = ({
       floatingLabelText={
         <span>
           <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>last_page</FontIcon>
-          {" "} Maximum Primer Length
+          {' '} Maximum Primer Length
         </span>
       }
-      fullWidth={true}
+      fullWidth
       value={maxLen}
       onChange={onChangePrimerLen} onBlur={onBlur}
     />
@@ -77,7 +77,7 @@ InputPrimerLen.propTypes = {
   maxLen: React.PropTypes.number.isRequired,
   onChangePrimerLen: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 
@@ -86,7 +86,7 @@ const InputNumPrimer = ({
   isNumPrimer,
   onChangeNumPrimer,
   onBlur,
-  styles
+  styles,
 }) => (
   <div>
     <Toggle
@@ -94,8 +94,8 @@ const InputNumPrimer = ({
       label="Override Number of Primers"
       labelPosition="right"
       className={styles.toggle}
-      value={""} toggled={isNumPrimer}
-      onToggle={onChangeNumPrimer} 
+      value={''} toggled={isNumPrimer}
+      onToggle={onChangeNumPrimer}
     />
     <TextField
       type="number" name="prmnum"
@@ -103,10 +103,10 @@ const InputNumPrimer = ({
       floatingLabelText={
         <span>
           <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>exposure</FontIcon>
-          {" "} Number of Primers
+          {' '} Number of Primers
         </span>
       }
-      fullWidth={true}
+      fullWidth
       min="0" value={numPrimer}
       disabled={!isNumPrimer}
       onChange={onChangeNumPrimer} onBlur={onBlur}
@@ -118,14 +118,14 @@ InputNumPrimer.propTypes = {
   isNumPrimer: React.PropTypes.bool.isRequired,
   onChangeNumPrimer: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 
 const InputCheckT7 = ({
   isCheckT7,
   onChangeCheckT7,
-  styles
+  styles,
 }) => (
   <div>
     <Toggle
@@ -133,15 +133,15 @@ const InputCheckT7 = ({
       label="Check for T7 Promoter"
       labelPosition="right"
       className={styles.toggle}
-      value={""} toggled={isCheckT7}
-      onToggle={onChangeCheckT7} 
+      value={''} toggled={isCheckT7}
+      onToggle={onChangeCheckT7}
     />
   </div>
 );
 InputCheckT7.propTypes = {
   isCheckT7: React.PropTypes.bool.isRequired,
   onChangeCheckT7: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 

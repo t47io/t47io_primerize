@@ -4,15 +4,15 @@ import ResultLanding from '../../components/result/ResultLanding';
 import {
   removeResultAction, clearResultsAction,
   gotoResultAction,
-  blurSearchAction, submitSearchAction
+  blurSearchAction, submitSearchAction,
 } from '../../states/actions/resultActions';
 import { cleanupJobId } from '../../utilities/regexInputs';
 
 
 export default connect(
-  (state) => ({ resultList: state.results }),
-  (dispatch) => ({
-    onRemoveResult: (event) => dispatch(removeResultAction(event.target.name)),
+  state => ({ resultList: state.results }),
+  dispatch => ({
+    onRemoveResult: event => dispatch(removeResultAction(event.target.name)),
     onClearResult: () => dispatch(clearResultsAction()),
 
     onBlur: (event) => {
@@ -22,7 +22,7 @@ export default connect(
     onSubmit: (event) => {
       event.preventDefault();
       dispatch(submitSearchAction(event.target.text.value));
-      dispatch(gotoResultAction(event.target.text.value))
-    }
+      dispatch(gotoResultAction(event.target.text.value));
+    },
   })
 )(ResultLanding);

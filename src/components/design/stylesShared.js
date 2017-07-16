@@ -3,26 +3,26 @@ import { colors } from '../../theme';
 const stylesShared = {
   titleH1: {
     '& > sub': {
-      marginLeft: "12px",
+      marginLeft: '12px',
       color: colors.faint.purple,
-      fontStyle: "italic"
-    }
+      fontStyle: 'italic',
+    },
   },
   titleIcon: {
     backgroundColor: colors.main.blue,
-    marginRight: "12px",
+    marginRight: '12px',
 
     '& > span.material-icons': { color: colors.faint.blue },
 
     '&:hover': {
       backgroundColor: colors.main.cyan,
 
-      '& > span.material-icons': { color: colors.main.white }
-    }
+      '& > span.material-icons': { color: colors.main.white },
+    },
   },
   conditionalInput: {
-    fontStyle: "italic",
-    fontSize: "14px",
+    fontStyle: 'italic',
+    fontSize: '14px',
 
     '&.short': { color: colors.main.grey },
     '&.good': { color: colors.main.green },
@@ -30,9 +30,9 @@ const stylesShared = {
     '&.bad': { color: colors.main.red },
   },
   inputLabelIcon: {
-    fontSize: "20px",
-    verticalAlign: "top",
-    color: "inherit"
+    fontSize: '20px',
+    verticalAlign: 'top',
+    color: 'inherit',
   },
   // questionTooltip: {
   //   width: "24px",
@@ -45,44 +45,44 @@ const stylesShared = {
   //   justifyContent: "center",
   // }
   card: {
-    '& > div > div:not(:first-child)': { padding: "0px 16px" }
+    '& > div > div:not(:first-child)': { padding: '0px 16px' },
   },
-  cardTitle: { fontSize: "18px" },
+  cardTitle: { fontSize: '18px' },
   comments: {
     backgroundColor: colors.faint.blue,
     color: colors.main.grey,
-    padding: "0px",
-    margin: "16px",
-    marginTop: "0px",
-    borderRadius: "2px",
-    boxShadow: "",
+    padding: '0px',
+    margin: '16px',
+    marginTop: '0px',
+    borderRadius: '2px',
+    boxShadow: '',
 
-    '& > p': { padding: "16px" },
+    '& > p': { padding: '16px' },
     '& > ul': {
-      padding: "16px 32px",
-      lineHeight: "150%"
+      padding: '16px 32px',
+      lineHeight: '150%',
     },
   },
-  toggle: { marginLeft: "6px" },
+  toggle: { marginLeft: '6px' },
   buttonLarge: {
     '& > button': {
-      height: "52px",
+      height: '52px',
 
       '& > div > div': {
-        height: "52px",
-        lineHeight: "52px"
-      }
-    }
+        height: '52px',
+        lineHeight: '52px',
+      },
+    },
   },
   buttonGreen: {
-    marginRight: "0px",
+    marginRight: '0px',
 
     '& > button': {
       backgroundColor: colors.main.green,
 
-      '& span': { color: colors.main.white }
+      '& span': { color: colors.main.white },
     },
-  }
+  },
 
 };
 

@@ -7,8 +7,8 @@ export const design1DState = {
     maxLen: 60,
     numPrimer: 0,
     isNumPrimer: false,
-    isCheckT7: true
-  }
+    isCheckT7: true,
+  },
 };
 
 export const design2DState = {
@@ -16,26 +16,26 @@ export const design2DState = {
   sequence: '',
   primers: [
     '',
-    ''
+    '',
   ],
   options: {
     offset: 0,
     startPos: 0,
     endPos: 0,
-    libChoice: 1
+    libChoice: 1,
   },
-  isRender: false
-}
+  isRender: false,
+};
 
 export const design3DState = {
   tag: '',
   sequence: '',
   primers: [
     '',
-    ''
+    '',
   ],
   structures: [
-    ''
+    '',
   ],
   options: {
     offset: 0,
@@ -44,16 +44,16 @@ export const design3DState = {
     libChoice: 1,
     numMutation: 1,
     isIncludeSingle: false,
-    isFillWT: false
+    isFillWT: false,
   },
-  isRender: false
-}
+  isRender: false,
+};
 
 export const resultsState = [];
 
 export const uiState = {
   modal: {
     text: '',
-    isVisible: false    
-  }
+    isVisible: false,
+  },
 };

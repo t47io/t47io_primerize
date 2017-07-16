@@ -2,15 +2,15 @@ import 'whatwg-fetch';
 
 import {
   blur1DAction,
-  submit1DinitAction, submit1DsuccessAction, submit1DfailAction
+  submit1DinitAction, submit1DsuccessAction, submit1DfailAction,
 } from '../states/actions/design1DActions';
 import {
   blur2DAction, prepare2DAction,
-  submit2DinitAction, submit2DsuccessAction, submit2DfailAction
+  submit2DinitAction, submit2DsuccessAction, submit2DfailAction,
 } from '../states/actions/design2DActions';
 import {
   blur3DAction, prepare3DAction,
-  submit3DinitAction, submit3DsuccessAction, submit3DfailAction
+  submit3DinitAction, submit3DsuccessAction, submit3DfailAction,
 } from '../states/actions/design3DActions';
 import { addResultAction, gotoResultAction, getResultAction, updateResultAction } from '../states/actions/resultActions';
 import { showModalAction, hideModalAction } from '../states/actions/uiActions';
@@ -24,12 +24,12 @@ import { store } from '../states/store';
 
 
 const pollGetJson = (seqLen, jobId, dispatch) => {
-  let interval = Math.max(seqLen * 4, 2000);
+  const interval = Math.max(seqLen * 4, 2000);
 
-  let poll = setInterval(() => {
+  const poll = setInterval(() => {
     getData(jobId)
     .then((json) => {
-      if (json.status !== "1") {
+      if (json.status !== '1') {
         clearTimeout(poll);
         switch (json.type) {
           case 1:
@@ -40,7 +40,7 @@ const pollGetJson = (seqLen, jobId, dispatch) => {
             break;
           case 3:
             dispatch(updateResultAction(convertJson3D(json)));
-            break;          
+            break;
         }
       }
     });
@@ -66,39 +66,39 @@ const cleanupData = (type, dispatch) => {
 
 const validateData = (type, state, dispatch) => {
   if (type === 1) {
-    let input = state.input1D;
+    const input = state.input1D;
     if (!input.sequence.length) {
-      dispatch(showModalAction("no sequence??"));
+      dispatch(showModalAction('no sequence??'));
       dispatch(submit1DfailAction());
       return false;
     }
   } else if (type === 2) {
-    let input = state.input2D;
+    const input = state.input2D;
     if (!input.sequence.length) {
-      dispatch(showModalAction("no sequence??"));
+      dispatch(showModalAction('no sequence??'));
       dispatch(submit2DfailAction());
       return false;
     } else if (input.primers.length % 2) {
-      dispatch(showModalAction("N primer should be even"));
+      dispatch(showModalAction('N primer should be even'));
       dispatch(submit2DfailAction());
       return false;
     }
   } else if (type === 3) {
-    let input = state.input3D;
+    const input = state.input3D;
     if (!input.sequence.length) {
-      dispatch(showModalAction("no sequence??"));
+      dispatch(showModalAction('no sequence??'));
       dispatch(submit3DfailAction());
       return false;
     } else if (input.primers.length % 2) {
-      dispatch(showModalAction("N primer should be even"));
+      dispatch(showModalAction('N primer should be even'));
       dispatch(submit3DfailAction());
       return false;
     } else if (!input.structures.length) {
-      dispatch(showModalAction("at least 1 str"));
+      dispatch(showModalAction('at least 1 str'));
       dispatch(submit3DfailAction());
       return false;
-    } else if (input.structures.filter((structure) => (structure.length !== input.sequence.length)).length) {
-      dispatch(showModalAction("str not same len"));
+    } else if (input.structures.filter(structure => (structure.length !== input.sequence.length)).length) {
+      dispatch(showModalAction('str not same len'));
       dispatch(submit3DfailAction());
       return false;
     }
@@ -142,18 +142,18 @@ const handleError = (type, error, dispatch) => {
 };
 
 const handleSuccess = (type, json, dispatch) => {
-  dispatch(showModalAction("running..."));
+  dispatch(showModalAction('running...'));
   let newJson;
   switch (type) {
-    case 1:          
+    case 1:
       dispatch(submit1DsuccessAction());
       newJson = convertJson1D(json);
       break;
-    case 2:          
+    case 2:
       dispatch(submit2DsuccessAction());
       newJson = convertJson2D(json);
       break;
-    case 3:          
+    case 3:
       dispatch(submit3DsuccessAction());
       newJson = convertJson3D(json);
       break;
@@ -170,20 +170,20 @@ export default (type, dispatch) => {
     then: (resolve, reject) => {
       cleanupData(type, dispatch);
       resolve(true);
-    }
+    },
   })
   .then(() => {
-    dispatch(showModalAction("waiting server..."));
-    let state = store.getState();
+    dispatch(showModalAction('waiting server...'));
+    const state = store.getState();
     if (!validateData(type, state, dispatch)) { return; }
-    let postData = prepareData(type, state, dispatch);
+    const postData = prepareData(type, state, dispatch);
 
     fetch(`${HOST_PRIMERIZE_SERVER}/api/submit/`, {
       method: 'POST',
       mode: 'cors',
       body: postData,
     })
-    .then((response) => (response.json()))
+    .then(response => (response.json()))
     .then((json) => {
       if (json.error) {
         handleError(type, json.error, dispatch);

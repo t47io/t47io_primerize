@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link } from 'react-router';
 
 import Avatar from 'material-ui/Avatar';
 import Divider from 'material-ui/Divider';
@@ -17,18 +17,18 @@ import { jobTypes, jobStatus } from '../states/constants/status';
 const styles = {
   listItem: {
     '&:hover': {
-      backgroundColor: colors.main.black
-    }
+      backgroundColor: colors.main.black,
+    },
   },
   entryListItem: {
-    '& > div > div': { padding: "10px 16px 10px 72px" },
+    '& > div > div': { padding: '10px 16px 10px 72px' },
   },
   activeListItem: {
     backgroundColor: colors.main.grey,
 
     '&:hover': {
-      backgroundColor: colors.faint.grey
-    }
+      backgroundColor: colors.faint.grey,
+    },
   },
   designIcon: {
     backgroundColor: colors.main.blue,
@@ -37,8 +37,8 @@ const styles = {
 
     '&:hover': {
       backgroundColor: colors.main.cyan,
-      '& > span.material-icons': { color: colors.main.white }
-    }
+      '& > span.material-icons': { color: colors.main.white },
+    },
   },
   listIcon: {
     backgroundColor: colors.main.teal,
@@ -47,28 +47,28 @@ const styles = {
 
     '&:hover': {
       backgroundColor: colors.main.green,
-      '& > span.material-icons': { color: colors.main.white }
-    }
+      '& > span.material-icons': { color: colors.main.white },
+    },
   },
   jobStatusIcon: {
-    fontSize: "16px",
-    verticalAlign: "bottom"
+    fontSize: '16px',
+    verticalAlign: 'bottom',
   },
   jobTypeIcon: {
-    marginLeft: "12px",
+    marginLeft: '12px',
     backgroundColor: colors.main.yellow,
     color: colors.main.purple,
 
     '&:hover': {
       backgroundColor: colors.main.teal,
-      color: colors.main.white
-    }
+      color: colors.main.white,
+    },
   },
-  entryPrimaryText: { verticalAlign: "super" },
+  entryPrimaryText: { verticalAlign: 'super' },
   divider: { backgroundColor: colors.main.grey },
   dividerWide: { bacogroundCOlor: colors.faint.grey },
   whiteText: { color: colors.main.white },
-  jobIdText: { fontFamily: "Roboto Mono, monospace" },
+  jobIdText: { fontFamily: 'Roboto Mono, monospace' },
 };
 
 
@@ -78,7 +78,8 @@ const job_icon = (status, styles) => {
       return (
         <FontIcon
           className={`material-icons ${styles}`}
-          color={colors.main.cyan} >
+          color={colors.main.cyan}
+        >
           info
         </FontIcon>
       );
@@ -86,7 +87,8 @@ const job_icon = (status, styles) => {
       return (
         <FontIcon
           className={`material-icons ${styles}`}
-          color={colors.main.amber} >
+          color={colors.main.amber}
+        >
           watch_later
         </FontIcon>
       );
@@ -94,7 +96,8 @@ const job_icon = (status, styles) => {
       return (
         <FontIcon
           className={`material-icons ${styles}`}
-          color={colors.main.lime} >
+          color={colors.main.lime}
+        >
           check_circle
         </FontIcon>
       );
@@ -102,7 +105,8 @@ const job_icon = (status, styles) => {
       return (
         <FontIcon
           className={`material-icons ${styles}`}
-          color={colors.main.red} >
+          color={colors.main.red}
+        >
           cancel
         </FontIcon>
       );
@@ -115,7 +119,7 @@ const ResultItem = ({
   type,
   status,
   data,
-  styles
+  styles,
 }) => (
   <ListItem
     className={`${styles.whiteText} ${styles.listItem} ${styles.entryListItem}`}
@@ -132,40 +136,42 @@ const ResultItem = ({
     leftAvatar={
       <Avatar
         size={28}
-        className={styles.jobTypeIcon} >
+        className={styles.jobTypeIcon}
+      >
         {type}D
       </Avatar>
     }
-    containerElement= {
+    containerElement={
       <Link to={`/result/${jobId}`} activeClassName={styles.activeListItem} />
-    } />
+    }
+  />
 );
 ResultItem.propTypes = {
   jobId: React.PropTypes.string.isRequired,
   type: React.PropTypes.number.isRequired,
   status: React.PropTypes.number.isRequired,
   data: React.PropTypes.object.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 const ResultList = ({
   resultList,
-  styles
+  styles,
 }) => (
   <ListItem
     className={`${styles.whiteText} ${styles.listItem}`}
     leftAvatar={
-        <Avatar
-          icon={<FontIcon className="material-icons">content_paste</FontIcon>}
-          className={styles.listIcon}
-        />
-    } 
+      <Avatar
+        icon={<FontIcon className="material-icons">content_paste</FontIcon>}
+        className={styles.listIcon}
+      />
+    }
     primaryText="Entry List"
     secondaryText="Retrieve a previous job from server"
     secondaryTextLines={2}
-    initiallyOpen={true}
+    initiallyOpen
     nestedItems={
-      resultList.map((result) => (
+      resultList.map(result => (
         <ResultItem {...result} key={result.jobId} styles={styles} />
       ))
     }
@@ -176,22 +182,22 @@ const ResultList = ({
 );
 ResultList.propTypes = {
   resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 
 class Sidebar extends React.Component {
   static propTypes = {
-    resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired
+    resultList: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
   }
 
   render() {
-  const { resultList, sheet: { classes: styles } } = this.props;
+    const { resultList, sheet: { classes: styles } } = this.props;
 
     return (
       <List>
         <Subheader>DESIGN</Subheader>
-        <ListItem 
+        <ListItem
           className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
             <Avatar
@@ -201,60 +207,64 @@ class Sidebar extends React.Component {
           }
           rightIconButton={
             <IconButton
-              touch={true}
+              touch
               tooltip="Demo"
-              tooltipPosition="bottom-left" 
-              tooltipStyles={{backgroundColor: colors.main.black}} >
+              tooltipPosition="bottom-left"
+              tooltipStyles={{ backgroundColor: colors.main.black }}
+            >
               <FontIcon
                 className="material-icons"
                 color={colors.main.amber}
-                hoverColor={colors.main.cyan} >
+                hoverColor={colors.main.cyan}
+              >
                 ondemand_video
               </FontIcon>
             </IconButton>
           }
           primaryText="Single Assembly"
           secondaryText={
-            <p>WT Basic PCR<br/>Primerize 1D</p>
+            <p>WT Basic PCR<br />Primerize 1D</p>
           }
           secondaryTextLines={2}
           containerElement={
             <Link to="/1d" activeClassName={styles.activeListItem} />
           }
         />
-        <Divider inset={true} className={styles.divider} />
+        <Divider inset className={styles.divider} />
         <ListItem
           className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
             <Avatar
-              icon={<FontIcon className="material-icons"> apps</FontIcon> }
+              icon={<FontIcon className="material-icons"> apps</FontIcon>}
               className={styles.designIcon}
             />
-          } 
+          }
           rightIconButton={
             <IconButton
-              touch={true}
+              touch
               tooltip="Demo"
-              tooltipPosition="bottom-left" 
-              tooltipStyles={{backgroundColor: colors.main.black}} >
+              tooltipPosition="bottom-left"
+              tooltipStyles={{ backgroundColor: colors.main.black }}
+            >
               <FontIcon
                 className="material-icons"
                 color={colors.main.amber}
-                hoverColor={colors.main.cyan} >
+                hoverColor={colors.main.cyan}
+              >
                 ondemand_video
               </FontIcon>
             </IconButton>
           }
           primaryText="Mutate-and-Map"
           secondaryText={
-            <p>M2 Libraries<br/>Primerize 2D</p>
+            <p>M2 Libraries<br />Primerize 2D</p>
           }
           secondaryTextLines={2}
           containerElement={
             <Link to="/2d" activeClassName={styles.activeListItem} />
           }
         />
-        <Divider inset={true} className={styles.divider} />
+        <Divider inset className={styles.divider} />
         <ListItem
           className={`${styles.whiteText} ${styles.listItem}`}
           leftAvatar={
@@ -262,24 +272,26 @@ class Sidebar extends React.Component {
               icon={<FontIcon className="material-icons">tune</FontIcon>}
               className={styles.designIcon}
             />
-          } 
+          }
           rightIconButton={
             <IconButton
-              touch={true}
+              touch
               tooltip="Demo"
-              tooltipPosition="bottom-left" 
-              tooltipStyles={{backgroundColor: colors.main.black}} >
+              tooltipPosition="bottom-left"
+              tooltipStyles={{ backgroundColor: colors.main.black }}
+            >
               <FontIcon
                 className="material-icons"
                 color={colors.main.amber}
-                hoverColor={colors.main.cyan} >
+                hoverColor={colors.main.cyan}
+              >
                 ondemand_video
               </FontIcon>
             </IconButton>
           }
           primaryText="Mutation/Rescue"
           secondaryText={
-            <p>M2R Quartets<br/>Primerize 3D</p>
+            <p>M2R Quartets<br />Primerize 3D</p>
           }
           secondaryTextLines={2}
           containerElement={

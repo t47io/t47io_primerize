@@ -7,7 +7,7 @@ import { colors } from '../../theme';
 
 
 const stylesLocal = {
-  monospace: { fontFamily: "Roboto Mono, monospace"},
+  monospace: { fontFamily: 'Roboto Mono, monospace' },
 };
 
 
@@ -15,7 +15,7 @@ const InputTag = ({
   tag,
   onChangeTag,
   onBlur,
-  styles
+  styles,
 }) => (
   <TextField
     type="text" name="tag"
@@ -23,10 +23,10 @@ const InputTag = ({
     floatingLabelText={
       <span>
         <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
-        {" "} Name Tag
+        {' '} Name Tag
       </span>
     }
-    fullWidth={true}       
+    fullWidth
     value={tag}
     onChange={onChangeTag} onBlur={onBlur}
   />
@@ -35,25 +35,24 @@ InputTag.propTypes = {
   tag: React.PropTypes.string.isRequired,
   onChangeTag: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 const InputSequence = ({
   sequence,
   onChangeSequence,
   onBlur,
-  styles
+  styles,
 }) => {
   const className = (() => {
     if (sequence.length < 60) {
-      return "short";
+      return 'short';
     } else if (sequence.length < 500) {
-      return "good";
+      return 'good';
     } else if (sequence.length < 1000) {
-      return "long";
-    } else {
-      return "bad";
+      return 'long';
     }
+    return 'bad';
   })();
 
   return (
@@ -63,24 +62,24 @@ const InputSequence = ({
       floatingLabelText={
         <span>
           <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>sim_card</FontIcon>
-          {" "} Sequence (
+          {' '} Sequence (
           <span className={`${styles.conditionalInput} ${className}`}>{sequence.length} nt</span>
           )
         </span>
       }
-      fullWidth={true} multiLine={true}
+      fullWidth multiLine
       rows={3} rowsMax={7}
       value={sequence}
       onChange={onChangeSequence} onBlur={onBlur}
       style={stylesLocal.monospace}
     />
   );
-}
+};
 InputSequence.propTypes = {
   sequence: React.PropTypes.string.isRequired,
   onChangeSequence: React.PropTypes.func.isRequired,
   onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired
+  styles: React.PropTypes.object.isRequired,
 };
 
 
@@ -89,7 +88,7 @@ const InputPrimer = ({
   primer,
   onChangePrimer,
   onRemovePrimer,
-  onBlur
+  onBlur,
 }) => (
   <div>
     <span>{id}</span>
@@ -103,7 +102,7 @@ InputPrimer.propTypes = {
   primer: React.PropTypes.string.isRequired,
   onChangePrimer: React.PropTypes.func.isRequired,
   onRemovePrimer: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 const InputPrimerList = ({
@@ -111,12 +110,12 @@ const InputPrimerList = ({
   onChangePrimer,
   onAddPrimer,
   onRemovePrimer,
-  onBlur
+  onBlur,
 }) => (
   <div>
     <button type="button" onClick={onAddPrimer} >add primer</button>
     { primers.map((primer, id) => (
-        <InputPrimer key={id + 1} id={id + 1} primer={primer} onChangePrimer={onChangePrimer} onRemovePrimer={onRemovePrimer} onBlur={onBlur} />
+      <InputPrimer key={id + 1} id={id + 1} primer={primer} onChangePrimer={onChangePrimer} onRemovePrimer={onRemovePrimer} onBlur={onBlur} />
       )
     ) }
   </div>
@@ -126,7 +125,7 @@ InputPrimerList.propTypes = {
   onChangePrimer: React.PropTypes.func.isRequired,
   onAddPrimer: React.PropTypes.func.isRequired,
   onRemovePrimer: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 
@@ -135,7 +134,7 @@ const InputStructure = ({
   structure,
   onChangeStructure,
   onRemoveStructure,
-  onBlur
+  onBlur,
 }) => (
   <div>
     <span>{id}</span>
@@ -149,7 +148,7 @@ InputStructure.propTypes = {
   structure: React.PropTypes.string.isRequired,
   onChangeStructure: React.PropTypes.func.isRequired,
   onRemoveStructure: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 const InputStructureList = ({
@@ -157,12 +156,12 @@ const InputStructureList = ({
   onChangeStructure,
   onAddStructure,
   onRemoveStructure,
-  onBlur
+  onBlur,
 }) => (
   <div>
     <button type="button" onClick={onAddStructure} >add structure</button>
     { structures.map((structure, id) => (
-        <InputStructure key={id + 1} id={id + 1} structure={structure} onChangeStructure={onChangeStructure} onRemoveStructure={onRemoveStructure} onBlur={onBlur} />
+      <InputStructure key={id + 1} id={id + 1} structure={structure} onChangeStructure={onChangeStructure} onRemoveStructure={onRemoveStructure} onBlur={onBlur} />
       )
     ) }
   </div>
@@ -172,10 +171,9 @@ InputStructureList.propTypes = {
   onChangeStructure: React.PropTypes.func.isRequired,
   onAddStructure: React.PropTypes.func.isRequired,
   onRemoveStructure: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired
+  onBlur: React.PropTypes.func.isRequired,
 };
 
 
 export { InputTag, InputSequence, InputPrimerList, InputStructureList };
-
 

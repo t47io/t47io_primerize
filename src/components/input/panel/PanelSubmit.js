@@ -10,16 +10,16 @@ import injectSheet from '../../../utilities/jssImportant';
 
 const stylesLocal = {
   toolbar: {
-    height: "96px",
-    padding: "12px 24px"
-  }
+    height: '96px',
+    padding: '12px 24px',
+  },
 };
 
 
 class PanelSubmit extends React.Component {
   static propTypes = {
     onReset: React.PropTypes.func.isRequired,
-    styles: React.PropTypes.object.isRequired
+    styles: React.PropTypes.object.isRequired,
   }
 
   render() {
@@ -27,18 +27,18 @@ class PanelSubmit extends React.Component {
 
     return (
       <Toolbar className={stylesLocal.toolbar} >
-        <ToolbarGroup firstChild={true} >
+        <ToolbarGroup firstChild >
           <RaisedButton
             type="submit"
             label="Go Primerize"
-            primary={true}
+            primary
             icon={
               <FontIcon className="material-icons">queue_play_next</FontIcon>
             }
             className={styles.buttonLarge}
           />
         </ToolbarGroup>
-        <ToolbarGroup lastChild={true} className="bbb">
+        <ToolbarGroup lastChild className="bbb">
           <RaisedButton
             type="button"
             label="Use Demo"

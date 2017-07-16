@@ -13,7 +13,7 @@ import {
   blueA400, blue200, blue50,
   cyanA400, cyan50,
   blueGrey500, grey700, grey900, grey500, grey50,
-  white, transparent
+  white, transparent,
 } from 'material-ui/styles/colors';
 
 
@@ -33,11 +33,11 @@ const muiTheme = getMuiTheme({
     secondary2Color: deepOrangeA400,
     secondary3Color: deepOrangeA400,
     pickerHeaderColor: blueA400,
-    shadowColor: transparent
+    shadowColor: transparent,
   },
   appBar: {
     ...(light.appBar),
-    color: blueA400
+    color: blueA400,
   },
   listItem: dark.listItem,
   subheader: dark.subheader,
@@ -47,24 +47,24 @@ const muiTheme = getMuiTheme({
     hintColor: grey500,
     focusColor: blueA400,
     floatingLabelColor: blueA400,
-    errorColor: deepOrangeA400
+    errorColor: deepOrangeA400,
   },
   toggle: {
     ...(light.toggle),
     thumbOnColor: blueA400,
     trackOnColor: blue200,
     thumbRequiredColor: deepOrangeA400,
-    trackRequiredColor: deepOrange50
+    trackRequiredColor: deepOrange50,
   },
   raisedButton: {
     ...(light.raisedButton),
     primaryColor: blueA400,
-    secondaryColor: deepOrangeA400
+    secondaryColor: deepOrangeA400,
   },
   tooltip: {
     color: grey700,
-    rippleBackgroundColor: amberA400
-  }
+    rippleBackgroundColor: amberA400,
+  },
 });
 // console.log(muiTheme)
 
@@ -81,9 +81,9 @@ const colors = {
     cyan: cyanA400,
     grey: grey700,
     blueGrey700: blueGrey500,
-    white: white,
+    white,
     black: grey900,
-    none: transparent
+    none: transparent,
   },
   faint: {
     yellow: yellow50,
@@ -98,7 +98,7 @@ const colors = {
     grey: grey500,
     white: grey50,
 
-  }
+  },
 };
 
 

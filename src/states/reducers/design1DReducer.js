@@ -8,12 +8,12 @@ import { cleanupTagSequence } from '../../utilities/regexInputs';
 const design1DReducer = handleActions({
   [ACTIONS_1D.CHANGE_TAG]: (state, { payload }) => ({
     ...state,
-    tag: payload.tag
+    tag: payload.tag,
   }),
 
   [ACTIONS_1D.CHANGE_SEQUENCE]: (state, { payload }) => ({
     ...state,
-    sequence: payload.sequence
+    sequence: payload.sequence,
   }),
 
 
@@ -21,8 +21,8 @@ const design1DReducer = handleActions({
     ...state,
     options: {
       ...(state.options),
-      tm: parseFloat(payload.tm) || state.options.tm
-    }
+      tm: parseFloat(payload.tm) || state.options.tm,
+    },
   }),
 
   [ACTIONS_1D.CHANGE_PRMLEN]: (state, { payload }) => {
@@ -34,8 +34,8 @@ const design1DReducer = handleActions({
       options: {
         ...(state.options),
         minLen,
-        maxLen
-      }
+        maxLen,
+      },
     };
   },
 
@@ -51,22 +51,22 @@ const design1DReducer = handleActions({
       options: {
         ...(state.options),
         numPrimer,
-        isNumPrimer
-      }
-    }
+        isNumPrimer,
+      },
+    };
   },
 
   [ACTIONS_1D.CHANGE_T7CHK]: (state, { payload }) => ({
     ...state,
     options: {
       ...(state.options),
-      isCheckT7: payload.isChecked
-    }
+      isCheckT7: payload.isChecked,
+    },
   }),
 
 
   [ACTIONS_1D.CLEANUP]: (state) => {
-    let { tag, sequence } = cleanupTagSequence(state);
+    const { tag, sequence } = cleanupTagSequence(state);
 
     let { minLen, maxLen, numPrimer } = state.options;
     minLen = Math.max(Math.min(minLen, maxLen), design1DState.options.minLen);
@@ -81,12 +81,12 @@ const design1DReducer = handleActions({
         ...(state.options),
         minLen,
         maxLen,
-        numPrimer
-      }
+        numPrimer,
+      },
     };
   },
 
-  [ACTIONS_1D.RESET]: (state) => (design1DState)
+  [ACTIONS_1D.RESET]: state => (design1DState),
 }, design1DState);
 
 

@@ -2,14 +2,14 @@ import { createAction } from 'redux-actions';
 import { ACTIONS_3D } from '../constants/actions';
 
 
-export const changeTagAction = (tag) => ({
+export const changeTagAction = tag => ({
   type: ACTIONS_3D.CHANGE_TAG,
-  payload: { tag }
+  payload: { tag },
 });
 
-export const changeSequenceAction = (seq) => ({
+export const changeSequenceAction = seq => ({
   type: ACTIONS_3D.CHANGE_SEQUENCE,
-  payload: { sequence: seq }
+  payload: { sequence: seq },
 });
 
 
@@ -18,14 +18,14 @@ export const changePrimerAction = (nodeName, seq) => ({
   payload: {
     sequence: seq,
     id: parseInt(nodeName.slice(13), 10),
-  }
+  },
 });
 
 export const addPrimerAction = () => ({ type: ACTIONS_3D.ADD_PRIMER });
 
-export const removePrimerAction = (nodeName) => ({
+export const removePrimerAction = nodeName => ({
   type: ACTIONS_3D.REMOVE_PRIMER,
-  payload: { id: parseInt(nodeName.slice(14), 10) }
+  payload: { id: parseInt(nodeName.slice(14), 10) },
 });
 
 
@@ -34,45 +34,45 @@ export const changeStructureAction = (nodeName, seq) => ({
   payload: {
     sequence: seq,
     id: parseInt(nodeName.slice(16), 10),
-  }
+  },
 });
 
 export const addStructureAction = () => ({ type: ACTIONS_3D.ADD_STRUCTURE });
 
-export const removeStructureAction = (nodeName) => ({
+export const removeStructureAction = nodeName => ({
   type: ACTIONS_3D.REMOVE_STRUCTURE,
-  payload: { id: parseInt(nodeName.slice(17), 10) }
+  payload: { id: parseInt(nodeName.slice(17), 10) },
 });
 
 
-export const changeOffsetAction = (offset) => ({
+export const changeOffsetAction = offset => ({
   type: ACTIONS_3D.CHANGE_OFFSET,
-  payload: { offset }
+  payload: { offset },
 });
 
 export const changePosAction = (nodeName, nodeVal) => ({
   type: ACTIONS_3D.CHANGE_REGPOS,
-  payload: { [`${nodeName}Pos`]: nodeVal }
+  payload: { [`${nodeName}Pos`]: nodeVal },
 });
 
-export const changeLibOptAction = (libChoice) => ({
+export const changeLibOptAction = libChoice => ({
   type: ACTIONS_3D.CHANGE_LIBOPT,
-  payload: { libChoice }
+  payload: { libChoice },
 });
 
-export const changeNumMutAction = (numMutation) => ({
+export const changeNumMutAction = numMutation => ({
   type: ACTIONS_3D.CHANGE_NUMMUT,
-  payload: { numMutation }
+  payload: { numMutation },
 });
 
-export const changeFillWTAction = (isChecked) => ({
+export const changeFillWTAction = isChecked => ({
   type: ACTIONS_3D.CHANGE_FILLCHK,
-  payload: { isChecked }
+  payload: { isChecked },
 });
 
-export const changeIncludeSingleAction = (isChecked) => ({
+export const changeIncludeSingleAction = isChecked => ({
   type: ACTIONS_3D.CHANGE_MONOCHK,
-  payload: { isChecked }
+  payload: { isChecked },
 });
 
 

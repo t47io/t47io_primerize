@@ -1,8 +1,8 @@
 export const prepare1Ddata = (state) => {
-  let { tag, sequence } = state;
-  let { tm, minLen, maxLen, numPrimer, isNumPrimer, isCheckT7 } = state.options;
+  const { tag, sequence } = state;
+  const { tm, minLen, maxLen, numPrimer, isNumPrimer, isCheckT7 } = state.options;
 
-  let postData1D = new URLSearchParams();
+  const postData1D = new URLSearchParams();
   postData1D.append('type', 1);
 
   postData1D.append('tag', tag);
@@ -13,16 +13,16 @@ export const prepare1Ddata = (state) => {
   postData1D.append('num_primers', numPrimer);
   postData1D.append('is_num_primers', isNumPrimer);
   postData1D.append('is_check_t7', isCheckT7);
-  
+
   return postData1D;
 };
 
 
 export const prepare2Ddata = (state) => {
-  let { tag, sequence, primers } = state;
-  let { offset, startPos, endPos, libChoice } = state.options;
+  const { tag, sequence, primers } = state;
+  const { offset, startPos, endPos, libChoice } = state.options;
 
-  let postData2D = new URLSearchParams();
+  const postData2D = new URLSearchParams();
   postData2D.append('type', 2);
 
   postData2D.append('tag', tag);
@@ -38,11 +38,11 @@ export const prepare2Ddata = (state) => {
 
 
 export const prepare3Ddata = (state) => {
-  let postData3D = prepare2Ddata(state);
+  const postData3D = prepare2Ddata(state);
   postData3D.set('type', 3);
 
-  let { structures } = state;
-  let { numMutation, isIncludeSingle, isFillWT } = state.options;
+  const { structures } = state;
+  const { numMutation, isIncludeSingle, isFillWT } = state.options;
   postData3D.append('structures', structures);
   postData3D.append('num_mutations', numMutation);
   postData3D.append('is_single', isIncludeSingle);

@@ -7,12 +7,12 @@ import { cleanupTagSequence, cleanupPrimers, cleanupStructures } from '../../uti
 const design3DReducer = handleActions({
   [ACTIONS_3D.CHANGE_TAG]: (state, { payload }) => ({
     ...state,
-    tag: payload.tag
+    tag: payload.tag,
   }),
 
   [ACTIONS_3D.CHANGE_SEQUENCE]: (state, { payload }) => ({
     ...state,
-    sequence: payload.sequence
+    sequence: payload.sequence,
   }),
 
 
@@ -21,24 +21,24 @@ const design3DReducer = handleActions({
     primers: [
       ...(state.primers.slice(0, payload.id - 1)),
       payload.sequence,
-      ...(state.primers.slice(payload.id))
-    ]
+      ...(state.primers.slice(payload.id)),
+    ],
   }),
 
-  [ACTIONS_3D.ADD_PRIMER]: (state) => ({
+  [ACTIONS_3D.ADD_PRIMER]: state => ({
     ...state,
     primers: [
       ...(state.primers),
-      ...(state.primers.length % 2 ? [''] : ['', ''])
-    ]
+      ...(state.primers.length % 2 ? [''] : ['', '']),
+    ],
   }),
 
   [ACTIONS_3D.REMOVE_PRIMER]: (state, { payload }) => ({
     ...state,
     primers: [
       ...(state.primers.slice(0, payload.id - 1)),
-      ...(state.primers.slice(payload.id))
-    ]
+      ...(state.primers.slice(payload.id)),
+    ],
   }),
 
 
@@ -47,24 +47,24 @@ const design3DReducer = handleActions({
     structures: [
       ...(state.structures.slice(0, payload.id - 1)),
       payload.sequence,
-      ...(state.structures.slice(payload.id))
-    ]
+      ...(state.structures.slice(payload.id)),
+    ],
   }),
 
-  [ACTIONS_3D.ADD_STRUCTURE]: (state) => ({
+  [ACTIONS_3D.ADD_STRUCTURE]: state => ({
     ...state,
     structures: [
       ...(state.structures),
-      ''
-    ]
+      '',
+    ],
   }),
 
   [ACTIONS_3D.REMOVE_STRUCTURE]: (state, { payload }) => ({
     ...state,
     structures: [
       ...(state.structures.slice(0, payload.id - 1)),
-      ...(state.structures.slice(payload.id))
-    ]
+      ...(state.structures.slice(payload.id)),
+    ],
   }),
 
 
@@ -78,8 +78,8 @@ const design3DReducer = handleActions({
         ...(state.options),
         offset: newOffset,
         startPos: state.options.startPos - newOffset + offset,
-        endPos: state.options.endPos - newOffset + offset
-      }
+        endPos: state.options.endPos - newOffset + offset,
+      },
     };
   },
 
@@ -92,8 +92,8 @@ const design3DReducer = handleActions({
       options: {
         ...(state.options),
         startPos,
-        endPos
-      }
+        endPos,
+      },
     };
   },
 
@@ -101,50 +101,50 @@ const design3DReducer = handleActions({
     ...state,
     options: {
       ...(state.options),
-      libChoice: parseInt(payload.libChoice, 10)
-    }
+      libChoice: parseInt(payload.libChoice, 10),
+    },
   }),
 
   [ACTIONS_3D.CHANGE_NUMMUT]: (state, { payload }) => ({
     ...state,
     options: {
       ...(state.options),
-      numMutation: parseInt(payload.numMutation, 10)
-    }
+      numMutation: parseInt(payload.numMutation, 10),
+    },
   }),
 
   [ACTIONS_3D.CHANGE_FILLCHK]: (state, { payload }) => ({
     ...state,
     options: {
       ...(state.options),
-      isFillWT: payload.isChecked
-    }
+      isFillWT: payload.isChecked,
+    },
   }),
 
   [ACTIONS_3D.CHANGE_MONOCHK]: (state, { payload }) => ({
     ...state,
     options: {
       ...(state.options),
-      isIncludeSingle: payload.isChecked
-    }
+      isIncludeSingle: payload.isChecked,
+    },
   }),
 
 
-  [ACTIONS_3D.DRAW_ILLUSTRATION]: (state) => ({
+  [ACTIONS_3D.DRAW_ILLUSTRATION]: state => ({
     ...state,
-    isRender: true
+    isRender: true,
   }),
 
-  [ACTIONS_3D.STOP_ILLUSTRATION]: (state) => ({
+  [ACTIONS_3D.STOP_ILLUSTRATION]: state => ({
     ...state,
-    isRender: false
+    isRender: false,
   }),
 
 
   [ACTIONS_3D.CLEANUP]: (state) => {
-    let { tag, sequence } = cleanupTagSequence(state);
-    let primers = cleanupPrimers(state.primers)
-    let structures = cleanupStructures(state.structures);
+    const { tag, sequence } = cleanupTagSequence(state);
+    const primers = cleanupPrimers(state.primers);
+    const structures = cleanupStructures(state.structures);
 
     let { offset, startPos, endPos } = state.options;
     if (sequence.length) {
@@ -168,19 +168,19 @@ const design3DReducer = handleActions({
         ...(state.options),
         offset,
         startPos,
-        endPos
-      }
+        endPos,
+      },
     };
   },
 
-  [ACTIONS_3D.FORMAT]: (state) => ({
+  [ACTIONS_3D.FORMAT]: state => ({
     ...state,
-    primers: state.primers.filter((primer) => (primer.length)),
-    structures: state.structures.filter((structure) => (structure.length))
+    primers: state.primers.filter(primer => (primer.length)),
+    structures: state.structures.filter(structure => (structure.length)),
   }),
 
 
-  [ACTIONS_3D.RESET]: (state) => (design3DState)  
+  [ACTIONS_3D.RESET]: state => (design3DState),
 }, design3DState);
 
 

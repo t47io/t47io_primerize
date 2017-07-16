@@ -8,12 +8,12 @@ import { cleanupTagSequence, cleanupPrimers } from '../../utilities/regexInputs'
 const design2DReducer = handleActions({
   [ACTIONS_2D.CHANGE_TAG]: (state, { payload }) => ({
     ...state,
-    tag: payload.tag
+    tag: payload.tag,
   }),
 
   [ACTIONS_2D.CHANGE_SEQUENCE]: (state, { payload }) => ({
     ...state,
-    sequence: payload.sequence
+    sequence: payload.sequence,
   }),
 
 
@@ -22,24 +22,24 @@ const design2DReducer = handleActions({
     primers: [
       ...(state.primers.slice(0, payload.id - 1)),
       payload.sequence,
-      ...(state.primers.slice(payload.id))
-    ]
+      ...(state.primers.slice(payload.id)),
+    ],
   }),
 
-  [ACTIONS_2D.ADD_PRIMER]: (state) => ({
+  [ACTIONS_2D.ADD_PRIMER]: state => ({
     ...state,
     primers: [
       ...(state.primers),
-      ...(state.primers.length % 2 ? [''] : ['', ''])
-    ]
+      ...(state.primers.length % 2 ? [''] : ['', '']),
+    ],
   }),
 
   [ACTIONS_2D.REMOVE_PRIMER]: (state, { payload }) => ({
     ...state,
     primers: [
       ...(state.primers.slice(0, payload.id - 1)),
-      ...(state.primers.slice(payload.id))
-    ]
+      ...(state.primers.slice(payload.id)),
+    ],
   }),
 
 
@@ -53,8 +53,8 @@ const design2DReducer = handleActions({
         ...(state.options),
         offset: newOffset,
         startPos: state.options.startPos - newOffset + offset,
-        endPos: state.options.endPos - newOffset + offset
-      }
+        endPos: state.options.endPos - newOffset + offset,
+      },
     };
   },
 
@@ -67,8 +67,8 @@ const design2DReducer = handleActions({
       options: {
         ...(state.options),
         startPos,
-        endPos
-      }
+        endPos,
+      },
     };
   },
 
@@ -76,25 +76,25 @@ const design2DReducer = handleActions({
     ...state,
     options: {
       ...(state.options),
-      libChoice: parseInt(payload.libChoice, 10)
-    }
+      libChoice: parseInt(payload.libChoice, 10),
+    },
   }),
 
 
-  [ACTIONS_2D.DRAW_ILLUSTRATION]: (state) => ({
+  [ACTIONS_2D.DRAW_ILLUSTRATION]: state => ({
     ...state,
-    isRender: true
+    isRender: true,
   }),
 
-  [ACTIONS_2D.STOP_ILLUSTRATION]: (state) => ({
+  [ACTIONS_2D.STOP_ILLUSTRATION]: state => ({
     ...state,
-    isRender: false
+    isRender: false,
   }),
 
 
   [ACTIONS_2D.CLEANUP]: (state) => {
-    let { tag, sequence } = cleanupTagSequence(state);
-    let primers = cleanupPrimers(state.primers)
+    const { tag, sequence } = cleanupTagSequence(state);
+    const primers = cleanupPrimers(state.primers);
 
     let { offset, startPos, endPos } = state.options;
     if (sequence.length) {
@@ -117,18 +117,18 @@ const design2DReducer = handleActions({
         ...(state.options),
         offset,
         startPos,
-        endPos
-      }
+        endPos,
+      },
     };
   },
 
-  [ACTIONS_2D.FORMAT]: (state) => ({
+  [ACTIONS_2D.FORMAT]: state => ({
     ...state,
-    primers: state.primers.filter((primer) => (primer.length))
+    primers: state.primers.filter(primer => (primer.length)),
   }),
 
 
-  [ACTIONS_2D.RESET]: (state) => (design2DState)  
+  [ACTIONS_2D.RESET]: state => (design2DState),
 }, design2DState);
 
 

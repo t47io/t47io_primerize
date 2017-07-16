@@ -4,16 +4,16 @@ import React from 'react';
 const Modal = ({
   text,
   isVisible = false,
-  onClick
+  onClick,
 }) => (
   <div onClick={onClick}>
-    {isVisible ? text : ""}
+    {isVisible ? text : ''}
   </div>
 );
 Modal.propTypes = {
   text: React.PropTypes.string.isRequired,
   isVisible: React.PropTypes.bool,
-  onClick: React.PropTypes.func.isRequired
+  onClick: React.PropTypes.func.isRequired,
 };
 
 
