@@ -4,8 +4,8 @@ import { CHUNK_NAMES } from './config.js';
 const entries = (DEBUG = true) => {
   const chunkNames = CHUNK_NAMES(DEBUG);
   const entry = {
-    [chunkNames.main]: [
-      './src/index.js',
+    [chunkNames.design]: [
+      './applications/design/index.jsx',
     ],
     [chunkNames.vendor]: [
       'react',
@@ -17,7 +17,8 @@ const entries = (DEBUG = true) => {
   };
 
   if (DEBUG) {
-    entry.main.unshift('webpack-hot-middleware/client?reload=true');
+    entry.design.unshift('webpack-hot-middleware/client?reload=true');
+    entry.design.unshift('preact/devtools');
   }
   return entry;
 };

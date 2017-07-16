@@ -32,7 +32,7 @@ const plugins = (DEBUG = true) => {
     new HtmlWebpackPlugin({
       chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
       template: HTML_TEMPLATE,
-      filename: `${ROOT_PATH}/public/main.html`,
+      filename: `${ROOT_PATH}/public/design.html`,
       inject: false,
       chunk: chunkNames.main,
       manifest: MANIFEST_JS,

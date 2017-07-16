@@ -10,6 +10,7 @@ import {
 } from './config.js';
 import middlewares from './middleware.js';
 import routes from './route.js';
+import { designPathRegex } from './util.js';
 
 
 const app = express();
@@ -24,6 +25,6 @@ middlewares.forEach((middleware) => {
   }
 });
 
-app.get('/', routes.main);
+app.get(designPathRegex, routes.design);
 
 app.use(express.static(PUBLIC_PATH, { maxAge: `${CACHE_MAX_AGE * 5} days` }));

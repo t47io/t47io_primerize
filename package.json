@@ -13,7 +13,9 @@
 
     "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.js --verbose",
 
-    "lint": "./node_modules/eslint/bin/eslint.js applications src webpack.*.js --ext [.jsx,.js] --fix"
+    "lint": "./node_modules/eslint/bin/eslint.js applications src webpack.*.js --ext [.jsx,.js] --fix",
+
+    "update": "yarn upgrade-interactive --exact && yarn clean"
   },
   "repository": "github:t47io/t47io_primerize",
   "license": "GPL-3.0",
@@ -55,6 +57,8 @@
     "html-minifier": "3.5.2",
     "html-webpack-plugin": "2.29.0",
     "lodash-webpack-plugin": "0.11.4",
+    "material-ui": "1.0.0-alpha.21",
+    "material-ui-icons": "1.0.0-alpha.19",
     "node-sass": "4.5.3",
     "nodemon": "1.11.0",
     "null-loader": "0.1.1",
@@ -63,6 +67,7 @@
     "postcss-loader": "2.0.6",
     "preact": "7.2.1",
     "preact-compat": "3.16.0",
+    "preact-router": "2.5.4",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-redux": "5.0.5",
@@ -73,6 +78,7 @@
     "resolve-url-loader": "2.1.0",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
+    "typeface-roboto": "0.0.31",
     "uglify-js": "2.8.29",
     "uglifyjs-webpack-plugin": "0.4.6",
     "url-loader": "0.5.9",
@@ -93,10 +99,6 @@
     "glob": "7.1.2",
     "helmet": "3.6.1",
     "pm2": "2.5.0",
-    "material-ui": "0.16.1",
-    "react-jss": "4.1.2",
-    "react-router": "2.8.1",
-    "redux-persist": "4.6.0",
     "sanitizer": "0.1.3",
     "serve-favicon": "2.4.3",
     "shelljs": "0.7.8"

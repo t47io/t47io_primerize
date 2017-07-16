@@ -3,6 +3,8 @@ import {
 } from './config.js';
 
 
+export const designPathRegex = new RegExp('^/design/(1d|2d|3d)/?$');
+
 export const getZipExt = headers => (
   headers['accept-encoding'].includes('br') ? 'br' : 'gzip'
 );

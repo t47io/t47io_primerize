@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta />
+    <style type="text/css">html{}</style>
+    <ga />
+
+    <% if (!htmlWebpackPlugin.options.debug && htmlWebpackPlugin.options.chunk !== 'e') { %>
+      <script type="application/javascript" src="/<%= htmlWebpackPlugin.options.manifest %>"></script>
+      <script type="application/javascript">
+        !(function loadEntryChunks() {
+          var head = document.getElementsByTagName('head')[0];
+          var entry = '<%= htmlWebpackPlugin.options.chunk %>';
+
+          function appendPreload(chunk, hash) {
+            var link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'script';
+            link.href = '/' + chunk + '.' + hash + '.min.js';
+            head.appendChild(link);
+          }
+          function appendScriptTag(chunk, hash, callback) {
+            var script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.async = script.defer = true;
+            script.src = '/' + chunk + '.' + hash + '.min.js';
+            script.onload = callback || null;
+            head.appendChild(script);
+          }
+
+          appendPreload('v', window.manifest.v);
+          appendPreload(entry, window.manifest[entry]);
+          appendScriptTag('v', window.manifest.v, function() {
+            appendScriptTag(entry, window.manifest[entry]);
+          });
+        })();
+      </script>
+    <% } %>
+  </head>
+  <body>
+    <loader />
+    <div class="body" id="app"></div>
+
+    <% for (item of htmlWebpackPlugin.files.css) { %>
+      <link type="text/css" rel="stylesheet" href="<%= item %>" media="none" onload="if(media!=='all'){media='all';}" />
+      <noscript><link type="text/css" rel="stylesheet" href="<%= item %>" /></noscript>
+    <% } %>
+    <% if (htmlWebpackPlugin.options.debug) { %>
+      <% for (item of htmlWebpackPlugin.files.js) { %>
+        <script type="application/javascript" src="<%= item %>"></script>
+      <% } %>
+    <% } %>
+  </body>
+</html>

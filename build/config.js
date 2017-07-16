@@ -14,7 +14,7 @@ const CHUNK_NAME = (chunk, DEBUG = true) => (
   DEBUG ? chunk : chunk.slice(0, 1)
 );
 export const CHUNK_NAMES = (DEBUG = true) => ({
-  main: CHUNK_NAME('main', DEBUG),
+  design: CHUNK_NAME('design', DEBUG),
   vendor: CHUNK_NAME('vendor', DEBUG),
   manifest: DEBUG ? 'manifest' : 'f',
 });
@@ -27,4 +27,4 @@ export const HTML_MINIFIER = {
   removeRedundantAttributes: true,
   useShortDoctype: true,
 };
-export const HTML_TEMPLATE = `${ROOT_PATH}/src/index.html`;
+export const HTML_TEMPLATE = `${ROOT_PATH}/applications/index.html`;

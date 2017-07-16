@@ -32,17 +32,8 @@ export const sendHtmlFromDisk = (name, req, res) => {
 
 
 const routes = {
-  main: (req, res) => {
-    if (DEBUG) {
-      sendHtmlFromCache('main', x => x, req, res);
-    } else {
-      const userAgent = req.useragent.source.toLowerCase();
-      const isBot = (BOT_USER_AGENTS.filter(botUA => userAgent.includes(botUA)).length > 0);
-      const isStatic = ('static' in req.query && req.query.static === '1');
-
-      const htmlFile = (isBot || isStatic) ? 'index' : 'main';
-      sendHtmlFromDisk(htmlFile, req, res);
-    }
+  design: (req, res) => {
+    sendHtmlFromCache('design', x => x, req, res);
   },
 };
 
