@@ -11,33 +11,6 @@ const stylesLocal = {
 };
 
 
-const InputTag = ({
-  tag,
-  onChangeTag,
-  onBlur,
-  styles,
-}) => (
-  <TextField
-    type="text" name="tag"
-    hintText="Construct name prefix for primers"
-    floatingLabelText={
-      <span>
-        <FontIcon className={`material-icons ${styles.inputLabelIcon}`}>style</FontIcon>
-        {' '} Name Tag
-      </span>
-    }
-    fullWidth
-    value={tag}
-    onChange={onChangeTag} onBlur={onBlur}
-  />
-);
-InputTag.propTypes = {
-  tag: React.PropTypes.string.isRequired,
-  onChangeTag: React.PropTypes.func.isRequired,
-  onBlur: React.PropTypes.func.isRequired,
-  styles: React.PropTypes.object.isRequired,
-};
-
 const InputSequence = ({
   sequence,
   onChangeSequence,

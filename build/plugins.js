@@ -30,11 +30,11 @@ const plugins = (DEBUG = true) => {
       debug: DEBUG,
     }),
     new HtmlWebpackPlugin({
-      chunks: [chunkNames.main, chunkNames.vendor, chunkNames.manifest],
+      chunks: [chunkNames.design, chunkNames.vendor, chunkNames.manifest],
       template: HTML_TEMPLATE,
       filename: `${ROOT_PATH}/public/design.html`,
       inject: false,
-      chunk: chunkNames.main,
+      chunk: chunkNames.design,
       manifest: MANIFEST_JS,
       debug: DEBUG,
     }),

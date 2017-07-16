@@ -44,6 +44,6 @@
     "react/no-danger": [0],
     "react/no-danger-with-children": [0],
     "react/no-unused-prop-types": [2, { "skipShapeProps": true }],
-    "react/prop-types": [1, {"ignore": ["children", "route"]}],
+    "react/prop-types": [1, {"ignore": ["children", "classes", "route"]}],
   },
 }

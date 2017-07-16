@@ -8,6 +8,8 @@ const entries = (DEBUG = true) => {
       './applications/design/index.jsx',
     ],
     [chunkNames.vendor]: [
+      'material-ui',
+      'material-ui-icons',
       'react',
       'react-redux',
       'redux',
@@ -18,7 +20,6 @@ const entries = (DEBUG = true) => {
 
   if (DEBUG) {
     entry.design.unshift('webpack-hot-middleware/client?reload=true');
-    entry.design.unshift('preact/devtools');
   }
   return entry;
 };

@@ -1,6 +1,5 @@
 import colors from 'colors';
 
-import aliases from './build/aliases.js';
 import entries from './build/entries.js';
 import loaders from './build/loaders.js';
 import plugins from './build/plugins.js';
@@ -26,7 +25,6 @@ const config = {
   },
 
   devtool: `cheap-module-${DEBUG ? 'eval-' : ''}source-map`,
-  resolve: { alias: aliases() },
 
   module: { rules: loaders(DEBUG, false) },
   plugins: plugins(DEBUG),
