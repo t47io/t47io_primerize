@@ -1,6 +1,6 @@
 {
   "name": "primerize-app",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Primerize server implemented with react.js",
   "main": "src/index.js",
   "engines": {
@@ -9,6 +9,9 @@
   },
   "scripts": {
     "dev": "./node_modules/nodemon/bin/nodemon.js -e js,jsx,json,css,scss,html -i public/ -x babel-node -d 3 -V server/server.js",
+    "prod": "pm2 start --interpreter babel-node server/server.js -n main",
+
+    "build": "BABEL_ENV=production babel-node ./node_modules/webpack/bin/webpack.js --config webpack.config.js --verbose",
 
     "lint": "./node_modules/eslint/bin/eslint.js applications src webpack.*.js --ext [.jsx,.js] --fix"
   },
@@ -60,7 +63,6 @@
     "postcss-loader": "2.0.6",
     "preact": "7.2.1",
     "preact-compat": "3.16.0",
-    "react-tap-event-plugin": "1.0.0",
     "react": "15.6.1",
     "react-dom": "15.6.1",
     "react-redux": "5.0.5",
