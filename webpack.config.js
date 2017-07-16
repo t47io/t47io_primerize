@@ -1,15 +1,27 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import colors from 'colors';
+
+import entries from './build/entries.js';
+import loaders from './build/loaders.js';
+import plugins from './build/plugins.js';
+import { PUBLIC_PATH } from './server/env.js';
 
 
-module.exports = {
-  entry: './src/index.js',
+const DEBUG = !(process.argv.includes('--production') || (process.env.BABEL_ENV === 'production') || process.env.PM2_USAGE);
+console.log(colors.magenta('*********************************'));
+console.log(`${DEBUG ? ' ' : ''}${colors.blue('DEBUG')} mode applied: ${DEBUG ? colors.green(DEBUG) : colors.red(DEBUG)} => ${colors.yellow(DEBUG ? 'DEV' : 'PROD')}`);
+console.log(colors.magenta('*********************************'));
+
+const config = {
+  entry: entries(DEBUG),
   output: {
-    filename: 'bundle.js',
-    path: '$(__dirname)/build',
+    filename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
+    chunkFilename: DEBUG ? '[name].js' : '[name].[chunkhash].min.js',
+    hashDigestLength: 6,
+    path: PUBLIC_PATH,
     publicPath: '/',
   },
 
-  devtool: 'cheap-module-eval-source-map',
+  devtool: `cheap-module-${DEBUG ? 'eval-' : ''}source-map`,
   resolve: {
     alias: {
       react: 'preact-compat',
@@ -17,26 +29,9 @@ module.exports = {
     },
   },
 
-  module: {
-    loaders: [
-      {
-        test: /.js?$/,
-        use: { loader: 'babel-loader' },
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: `${__dirname}/src/index.html`,
-      filename: 'index.html',
-      inject: 'body',
-    }),
-  ],
-
-  devServer: {
-    inline: true,
-    port: 9000,
-    historyApiFallback: true,
-  },
+  module: { rules: loaders(false) },
+  plugins: plugins(DEBUG),
 };
+
+
+export default config;

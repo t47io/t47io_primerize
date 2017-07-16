@@ -1,5 +1,12 @@
-build/
-node_modules/
+!.gitignore
 
+backup/
+backup.tar.gz
+public/
+!public/.gitignore
+
+node_modules/
+.sass-cache/
+
+.DS_Store
 npm-debug.log
-!build/.gitignore
