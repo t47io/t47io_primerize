@@ -14,6 +14,9 @@ const InputSequence = ({
     name="sequence"
     value={value}
     type="text"
+    required
+    rows={3}
+    rowsMax={7}
     placeholder="Full-length DNA sequence for design"
     label={(
       <span>
@@ -31,9 +34,6 @@ const InputSequence = ({
     )}
     fullWidth
     multiline
-    required
-    rows={3}
-    rowsMax={7}
     onChange={onChange}
     onBlur={onBlur}
   />
