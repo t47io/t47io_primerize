@@ -6,11 +6,11 @@ import d3 from './design/reducers/3d.js';
 
 
 const reducer = combineReducers({
-  design: {
+  design: combineReducers({
     '1d': d1,
     '2d': d2,
     '3d': d3,
-  },
+  }),
   result: '',
 });
 

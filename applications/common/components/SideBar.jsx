@@ -1,1 +1,2 @@
-export default () => null;
+import React from 'react';
+export default () => (<div />);
