@@ -19,7 +19,7 @@ ReactDOM.render(
         <div>
           <div>
             <Route path="/design" render={routes.side.design} />
-            <Route path="/result" render={routes.side.result} />
+            <Route path="/result" render={routes.side.design} />
             <Route path="/tutorial" render={routes.side.tutorial} />
             <Route path="/about" render={routes.side.about} />
           </div>

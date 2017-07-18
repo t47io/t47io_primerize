@@ -21,7 +21,7 @@ class AsyncBundle extends React.Component {
   }
 
   loadComponentAsync({ loader }) {
-    console.log('asyncLoad!');
+    this.state = { loaded: false };
     loader((component) => {
       this.setState({
         loaded: true,
@@ -32,7 +32,9 @@ class AsyncBundle extends React.Component {
 
   render() {
     const { loaded, component: Component } = this.state;
-    return loaded ? (<Component />) : null;
+    const { loader: _, ...prop } = this.props;
+
+    return loaded ? (<Component {...prop} />) : null;
   }
 }
 

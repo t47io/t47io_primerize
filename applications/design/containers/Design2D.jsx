@@ -1,2 +1,6 @@
 import React from 'react';
-export default () => (<div />);
+
+const Design2D = () => (<div>2</div>);
+
+
+export default Design2D;

@@ -1,2 +1,6 @@
 import React from 'react';
-export default () => (<div />);
+
+const Design3D = () => (<div>3</div>);
+
+
+export default Design3D;

@@ -12,18 +12,23 @@ import Design2D from './Design2D.jsx';
 import Design3D from './Design3D.jsx';
 
 
-const Design = () => (
+const Design = ({ match }) => (
   <Switch>
-    <Route path="/design/1d" component={Design1D} />
-    <Route path="/design/2d" component={Design2D} />
-    <Route path="/design/3d" component={Design3D} />
+    <Route path={`${match.url}/1d`} component={Design1D} />
+    <Route path={`${match.url}/2d`} component={Design2D} />
+    <Route path={`${match.url}/3d`} component={Design3D} />
   </Switch>
 );
 
 Design.propTypes = {
-
+  match: PropTypes.shape({
+    url: PropTypes.string,
+  }),
 };
 Design.defaultProps = {
+  match: {
+    url: '',
+  },
 };
 
 
