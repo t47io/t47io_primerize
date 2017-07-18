@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 
-import MainPanel from '../components/input/MainPanel1D.jsx';
-import OptionPanel from '../components/input/OptionPanel1D.jsx';
-import SubmitPanel from '../components/input/SubmitPanel.jsx';
+import MainPanel from '../components/MainPanel1D.jsx';
+import OptionPanel from '../components/OptionPanel1D.jsx';
+import SubmitPanel from '../components/SubmitPanel.jsx';
 
 import {
   changeInput1d,

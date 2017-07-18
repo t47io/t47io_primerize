@@ -5,7 +5,7 @@ const entries = (DEBUG = true) => {
   const chunkNames = CHUNK_NAMES(DEBUG);
   const entry = {
     [chunkNames.design]: [
-      './applications/design/index.jsx',
+      './applications/index.jsx',
     ],
     [chunkNames.vendor]: [
       'material-ui',

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Avatar } from 'material-ui';
 import { Create as CardIcon } from 'material-ui-icons';
 
-import AccordionCard from '../../../common/components/AccordionCard.jsx';
+import AccordionCard from '../../common/components/AccordionCard.jsx';
 import InputTag from './main/InputTag.jsx';
 import InputSequence from './main/InputSequence.jsx';
 

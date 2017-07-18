@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { MuiThemeProvider } from 'material-ui';
 
-import Design from './containers/index.jsx';
+import Design from './design/containers/index.jsx';
 import store from './store.js';
 
 
