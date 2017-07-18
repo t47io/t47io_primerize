@@ -16,6 +16,12 @@ import {
 const Design1D = ({
   tag,
   sequence,
+  minTm,
+  minLen,
+  maxLen,
+  primerNum,
+  isPrimerNum,
+  isCheckT7,
   onChange,
   onBlur,
 }) => (
@@ -26,7 +32,16 @@ const Design1D = ({
       onChange={onChange}
       onBlur={onBlur}
     />
-    <OptionPanel />
+    <OptionPanel
+      minTm={minTm}
+      minLen={minLen}
+      maxLen={maxLen}
+      primerNum={primerNum}
+      isPrimerNum={isPrimerNum}
+      isCheckT7={isCheckT7}
+      onChange={onChange}
+      onBlur={onBlur}
+    />
     <SubmitPanel />
   </div>
 );
@@ -34,18 +49,30 @@ const Design1D = ({
 Design1D.propTypes = {
   tag: PropTypes.string,
   sequence: PropTypes.string,
+  minTm: PropTypes.number,
+  minLen: PropTypes.number,
+  maxLen: PropTypes.number,
+  primerNum: PropTypes.number,
+  isPrimerNum: PropTypes.bool,
+  isCheckT7: PropTypes.bool,
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
 };
 Design1D.defaultProps = {
   tag: '',
   sequence: '',
+  minTm: NaN,
+  minLen: NaN,
+  maxLen: NaN,
+  primerNum: NaN,
+  isPrimerNum: false,
+  isCheckT7: true,
   onChange: () => {},
   onBlur: () => {},
 };
 
 
-const mapStateToProps = state => ({ ...state['1d'] });
+const mapStateToProps = state => ({ ...state.design['1d'] });
 const mapDispatchToProps = dispatch => ({
   onChange: bindActionCreators(changeInput1d, dispatch),
   onBlur: bindActionCreators(blurInput1d, dispatch),
