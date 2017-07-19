@@ -21,10 +21,13 @@ export const convertInput = (name, value, checked) => {
   switch (INPUT_ALL_TYPES[name]) {
     case INPUT_TYPES.BOOL:
       return checked;
+
     case INPUT_TYPES.FLOAT:
       return parseFloat(value);
+
     case INPUT_TYPES.INT:
       return parseInt(value, 10);
+
     case INPUT_TYPES.STR:
     default:
       return value;

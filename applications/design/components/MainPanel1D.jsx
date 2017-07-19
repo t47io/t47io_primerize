@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import { Avatar } from 'material-ui';
 import { Create as CardIcon } from 'material-ui-icons';

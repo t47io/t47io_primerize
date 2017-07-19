@@ -1,2 +1,13 @@
 import React from 'react';
-export default () => (<div />);
+
+import { Drawer } from 'material-ui';
+
+
+const SideBar = ({ children }) => (
+  <Drawer docked>
+    { children }
+  </Drawer>
+);
+
+
+export default SideBar;

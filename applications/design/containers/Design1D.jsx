@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import PropTypes from 'prop-types';
 
 import MainPanel from '../components/MainPanel1D.jsx';
 import OptionPanel from '../components/OptionPanel1D.jsx';

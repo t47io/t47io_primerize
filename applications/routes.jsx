@@ -7,28 +7,55 @@ import asyncDesignSide from 'bundle-loader?lazy!./design/containers/SideBar.jsx'
 import asyncResultMain from 'bundle-loader?lazy!./result/containers/index.jsx';
 
 
+const asyncSharedSide = () => (<AsyncBundle loader={asyncDesignSide} />);
+
 const routes = {
-  main: {
-    design: ({ match }) => (
-      <AsyncBundle
-        loader={asyncDesignMain}
-        match={match}
-      />
-    ),
-    result: ({ match }) => (
-      <AsyncBundle
-        loader={asyncResultMain}
-        match={match}
-      />
-    ),
-    tutorial: () => (<div />),
-    about: () => (<div />),
-  },
-  side: {
-    design: () => (<AsyncBundle loader={asyncDesignSide} />),
-    tutorial: () => (<div />),
-    about: () => (<div />),
-  },
+  main: [
+    {
+      path: '/design',
+      render: ({ match }) => (
+        <AsyncBundle
+          loader={asyncDesignMain}
+          match={match}
+        />
+      ),
+    },
+    {
+      path: '/result',
+      render: ({ match }) => (
+        <AsyncBundle
+          loader={asyncResultMain}
+          match={match}
+        />
+      ),
+    },
+    {
+      path: '/tutorial',
+      render: () => (<div />),
+    },
+    {
+      path: '/about',
+      render: () => (<div />),
+    },
+  ],
+  side: [
+    {
+      path: '/design',
+      render: asyncSharedSide,
+    },
+    {
+      path: '/result',
+      render: asyncSharedSide,
+    },
+    {
+      path: '/tutorial',
+      render: () => (<div />),
+    },
+    {
+      path: '/about',
+      render: () => (<div />),
+    },
+  ],
 };
 
 
