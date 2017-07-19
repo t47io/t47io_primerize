@@ -2,20 +2,10 @@ import {
   CHANGE_1D_INPUT,
   BLUR_1D_INPUT,
 } from '../constants/actionTypes.js';
+import { DEFAULT_1D_DATA } from '../constants/inputDefaults.js';
 
 
-export const initialState = {
-  tag: '',
-  sequence: '',
-  minTm: 60.0,
-  minLen: 15,
-  maxLen: 60,
-  primerNum: 0,
-  isPrimerNum: false,
-  isCheckT7: true,
-};
-
-const reducer = (state = initialState, { type, payload }) => {
+const reducer = (state = DEFAULT_1D_DATA, { type, payload }) => {
   switch (type) {
     case CHANGE_1D_INPUT:
     case BLUR_1D_INPUT:

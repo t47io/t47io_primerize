@@ -2,6 +2,7 @@ import {
   CHANGE_1D_INPUT,
   BLUR_1D_INPUT,
 } from '../constants/actionTypes.js';
+import { LIMIT_1D_DATA } from '../constants/inputLimits.js';
 
 import {
   convertInput,
@@ -32,13 +33,13 @@ export const blurInput1d = () => (dispatch, getState) => {
     },
   } = getState();
 
-  tag = regexInput('tag', tag, 32);
+  tag = regexInput('tag', tag, LIMIT_1D_DATA.tag);
   sequence = regexInput('sequence', sequence);
 
-  minTm = fitRange(minTm, 10, 95);
-  minLen = fitRange(Math.min(minLen, maxLen), 15, Infinity);
-  maxLen = fitRange(Math.max(minLen, maxLen), minLen, sequence.length || Infinity);
-  primerNum = fitRange(Math.round(primerNum / 2) * 2, 0, 20);
+  minTm = fitRange(minTm, ...LIMIT_1D_DATA.minTm);
+  minLen = fitRange(Math.min(minLen, maxLen), LIMIT_1D_DATA.minLen, LIMIT_1D_DATA.maxLen);
+  maxLen = fitRange(Math.max(minLen, maxLen), minLen, sequence.length || LIMIT_1D_DATA.maxLen);
+  primerNum = fitRange(Math.round(primerNum / 2) * 2, ...LIMIT_1D_DATA.primerNum);
 
   return dispatch({
     type: BLUR_1D_INPUT,

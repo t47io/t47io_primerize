@@ -11,6 +11,7 @@ import {
   changeInput1d,
   blurInput1d,
 } from '../actions/1dActions.js';
+import { DEFAULT_1D_DATA } from '../constants/inputDefaults.js';
 
 
 const Design1D = ({
@@ -59,14 +60,7 @@ Design1D.propTypes = {
   onBlur: PropTypes.func,
 };
 Design1D.defaultProps = {
-  tag: '',
-  sequence: '',
-  minTm: NaN,
-  minLen: NaN,
-  maxLen: NaN,
-  primerNum: NaN,
-  isPrimerNum: false,
-  isCheckT7: true,
+  ...DEFAULT_1D_DATA,
   onChange: () => {},
   onBlur: () => {},
 };

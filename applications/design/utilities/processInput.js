@@ -1,6 +1,8 @@
-const strInputs = ['tag', 'sequence'];
-const boolInputs = ['isPrimerNum', 'isCheckT7'];
-const floatInputs = ['minTm'];
+import {
+  INPUT_TYPES,
+  INPUT_ALL_TYPES,
+} from '../constants/inputTypes.js';
+
 
 const regex = {
   tag: /[a-zA-Z0-9 .\-_]+/g,
@@ -16,16 +18,22 @@ export const regexInput = (name, value, maxLen = null) => {
 };
 
 export const convertInput = (name, value, checked) => {
-  if (strInputs.includes(name)) {
-    return value;
-  } else if (boolInputs.includes(name)) {
-    return checked;
-  } else if (floatInputs.includes(name)) {
-    return parseFloat(value);
+  switch (INPUT_ALL_TYPES[name]) {
+    case INPUT_TYPES.BOOL:
+      return checked;
+    case INPUT_TYPES.FLOAT:
+      return parseFloat(value);
+    case INPUT_TYPES.INT:
+      return parseInt(value, 10);
+    case INPUT_TYPES.STR:
+    default:
+      return value;
   }
-  return parseInt(value, 10);
 };
 
-export const fitRange = (value, min, max) => (
-  Math.min(Math.max(value, min), max)
-);
+export const fitRange = (value, min, max) => {
+  const useMin = Math.min(min, max);
+  const useMax = Math.max(min, max);
+
+  return Math.min(Math.max(value, useMin), useMax);
+};
