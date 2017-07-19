@@ -2,7 +2,6 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { withStyles } from 'material-ui/styles';
 import {
   Card,
   CardActions,
@@ -10,8 +9,9 @@ import {
   CardHeader,
   IconButton,
 } from 'material-ui';
-import Collapse from 'material-ui/transitions/Collapse';
 import { ExpandMore as ExpandIcon } from 'material-ui-icons';
+import Collapse from 'material-ui/transitions/Collapse';
+import { withStyles } from 'material-ui/styles';
 
 import styles from '../styles/AccordionCard.js';
 
