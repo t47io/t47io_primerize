@@ -50,7 +50,10 @@ class AccordionCard extends React.Component {
       <Card className={classes.card}>
         <CardHeader
           title={(
-            <Typography component="b">
+            <Typography
+              type="subheading"
+              component="b"
+            >
               {title}
             </Typography>
           )}
@@ -70,7 +73,7 @@ class AccordionCard extends React.Component {
           in={expanded}
           transitionDuration="auto"
         >
-          <CardContent>
+          <CardContent className={classes.body}>
             {children}
           </CardContent>
         </Collapse>
@@ -80,12 +83,12 @@ class AccordionCard extends React.Component {
 }
 
 AccordionCard.propTypes = {
-  title: PropTypes.node,
+  title: PropTypes.string,
   subheader: PropTypes.string,
   avatar: PropTypes.node,
 };
 AccordionCard.defaultProps = {
-  title: null,
+  title: '',
   subheader: '',
   avatar: null,
 };

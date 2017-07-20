@@ -1,10 +1,10 @@
 import { createStyleSheet } from 'material-ui/styles';
 
+import { flexGrow } from '../mixins.js';
 
-const styles = createStyleSheet('AppBar', theme => ({
-  grow: {
-    flex: '1 1 auto',
-  },
+
+const styles = createStyleSheet('NavBar', theme => ({
+  flexGrow,
   title: {
     fontWeight: 700,
     marginLeft: 24,

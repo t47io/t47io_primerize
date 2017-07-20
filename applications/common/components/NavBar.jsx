@@ -49,7 +49,7 @@ const NavBar = ({
       >
         Primerize
       </Typography>
-      <div className={classes.grow} />
+      <div className={classes.flexGrow} />
       <IconButton
         title="GitHub"
         color="contrast"
