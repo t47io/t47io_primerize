@@ -3,6 +3,6 @@ export const LIMIT_1D_DATA = {
   minTm: [10, 95],
   minLen: 15,
   maxLen: Infinity,
-  primerNum: [0, 20],
+  primerNum: [0, 10],
 };
 

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TextField } from 'material-ui';
 import { SimCard as SequenceIcon } from 'material-ui-icons';
+
+import TextInput from '../../../common/components/TextInput.jsx';
 
 
 const InputSequence = ({
@@ -10,21 +11,13 @@ const InputSequence = ({
   onChange,
   onBlur,
 }) => (
-  <TextField
+  <TextInput
     name="sequence"
     value={value}
     type="text"
-    required
-    rows={3}
-    rowsMax={7}
+    icon={SequenceIcon}
+    label={`Sequence (${value.length} nt)`}
     placeholder="Full-length DNA sequence for design"
-    label={(
-      <span>
-        <SequenceIcon />
-        Sequence
-        ({value.length} nt)
-      </span>
-    )}
     helperText={(
       <ul>
         <li>Valid nucleotides only (<b>A</b>, <b>C</b>, <b>G</b>, <b>T</b>, and <b>U</b>); and at least <u>60 nt</u> long.</li>
@@ -32,8 +25,11 @@ const InputSequence = ({
         <li>Flanking sequences (e.g. T7 promoter, buffering region, tail) should be included.</li>
       </ul>
     )}
-    fullWidth
+    required
     multiline
+    fullWidth
+    rows={3}
+    rowsMax={7}
     onChange={onChange}
     onBlur={onBlur}
   />

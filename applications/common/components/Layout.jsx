@@ -15,16 +15,22 @@ import styles from '../styles/Layout.js';
 class Layout extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { open: false };
+    this.state = {
+      open: false,
+    };
     this.handleDrawerClose = this.handleDrawerClose.bind(this);
     this.handleDrawerToggle = this.handleDrawerToggle.bind(this);
   }
 
   handleDrawerClose() {
-    this.setState({ open: false });
+    this.setState({
+      open: false,
+    });
   }
   handleDrawerToggle() {
-    this.setState({ open: !this.state.open });
+    this.setState({
+      open: !this.state.open,
+    });
   }
 
   render() {

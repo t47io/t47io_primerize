@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TextField } from 'material-ui';
 import {
   FirstPage as TagIconMin,
   LastPage as TagIconMax,
 } from 'material-ui-icons';
+
+import TextInput from '../../../common/components/TextInput.jsx';
 
 
 const InputPrimerLen = ({
@@ -15,17 +16,14 @@ const InputPrimerLen = ({
   onBlur,
 }) => (
   <div>
-    <TextField
+    <TextInput
       name="minLen"
       value={valueMin}
       type="number"
+      icon={TagIconMin}
+      label="Minimum Primer Length"
+      unit="nts"
       placeholder="Minimum Primer Length"
-      label={(
-        <span>
-          <TagIconMin />
-          Minimum Primer Length
-        </span>
-      )}
       helperText={(
         <span>Minimum and maximum length for each primer. Defaults are <u>15 nt</u> and <u>60 nt</u>.</span>
       )}
@@ -33,17 +31,14 @@ const InputPrimerLen = ({
       onChange={onChange}
       onBlur={onBlur}
     />
-    <TextField
+    <TextInput
       name="maxLen"
       value={valueMax}
       type="number"
+      icon={TagIconMax}
+      label="Maximum Primer Length"
+      unit="nts"
       placeholder="Maximum Primer Length"
-      label={(
-        <span>
-          <TagIconMax />
-          Maximum Primer Length
-        </span>
-      )}
       helperText={(
         <span>Minimum and maximum length for each primer. Defaults are <u>15 nt</u> and <u>60 nt</u>.</span>
       )}

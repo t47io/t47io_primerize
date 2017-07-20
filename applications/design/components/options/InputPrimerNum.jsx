@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {
-  Switch,
-  TextField,
-} from 'material-ui';
+import { Switch } from 'material-ui';
 import { Exposure as TagIcon } from 'material-ui-icons';
+
+import TextInput from '../../../common/components/TextInput.jsx';
 
 
 const InputPrimerNum = ({
@@ -20,21 +19,18 @@ const InputPrimerNum = ({
       checked={isActive}
       onChange={onChange}
     />
-    <TextField
+    <TextInput
       name="primerNum"
       value={value}
       type="number"
-      disabled={!isActive}
+      icon={TagIcon}
+      label="Number of Primers"
+      unit="pairs"
       placeholder="Number of Primers"
-      label={(
-        <span>
-          <TagIcon />
-          Number of Primers
-        </span>
-      )}
       helperText={(
         <span>Exact limit of number of primers in design. Default is <u>0</u>, i.e. no restriction; solutions have less or more number of primers will not be shown. Even number only.</span>
       )}
+      disabled={!isActive}
       fullWidth
       onChange={onChange}
       onBlur={onBlur}

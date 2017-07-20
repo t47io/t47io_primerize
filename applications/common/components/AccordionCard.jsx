@@ -8,6 +8,7 @@ import {
   CardContent,
   CardHeader,
   IconButton,
+  Typography,
 } from 'material-ui';
 import { ExpandMore as ExpandIcon } from 'material-ui-icons';
 import Collapse from 'material-ui/transitions/Collapse';
@@ -19,12 +20,16 @@ import styles from '../styles/AccordionCard.js';
 class AccordionCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { expanded: true };
+    this.state = {
+      expanded: true,
+    };
     this.handleExpandClick = this.handleExpandClick.bind(this);
   }
 
   handleExpandClick() {
-    this.setState({ expanded: !this.state.expanded });
+    this.setState({
+      expanded: !this.state.expanded,
+    });
   }
 
   render() {
@@ -42,9 +47,13 @@ class AccordionCard extends React.Component {
     });
 
     return (
-      <Card>
+      <Card className={classes.card}>
         <CardHeader
-          title={title}
+          title={(
+            <Typography component="b">
+              {title}
+            </Typography>
+          )}
           subheader={subheader}
           avatar={avatar}
         />
@@ -60,7 +69,6 @@ class AccordionCard extends React.Component {
         <Collapse
           in={expanded}
           transitionDuration="auto"
-          unmountOnExit
         >
           <CardContent>
             {children}

@@ -58,7 +58,7 @@ export const blurInput1d = () => (dispatch, getState) => {
     sequence.length || LIMIT_1D_DATA.maxLen
   );
   primerNum = fitRange(
-    Math.round(primerNum / 2) * 2,
+    primerNum,
     ...LIMIT_1D_DATA.primerNum
   );
 

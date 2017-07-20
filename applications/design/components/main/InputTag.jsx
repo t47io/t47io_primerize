@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { TextField } from 'material-ui';
 import { Style as TagIcon } from 'material-ui-icons';
+
+import TextInput from '../../../common/components/TextInput.jsx';
 
 
 const InputTag = ({
@@ -10,17 +11,12 @@ const InputTag = ({
   onChange,
   onBlur,
 }) => (
-  <TextField
+  <TextInput
     name="tag"
     value={value}
-    type="text"
+    icon={TagIcon}
+    label="Name Tag"
     placeholder="Construct name prefix for primers"
-    label={(
-      <span>
-        <TagIcon />
-        Name Tag
-      </span>
-    )}
     helperText={(
       <span>Maximum length is <u>32</u> characters. This is optional, default is “primers”.</span>
     )}
