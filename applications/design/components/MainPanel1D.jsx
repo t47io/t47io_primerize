@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Avatar } from 'material-ui';
+import {
+  Avatar,
+  Typography,
+} from 'material-ui';
 import { Create as CardIcon } from 'material-ui-icons';
 
 import AccordionCard from '../../common/components/AccordionCard.jsx';
@@ -16,10 +19,8 @@ const MainPanel1D = ({
   onBlur,
 }) => (
   <AccordionCard
-    title={(
-      <span>Sequence</span>
-    )}
-    subheader="Sequence & Name"
+    title="Sequence"
+    subheader="Sequence &amp; Name"
     avatar={(
       <Avatar>
         <CardIcon />
@@ -31,6 +32,7 @@ const MainPanel1D = ({
       onChange={onChange}
       onBlur={onBlur}
     />
+    <Typography paragraph />
     <InputSequence
       value={sequence}
       onChange={onChange}

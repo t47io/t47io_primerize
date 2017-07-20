@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import { Avatar } from 'material-ui';
+import {
+  Avatar,
+  Grid,
+  Typography,
+} from 'material-ui';
 import { Settings as CardIcon } from 'material-ui-icons';
 
 import AccordionCard from '../../common/components/AccordionCard.jsx';
@@ -22,9 +26,7 @@ const OptionPanel1D = ({
   onBlur,
 }) => (
   <AccordionCard
-    title={(
-      <span>Advanced Options</span>
-    )}
+    title="Advanced Options"
     subheader="Primer Restrictions"
     avatar={(
       <Avatar>
@@ -32,27 +34,35 @@ const OptionPanel1D = ({
       </Avatar>
     )}
   >
-    <InputMinTm
-      value={minTm}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-    <InputPrimerLen
-      valueMin={minLen}
-      valueMax={maxLen}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-    <InputPrimerNum
-      value={primerNum}
-      isActive={isPrimerNum}
-      onChange={onChange}
-      onBlur={onBlur}
-    />
-    <InputCheckT7
-      value={isCheckT7}
-      onChange={onChange}
-    />
+    <Grid container gutter={24}>
+      <Grid item xs={12} md={6}>
+        <InputMinTm
+          value={minTm}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        <Typography paragraph />
+        <InputCheckT7
+          value={isCheckT7}
+          onChange={onChange}
+        />
+      </Grid>
+      <Grid item xs={12} md={6}>
+        <InputPrimerLen
+          valueMin={minLen}
+          valueMax={maxLen}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+        <Typography paragraph />
+        <InputPrimerNum
+          value={primerNum}
+          isActive={isPrimerNum}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+      </Grid>
+    </Grid>
   </AccordionCard>
 );
 

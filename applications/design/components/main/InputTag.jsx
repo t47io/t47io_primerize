@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Style as TagIcon } from 'material-ui-icons';
 
+import HelpBlock from '../../../common/components/HelpBlock.jsx';
 import TextInput from '../../../common/components/TextInput.jsx';
 
 
@@ -11,19 +12,24 @@ const InputTag = ({
   onChange,
   onBlur,
 }) => (
-  <TextInput
-    name="tag"
-    value={value}
-    icon={TagIcon}
-    label="Name Tag"
-    placeholder="Construct name prefix for primers"
-    helperText={(
-      <span>Maximum length is <u>32</u> characters. This is optional, default is “primers”.</span>
+  <HelpBlock
+    help={(
+      <span>
+      Maximum length is <u>32</u> characters. This is optional, default is &quot;primers&quot;.
+      </span>
     )}
-    fullWidth
-    onChange={onChange}
-    onBlur={onBlur}
-  />
+  >
+    <TextInput
+      name="tag"
+      value={value}
+      icon={TagIcon}
+      label="Name Tag"
+      placeholder="Construct name prefix for primers"
+      fullWidth
+      onChange={onChange}
+      onBlur={onBlur}
+    />
+  </HelpBlock>
 );
 
 InputTag.propTypes = {
