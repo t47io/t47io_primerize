@@ -1,10 +1,8 @@
 import autoprefixer from 'autoprefixer';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
-import { ASSET_FILE_NAME } from './config.js';
 
-
-const loaders = (DEBUG = true, SSR = false) => {
+const loaders = (DEBUG = true) => {
   const loader = [
     {
       test: /\.js(x)?$/i,
@@ -34,24 +32,9 @@ const loaders = (DEBUG = true, SSR = false) => {
         ],
       }),
     },
-    {
-      test: /\.(png|jpg|gif)$/i,
-      use: {
-        loader: 'url-loader',
-        options: {
-          limit: 25600,
-          name: ASSET_FILE_NAME('image'),
-        },
-      },
-    },
   ];
 
-  if (SSR) {
-    loader.unshift({
-      test: /web-animations-js/,
-      use: { loader: 'null-loader' },
-    });
-  } else if (!DEBUG) {
+  if (!DEBUG) {
     loader.unshift({
       test: /redux-logger/,
       use: { loader: 'null-loader' },

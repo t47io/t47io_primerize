@@ -1,13 +1,9 @@
-import { CHUNK_NAMES } from './config.js';
-
-
 const entries = (DEBUG = true) => {
-  const chunkNames = CHUNK_NAMES(DEBUG);
   const entry = {
-    [chunkNames.design]: [
+    main: [
       './applications/index.jsx',
     ],
-    [chunkNames.vendor]: [
+    vendor: [
       'material-ui',
       'material-ui-icons',
       'react',
@@ -19,7 +15,7 @@ const entries = (DEBUG = true) => {
   };
 
   if (DEBUG) {
-    entry.design.unshift('webpack-hot-middleware/client?reload=true');
+    entry.main.unshift('webpack-hot-middleware/client?reload=true');
   }
   return entry;
 };

@@ -33,7 +33,7 @@ export const sendHtmlFromDisk = (name, req, res) => {
 
 const routes = {
   design: (req, res) => {
-    sendHtmlFromCache('design', x => x, req, res);
+    sendHtmlFromCache('index', x => x, req, res);
   },
 };
 

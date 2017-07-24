@@ -26,7 +26,7 @@ const config = {
 
   devtool: `cheap-module-${DEBUG ? 'eval-' : ''}source-map`,
 
-  module: { rules: loaders(DEBUG, false) },
+  module: { rules: loaders(DEBUG) },
   plugins: plugins(DEBUG),
 };
 
